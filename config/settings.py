@@ -43,6 +43,12 @@ INSTALLED_APPS = [
 
     # custom apps
     'core',
+    'rider',
+    'vendor',
+    'service',
+    'contact',
+    'about_us',
+    'translation',
 ]
 
 MIDDLEWARE = [
