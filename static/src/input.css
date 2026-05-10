@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@config "../../tailwind.config.js";
+
+
 /* @import "./components/buttons.css";
 @import "./components/forms.css";
 @import "./components/cards.css"; */
