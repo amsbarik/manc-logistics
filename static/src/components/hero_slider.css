@@ -1,0 +1,74 @@
+ <!-- Custom Slider Animation -->
+
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            overflow-x: hidden;
+            background: #f5f3ff;
+            font-family: sans-serif;
+        }
+
+        /* ================= SLIDE ================= */
+
+        .slide{
+            opacity: 0;
+            visibility: hidden;
+            transition:
+                opacity 1s ease,
+                visibility 1s ease;
+        }
+
+        .active-slide{
+            opacity: 1;
+            visibility: visible;
+            z-index: 20;
+        }
+
+        /* ================= BG ZOOM EFFECT ================= */
+
+        .slide-bg{
+            transform: scale(1.15);
+            transition: transform 7s ease;
+        }
+
+        .active-slide .slide-bg{
+            transform: scale(1);
+        }
+
+        /* ================= CONTENT ANIMATION ================= */
+
+        .slide-content{
+            opacity: 0;
+            transform: translateY(80px);
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+            transition-delay: .4s;
+        }
+
+        .active-slide .slide-content{
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ================= BUTTON HOVER ================= */
+
+        .slider-btn{
+            transition: all .3s ease;
+        }
+
+        .slider-btn:hover{
+            transform: scale(1.1);
+        }
+
+        /* ================= INDICATOR ================= */
+
+        .indicator{
+            transition: all .4s ease;
+        }
+

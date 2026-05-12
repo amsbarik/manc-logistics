@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Tailwind Hero Slider</title>
+
+    <!-- Tailwind CSS v4 -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @theme {
+            --color-primary: #0f172a;
+            --color-secondary: #7c3aed;
+            --color-mauve: #f5f3ff;
+        }
+    </style>
+</head>
+
+<body class="bg-mauve">
+
+    <!-- ================= HERO SLIDER ================= -->
+    <section class="relative overflow-hidden">
+
+        <div id="slider" class="relative h-screen">
+
+            <!-- ================= SLIDE 1 ================= -->
+            <div class="slide absolute inset-0 opacity-100 transition-opacity duration-700">
+
+                <!-- Background -->
+                <img
+                    src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1920"
+                    class="w-full h-full object-cover"
+                    alt=""
+                >
+
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-primary/70"></div>
+
+                <!-- Content -->
+                <div class="absolute inset-0 flex items-center">
+
+                    <div class="max-w-7xl mx-auto px-6 w-full">
+
+                        <div class="max-w-2xl">
+
+                            <span class="inline-block px-5 py-2 rounded-full bg-secondary/20 border border-secondary/30 text-white text-sm font-medium backdrop-blur">
+                                New Collection 2026
+                            </span>
+
+                            <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mt-6">
+                                Fashion For <br>
+                                Modern Lifestyle
+                            </h1>
+
+                            <p class="text-gray-200 text-lg mt-6 leading-relaxed">
+                                Discover premium quality products with modern design,
+                                comfort and elegance for your everyday style.
+                            </p>
+
+                            <div class="flex flex-wrap gap-4 mt-10">
+
+                                <a href="#"
+                                   class="px-8 h-14 rounded-full bg-secondary text-white font-semibold flex items-center justify-center hover:scale-105 transition">
+                                    Shop Now
+                                </a>
+
+                                <a href="#"
+                                   class="px-8 h-14 rounded-full border border-white/30 text-white font-semibold flex items-center justify-center hover:bg-white/10 transition">
+                                    Explore
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ================= SLIDE 2 ================= -->
+            <div class="slide absolute inset-0 opacity-0 transition-opacity duration-700">
+
+                <img
+                    src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1920"
+                    class="w-full h-full object-cover"
+                    alt=""
+                >
+
+                <div class="absolute inset-0 bg-black/60"></div>
+
+                <div class="absolute inset-0 flex items-center">
+
+                    <div class="max-w-7xl mx-auto px-6 w-full">
+
+                        <div class="max-w-2xl">
+
+                            <span class="inline-block px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-medium backdrop-blur">
+                                Trending Products
+                            </span>
+
+                            <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mt-6">
+                                Premium <br>
+                                Streetwear Style
+                            </h1>
+
+                            <p class="text-gray-200 text-lg mt-6 leading-relaxed">
+                                Upgrade your fashion game with stylish collections,
+                                premium fabrics and modern aesthetics.
+                            </p>
+
+                            <div class="flex flex-wrap gap-4 mt-10">
+
+                                <a href="#"
+                                   class="px-8 h-14 rounded-full bg-white text-primary font-semibold flex items-center justify-center hover:scale-105 transition">
+                                    Buy Now
+                                </a>
+
+                                <a href="#"
+                                   class="px-8 h-14 rounded-full border border-white/30 text-white font-semibold flex items-center justify-center hover:bg-white/10 transition">
+                                    View Collection
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ================= SLIDE 3 ================= -->
+            <div class="slide absolute inset-0 opacity-0 transition-opacity duration-700">
+
+                <img
+                    src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1920"
+                    class="w-full h-full object-cover"
+                    alt=""
+                >
+
+                <div class="absolute inset-0 bg-secondary/40"></div>
+
+                <div class="absolute inset-0 flex items-center">
+
+                    <div class="max-w-7xl mx-auto px-6 w-full">
+
+                        <div class="max-w-2xl">
+
+                            <span class="inline-block px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-medium backdrop-blur">
+                                Limited Offer
+                            </span>
+
+                            <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mt-6">
+                                Elegant <br>
+                                Women Fashion
+                            </h1>
+
+                            <p class="text-gray-200 text-lg mt-6 leading-relaxed">
+                                Shop exclusive collections designed for beauty,
+                                elegance and confidence in every moment.
+                            </p>
+
+                            <div class="flex flex-wrap gap-4 mt-10">
+
+                                <a href="#"
+                                   class="px-8 h-14 rounded-full bg-secondary text-white font-semibold flex items-center justify-center hover:scale-105 transition">
+                                    Discover More
+                                </a>
+
+                                <a href="#"
+                                   class="px-8 h-14 rounded-full border border-white/30 text-white font-semibold flex items-center justify-center hover:bg-white/10 transition">
+                                    Learn More
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ================= PREV BUTTON ================= -->
+            <button
+                id="prevBtn"
+                class="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white hover:bg-secondary transition"
+            >
+                ❮
+            </button>
+
+            <!-- ================= NEXT BUTTON ================= -->
+            <button
+                id="nextBtn"
+                class="absolute right-5 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white hover:bg-secondary transition"
+            >
+                ❯
+            </button>
+
+            <!-- ================= INDICATORS ================= -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+
+                <button class="indicator w-10 h-2 rounded-full bg-white active-indicator"></button>
+                <button class="indicator w-2 h-2 rounded-full bg-white/50"></button>
+                <button class="indicator w-2 h-2 rounded-full bg-white/50"></button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+
+        const slides = document.querySelectorAll(".slide");
+        const indicators = document.querySelectorAll(".indicator");
+
+        let currentSlide = 0;
+
+        function showSlide(index) {
+
+            slides.forEach((slide, i) => {
+
+                slide.classList.remove("opacity-100");
+                slide.classList.add("opacity-0");
+
+                indicators[i].classList.remove("w-10", "bg-white");
+                indicators[i].classList.add("w-2", "bg-white/50");
+            });
+
+            slides[index].classList.remove("opacity-0");
+            slides[index].classList.add("opacity-100");
+
+            indicators[index].classList.remove("w-2", "bg-white/50");
+            indicators[index].classList.add("w-10", "bg-white");
+
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+
+            let next = currentSlide + 1;
+
+            if (next >= slides.length) {
+                next = 0;
+            }
+
+            showSlide(next);
+        }
+
+        function prevSlide() {
+
+            let prev = currentSlide - 1;
+
+            if (prev < 0) {
+                prev = slides.length - 1;
+            }
+
+            showSlide(prev);
+        }
+
+        // Buttons
+        document.getElementById("nextBtn")
+            .addEventListener("click", nextSlide);
+
+        document.getElementById("prevBtn")
+            .addEventListener("click", prevSlide);
+
+        // Indicators
+        indicators.forEach((indicator, index) => {
+
+            indicator.addEventListener("click", () => {
+                showSlide(index);
+            });
+
+        });
+
+        // Autoplay
+        setInterval(() => {
+            nextSlide();
+        }, 5000);
+
+    </script>
+
+</body>
+</html>
