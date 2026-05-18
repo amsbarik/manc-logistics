@@ -1,17 +1,9 @@
- <!-- Custom Slider Animation -->
+ /* Custom Slider Animation  */
+  
 
+  
 
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body{
-            overflow-x: hidden;
-            background: #f5f3ff;
-            font-family: sans-serif;
-        }
+ 
 
         /* ================= SLIDE ================= */
 
@@ -72,3 +64,4 @@
             transition: all .4s ease;
         }
 
+  
