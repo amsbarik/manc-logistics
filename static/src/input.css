@@ -14,3 +14,13 @@
     border: 1px solid red
 }
 
+
+@layer components {
+    .section-heading {
+        @apply text-3xl md:text-4xl font-bold text-mauve-900 leading-tight tracking-tight mb-4;
+    }
+
+    .section-padding{
+        @apply py-24;
+    }
+}

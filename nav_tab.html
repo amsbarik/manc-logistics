@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>MANC Riders Tabs</title>
+
+<link rel="stylesheet" href="static/dist/style.css">
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-100">
+
+<section class="py-20">
+
+    <div class="max-w-6xl mx-auto px-5">
+
+        <!-- Heading -->
+
+        <h1 class="text-center text-4xl md:text-6xl font-bold text-dark mb-12">
+
+            Frequently Asked Questions
+
+        </h1>
+
+
+
+        <!-- Tabs -->
+
+        <div class="flex justify-center">
+
+            <div class="inline-flex border border-primary bg-white p-4 rounded">
+
+                <button data-tab="customer" class="tab-btn min-w-[160px] px-8 py-4 rounded font-semibold transition-all duration-[900ms]">
+
+                    I'm a customer
+
+                </button>
+
+                <button data-tab="rider" class="tab-btn min-w-[160px] px-8 py-4 rounded font-semibold transition-all duration-[900ms]">
+
+                    I'm a rider
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+
+        <!-- Content Container -->
+
+        <div id="tab-container" class="mt-12 relative min-h-[400px]">
+
+
+
+            <!-- Customer -->
+
+            <div id="customer" class="tab-content absolute top-0 left-0 w-full opacity-0 translate-y-10 pointer-events-none transition-all duration-[900ms]">
+
+                <div class="space-y-8">
+
+                    <p class="text-xl">
+
+                        How do I contact the deliverer?
+
+                    </p>
+
+                    <p class="text-xl">
+
+                        How do I cancel a request?
+
+                    </p>
+
+                    <p class="text-xl">
+
+                        How do I request for delivery?
+
+                    </p>
+
+                    <p class="text-xl">
+
+                        How do I request for delivery?
+
+                    </p>
+
+                    <p class="text-xl">
+
+                        How do I request for delivery?
+
+                    </p>
+
+                    <p class="text-xl">
+
+                        How do I request for delivery?
+
+                    </p>
+
+                    <p class="text-xl">
+
+                        How do I request for delivery?
+
+                    </p>
+
+                    <p class="text-xl">
+
+                        How do I request for delivery?
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+
+            <!-- Rider -->
+
+            <div id="rider" class="tab-content absolute top-0 left-0 w-full opacity-0 translate-y-10 pointer-events-none transition-all duration-[900ms]">
+
+                <div class="space-y-8">
+
+                    <p class="text-xl">
+
+                        How do I become a rider?
+
+                    </p>
+
+                    <p class="text-xl">
+
+                        How are payments calculated?
+
+                    </p>
+
+                    <p class="text-xl">
+
+                        How can I update my profile?
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<script>
+
+const tabs=document.querySelectorAll('.tab-btn');
+
+const contents=document.querySelectorAll('.tab-content');
+
+const container=document.getElementById('tab-container');
+
+
+
+function resetTabs(){
+
+    tabs.forEach(tab=>{
+
+        tab.classList.remove(
+            'bg-white',
+            'border',
+            'border-primary',
+            'text-primary'
+        );
+
+        tab.classList.add(
+            'bg-gray-100',
+            'text-gray-500'
+        );
+
+    });
+
+
+
+    contents.forEach(content=>{
+
+        content.classList.remove(
+            'opacity-100',
+            'translate-y-0'
+        );
+
+        content.classList.add(
+            'opacity-0',
+            'translate-y-10',
+            'pointer-events-none'
+        );
+
+    });
+
+}
+
+
+
+tabs.forEach(tab=>{
+
+    tab.addEventListener('click',()=>{
+
+        resetTabs();
+
+
+
+        tab.classList.remove(
+            'bg-gray-100',
+            'text-gray-500'
+        );
+
+        tab.classList.add(
+            'bg-white',
+            'border',
+            'border-primary',
+            'text-primary'
+        );
+
+
+
+        const target=document.getElementById(tab.dataset.tab);
+
+
+
+        setTimeout(()=>{
+
+            target.classList.remove(
+                'opacity-0',
+                'translate-y-10',
+                'pointer-events-none'
+            );
+
+            target.classList.add(
+                'opacity-100',
+                'translate-y-0'
+            );
+
+
+
+            container.style.height=
+            target.scrollHeight+'px';
+
+
+
+        },200);
+
+    });
+
+});
+
+
+
+
+/* Default Active */
+
+tabs[0].click();
+
+
+</script>
+
+
+</body>
+</html>

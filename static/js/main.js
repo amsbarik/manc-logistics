@@ -211,3 +211,119 @@ faqItems.forEach(item=>{
 
 // FAQ js end 
 ///////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////
+// Nav & Tab Js start /////
+
+const tabs=document.querySelectorAll('.tab-btn');
+const contents=document.querySelectorAll('.tab-content');
+const container=document.getElementById('tab-container');
+
+
+function resetTabs(){
+
+    tabs.forEach(tab=>{
+
+        tab.classList.remove(
+            'bg-primary',
+            'border',
+            'border-primary',
+            'text-white'
+        );
+
+        tab.classList.add(
+            'bg-white',
+            'text-dark',
+            'border',
+            'border-primary'
+        );
+
+    });
+
+
+
+    contents.forEach(content=>{
+
+        content.classList.remove(
+            'opacity-100',
+            'translate-y-0'
+        );
+
+        content.classList.add(
+            'opacity-0',
+            'translate-y-10',
+            'pointer-events-none'
+        );
+
+    });
+
+}
+
+
+
+tabs.forEach(tab=>{
+
+    tab.addEventListener('click',()=>{
+
+        resetTabs();
+
+
+
+        tab.classList.remove(
+            'bg-white',
+            'text-dark'
+        );
+
+        tab.classList.add(
+            'bg-primary',
+            'border',
+            'border-primary',
+            'text-white'
+        );
+
+
+
+        const target=document.getElementById(tab.dataset.tab);
+
+
+
+        setTimeout(()=>{
+
+            target.classList.remove(
+                'opacity-0',
+                'translate-y-10',
+                'pointer-events-none'
+            );
+
+            target.classList.add(
+                'opacity-100',
+                'translate-y-0'
+            );
+
+
+
+            container.style.height=
+            target.scrollHeight+'px';
+
+
+
+        },200);
+
+    });
+
+});
+
+
+
+
+/* Default Active */
+
+tabs[0].click();
+
+
+
+
+// Nav & Tab Js end
+//////////////////////////////////////////////////////////////////////////////////
