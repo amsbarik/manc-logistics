@@ -17,7 +17,19 @@
 
 @layer components {
     .section-heading {
-        @apply text-3xl md:text-4xl font-bold text-mauve-900 leading-tight tracking-tight mb-4;
+        @apply relative inline-block text-lg uppercase mb-10 md:text-xl font-bold text-primary mb-4
+        after:content-['']
+        after:absolute
+        after:left-0
+        after:-bottom-2
+        after:w-20
+        after:h-[3px]
+        after:bg-primary
+        after:rounded-full;
+    }
+
+    .section-title{
+        @apply text-dark text-4xl font-semibold mb-4
     }
 
     .section-padding{
