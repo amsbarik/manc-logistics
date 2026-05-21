@@ -5,370 +5,193 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>MANC Riders FAQ</title>
+<link rel="stylesheet" href="static/dist/style.css">
 
 <script src="https://cdn.tailwindcss.com"></script>
 
-<style>
-
-:root{
-    --primary:#E7000B;
-    --secondary:#0EA5E9;
-    --accent:#FACC15;
-}
-
-body{
-    background:#f7f7f7;
-}
-
-
-/* FAQ content animation */
-
-.faq-content{
-    height:0;
-    overflow:hidden;
-    opacity:0;
-
-    transition:
-        height .32s linear,
-        opacity .25s linear;
-
-    will-change:height;
-}
-
-
-/* Question active color */
-
-.faq-question{
-    transition:.25s linear;
-}
-
-.faq-item.active .faq-question{
-    color:var(--primary);
-}
-
-
-/* Plus / Minus */
-
-.icon-minus{
-    display:none;
-}
-
-.faq-item.active .icon-plus{
-    display:none;
-}
-
-.faq-item.active .icon-minus{
-    display:block;
-}
-
-
-/* icon rotate */
-
-.icon-wrap{
-    transition:.32s linear;
-}
-
-.faq-item.active .icon-wrap{
-    transform:rotate(180deg);
-}
-
-
-/* mobile */
-
-@media(max-width:768px){
-
-    .faq-btn{
-        gap:16px !important;
-    }
-
-    .faq-question{
-        font-size:18px;
-    }
-
-}
-
-</style>
-
 </head>
 
-<body>
+<body class="bg-gray-50">
+
+
+<!-- FAQ start  -->
+<section class="py-20 px-5 bg-primary-50">
+    <div class="max-w-6xl mx-auto">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-16">
+            <h1 class="text-3xl md:text-5xl font-bold text-dark"> Your Delivery Related Questions </h1>
+        </div>
+
+        <!-- FAQ List -->
+        <div class="space-y-10">
+
+            <!-- FAQ Item 1 -->
+            <div class="faq-item active">
+                <button class="faq-btn w-full flex items-start gap-6 md:gap-8 text-left">
+                    <div class="icon-wrap -mt-[16px] text-[38px] w-[35px]  flex justify-center items-center flex-shrink-0  transition-transform duration-500">
+                        <span class="icon-plus text-secondary">+</span>
+                        <span class="icon-minus text-primary hidden">−</span>
+                    </div>
+
+                    <div class="w-full">
+                        <h3 class="faq-question text-xl md:text-2xl font-medium transition-all duration-500">How can I send products through MANC Riders? </h3>
+                        <div class="faq-content h-0 overflow-hidden opacity-0 transition-all duration-500">
+
+                            <div class="pt-6">
+                                <p class="text-gray-600 leading-9"> MANC Riders provides reliable delivery services.
+                                Create shipments through your dashboard using customer details, pickup location and payment information.
+                                Same-day and fragile delivery options are available.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </button>
+            </div>
+
+            <!-- FAQ Item 2 -->
+             <div class="faq-item ">
+                <button class="faq-btn w-full flex items-start gap-6 md:gap-8 text-left">
+                    <div class="icon-wrap -mt-[16px] text-[38px] w-[35px]  flex justify-center items-center flex-shrink-0  transition-transform duration-500">
+                        <span class="icon-plus text-secondary">+</span>
+                        <span class="icon-minus text-primary hidden">−</span>
+                    </div>
+
+                    <div class="w-full">
+                        <h3 class="faq-question text-xl md:text-2xl font-medium transition-all duration-500">How can I send products through MANC Riders? </h3>
+                        <div class="faq-content h-0 overflow-hidden opacity-0 transition-all duration-500">
+
+                            <div class="pt-6">
+                                <p class="text-gray-600 leading-9"> MANC Riders provides reliable delivery services.
+                                Create shipments through your dashboard using customer details, pickup location and payment information.
+                                Same-day and fragile delivery options are available.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </button>
+            </div>
+            
+
+            <!-- FAQ Item 3 -->
+             <div class="faq-item ">
+                <button class="faq-btn w-full flex items-start gap-6 md:gap-8 text-left">
+                    <div class="icon-wrap -mt-[16px] text-[38px] w-[35px]  flex justify-center items-center flex-shrink-0  transition-transform duration-500">
+                        <span class="icon-plus text-secondary">+</span>
+                        <span class="icon-minus text-primary hidden">−</span>
+                    </div>
+
+                    <div class="w-full">
+                        <h3 class="faq-question text-xl md:text-2xl font-medium transition-all duration-500">How can I send products through MANC Riders? </h3>
+                        <div class="faq-content h-0 overflow-hidden opacity-0 transition-all duration-500">
+
+                            <div class="pt-6">
+                                <p class="text-gray-600 leading-9"> MANC Riders provides reliable delivery services.
+                                Create shipments through your dashboard using customer details, pickup location and payment information.
+                                Same-day and fragile delivery options are available.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </button>
+            </div>
+            
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item ">
+                <button class="faq-btn w-full flex items-start gap-6 md:gap-8 text-left">
+                    <div class="icon-wrap -mt-[16px] text-[38px] w-[35px]  flex justify-center items-center flex-shrink-0  transition-transform duration-500">
+                        <span class="icon-plus text-secondary">+</span>
+                        <span class="icon-minus text-primary hidden">−</span>
+                    </div>
+
+                    <div class="w-full">
+                        <h3 class="faq-question text-xl md:text-2xl font-medium transition-all duration-500">How can I send products through MANC Riders? </h3>
+                        <div class="faq-content h-0 overflow-hidden opacity-0 transition-all duration-500">
+
+                            <div class="pt-6">
+                                <p class="text-gray-600 leading-9"> MANC Riders provides reliable delivery services.
+                                Create shipments through your dashboard using customer details, pickup location and payment information.
+                                Same-day and fragile delivery options are available.
+                                </p>
+                            </div>
 
-<section class="py-20 px-5">
+                        </div>
+                    </div>
+                </button>
+            </div>
 
-<div class="max-w-6xl mx-auto">
+        </div>
 
-
-<!-- Heading -->
-
-<div class="text-center mb-16">
-
-<h1 class="text-3xl md:text-5xl font-bold">
-
-Your Delivery Related Questions
-
-</h1>
-
-</div>
-
-
-
-<!-- FAQ list -->
-
-<div class="space-y-10">
-
-
-<!-- Item 1 -->
-
-<div class="faq-item active">
-
-<button
-class="faq-btn w-full flex items-start gap-8 text-left">
-
-<div class="icon-wrap text-[38px] w-[35px] flex justify-center flex-shrink-0 mt-[-6px]">
-
-<span class="icon-plus text-[var(--secondary)]">
-+
-</span>
-
-<span class="icon-minus text-[var(--primary)]">
-−
-</span>
-
-</div> 
-
-
-
-
-
-<div class="w-full">
-
-<h3 class="faq-question text-xl md:text-2xl font-medium">
-
-How can I send products through MANC Riders?
-
-</h3>
-
-<div class="faq-content">
-
-<div class="pt-6">
-
-<p class="text-gray-600 leading-9">
-
-MANC Riders provides reliable delivery services. 
-Create a shipment through your dashboard by entering customer details, pickup information, and payment instructions.
-
-Same-day and fragile delivery options are available.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</button>
-
-</div>
-
-
-
-<!-- Item 2 -->
-
-<div class="faq-item">
-
-<button
-class="faq-btn w-full flex items-start gap-8 text-left">
-
-<div class="icon-wrap text-[38px] w-[35px] flex justify-center flex-shrink-0 mt-[-6px]">
-
-<span class="icon-plus text-[var(--secondary)]">
-+
-</span>
-
-<span class="icon-minus text-[var(--primary)]">
-−
-</span>
-
-</div>
-
-<div class="w-full">
-
-<h3 class="faq-question text-xl md:text-2xl font-medium">
-
-What are the delivery charges?
-
-</h3>
-
-<div class="faq-content">
-
-<div class="pt-6">
-
-<p class="text-gray-600 leading-9">
-
-Delivery charges depend on distance, package size and delivery type.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</button>
-
-</div>
-
-
-
-<!-- Item 3 -->
-
-<div class="faq-item">
-
-<button
-class="faq-btn w-full flex items-start gap-8 text-left">
-
-<div class="icon-wrap text-[38px] w-[35px] flex justify-center flex-shrink-0 mt-[-6px]">
-
-<span class="icon-plus text-[var(--secondary)]">
-+
-</span>
-
-<span class="icon-minus text-[var(--primary)]">
-−
-</span>
-
-</div>
-
-<div class="w-full">
-
-<h3 class="faq-question text-xl md:text-2xl font-medium">
-
-Which areas are covered by MANC Riders?
-
-</h3>
-
-<div class="faq-content">
-
-<div class="pt-6">
-
-<p class="text-gray-600 leading-9">
-
-MANC Riders currently supports nationwide delivery services.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</button>
-
-</div>
-
-
-
-<!-- Item 4 -->
-
-<div class="faq-item">
-
-<button
-class="faq-btn w-full flex items-start gap-8 text-left">
-
-<div class="icon-wrap text-[38px] w-[35px] flex justify-center flex-shrink-0 mt-[-6px]">
-
-<span class="icon-plus text-[var(--secondary)]">
-+
-</span>
-
-<span class="icon-minus text-[var(--primary)]">
-−
-</span>
-
-</div>
-
-<div class="w-full">
-
-<h3 class="faq-question text-xl md:text-2xl font-medium">
-
-How can I track my parcel?
-
-</h3>
-
-<div class="faq-content">
-
-<div class="pt-6">
-
-<p class="text-gray-600 leading-9">
-
-Track parcels through your tracking ID from the dashboard.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</button>
-
-</div>
-
-
-</div>
-
-</div>
-
+    </div>
 </section>
+<!-- FAQ end  -->
 
 
 
 <script>
 
-const faqItems=document.querySelectorAll(".faq-item");
+const faqItems=document.querySelectorAll('.faq-item');
 
 
 function openItem(item){
 
-    const content=item.querySelector(".faq-content");
+const content=item.querySelector('.faq-content');
+const plus=item.querySelector('.icon-plus');
+const minus=item.querySelector('.icon-minus');
+const icon=item.querySelector('.icon-wrap');
+const question=item.querySelector('.faq-question');
 
-    item.classList.add("active");
+item.classList.add('active');
 
-    content.style.opacity="1";
+content.style.height=content.scrollHeight+'px';
+content.classList.remove('opacity-0');
+content.classList.add('opacity-100');
 
-    content.style.height=content.scrollHeight+"px";
+plus.classList.add('hidden');
+minus.classList.remove('hidden');
+
+// icon.classList.add('rotate-180');
+
+question.classList.add('text-primary');
+
 }
+
 
 
 function closeItem(item){
 
-    const content=item.querySelector(".faq-content");
+const content=item.querySelector('.faq-content');
+const plus=item.querySelector('.icon-plus');
+const minus=item.querySelector('.icon-minus');
+const icon=item.querySelector('.icon-wrap');
+const question=item.querySelector('.faq-question');
 
-    item.classList.remove("active");
+item.classList.remove('active');
 
-    content.style.height="0px";
+content.style.height='0px';
+content.classList.remove('opacity-100');
+content.classList.add('opacity-0');
 
-    content.style.opacity="0";
+plus.classList.remove('hidden');
+minus.classList.add('hidden');
+
+// icon.classList.remove('rotate-180'); 
+
+question.classList.remove('text-primary');
 
 }
 
 
 
-/* First item open */
+window.addEventListener('load',()=>{
 
-window.addEventListener("load",()=>{
+const first=document.querySelector('.faq-item.active');
 
-const first=document.querySelector(".faq-item.active");
-
-const content=first.querySelector(".faq-content");
-
-content.style.height=content.scrollHeight+"px";
-
-content.style.opacity="1";
+openItem(first);
 
 });
 
@@ -376,12 +199,10 @@ content.style.opacity="1";
 
 faqItems.forEach(item=>{
 
-const button=item.querySelector(".faq-btn");
+item.querySelector('.faq-btn')
+.addEventListener('click',()=>{
 
-button.addEventListener("click",()=>{
-
-const alreadyOpen=item.classList.contains("active");
-
+const isActive=item.classList.contains('active');
 
 faqItems.forEach(faq=>{
 
@@ -393,13 +214,11 @@ closeItem(faq);
 
 });
 
-
-if(alreadyOpen){
+if(isActive){
 
 closeItem(item);
 
-}
-else{
+}else{
 
 openItem(item);
 
