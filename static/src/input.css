@@ -107,6 +107,6 @@
         @apply text-dark-800 text-sm/6 lg:text-base/7 
     }
     .card-title{
-        @apply text-dark text-xl/6 md:text-2xl/7 lg:text-3xl/7 
+        @apply text-dark capitalize text-lg/6 md:text-xl/7 lg:text-2xl/7 
     }
 }
