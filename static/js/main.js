@@ -327,3 +327,72 @@ tabs[0].click();
 
 // Nav & Tab Js end
 //////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////
+// scroll progress + back-to-top button js start 
+const scrollBtn = document.getElementById("scrollBtn");
+const progressCircle = document.getElementById("progressCircle");
+const topBtn = document.getElementById("topBtn");
+
+const radius = 42;
+const circumference = 2 * Math.PI * radius;
+
+progressCircle.style.strokeDasharray = circumference;
+
+window.addEventListener("scroll", () => {
+
+    const scrollTop = window.scrollY;
+
+    const docHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const progress = scrollTop / docHeight;
+
+    const offset = circumference - progress * circumference;
+
+    progressCircle.style.strokeDashoffset = offset;
+
+    // show after scrolling down
+    if(scrollTop > 300){
+
+        scrollBtn.classList.remove(
+            "opacity-0",
+            "invisible"
+        );
+
+        scrollBtn.classList.add(
+            "opacity-100",
+            "visible"
+        );
+
+    } else {
+
+        scrollBtn.classList.add(
+            "opacity-0",
+            "invisible"
+        );
+
+        scrollBtn.classList.remove(
+            "opacity-100",
+            "visible"
+        );
+    }
+
+});
+
+topBtn.addEventListener("click", ()=>{
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+});
+
+// scroll progress + back-to-top button js end
+//////////////////////////////////////////////////////////////////////////////

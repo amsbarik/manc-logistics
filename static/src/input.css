@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Sora:wght@100..800&display=swap');
+
+
 
 @config "../../tailwind.config.js";
 
@@ -10,14 +13,33 @@
 @import "./components/hero_slider.css";
 
 
-.btn{
-    border: 1px solid red
+
+
+
+@theme {
+    --font-heading: "Sora", sans-serif;
+    --font-body: "Inter", sans-serif;
 }
 
 
+@layer base {
+
+    body{
+        font-family: var(--font-body);
+    }
+
+    h1,h2,h3,h4,h5,h6{
+        font-family: var(--font-heading);
+    }
+
+}
+
+
+
+/* custom css class  */
 @layer components {
     .section-heading {
-        @apply relative inline-block text-lg uppercase mb-10 md:text-xl font-bold text-primary mb-4
+        @apply relative inline-block text-lg uppercase mb-10 md:text-xl font-bold text-primary
         after:content-['']
         after:absolute
         after:left-0
@@ -27,12 +49,64 @@
         after:bg-primary
         after:rounded-full;
     }
+    .heading-center {
+        @apply relative inline-block text-lg uppercase mb-12 md:text-xl font-bold text-primary;
+    }
+
+    /* line under heading */
+    .heading-center::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -14px;
+        width: 140px;
+        height: 2px;
+        background-color: currentColor;
+        border-radius: 9999px;
+    }
+
+    /* center circle */
+    .heading-center::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -19px;
+        width: 12px;
+        height: 12px;
+        background-color: currentColor;
+        border-radius: 9999px;
+        z-index: 10;
+    }
 
     .section-title{
         @apply text-dark text-4xl font-semibold mb-4
     }
 
+    .section-head{
+        @apply xl:mb-18
+    }
+
     .section-padding{
         @apply py-24;
+    }
+
+    .font-heading{
+        font-family: var(--font-heading);
+    }
+
+    .font-body{
+        font-family: var(--font-body);
+    }
+
+    .text-body{
+        @apply text-dark-800 text-base/6 lg:text-lg/7 
+    }
+    .card-text{
+        @apply text-dark-800 text-sm/6 lg:text-base/7 
+    }
+    .card-title{
+        @apply text-dark text-xl/6 md:text-2xl/7 lg:text-3xl/7 
     }
 }
