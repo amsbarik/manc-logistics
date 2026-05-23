@@ -21,7 +21,7 @@
 
     <!-- ================= HEADER / NAVBAR ================= -->
     <header class="fixed top-0 left-0 w-full z-50">
-        <nav class="bg-white py-1 shadow-md">
+        <nav class="bg-primary-50 py-1 shadow-md">
             
             <div class="container mx-auto">
                 
@@ -30,13 +30,13 @@
                     <!-- ========= LOGO ========= -->
                     <a href="#" class="flex items-center gap-3">
                         
-                        <div class="w-11 h-11 rounded-2xl bg-secondary flex items-center justify-center shadow-lg shadow-secondary/30">
+                        <div class="w-11 h-11 rounded-2xl bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
                             <span class="text-white text-xl font-bold">M</span>
                         </div>
 
                         <div>
                             <h2 class="text-dark-900 text-xl font-bold leading-none">
-                                MANC Logistics
+                                MANC Riders
                             </h2>
 
                             <p class="text-gray-400 text-xs mt-1">
@@ -77,7 +77,7 @@
 
                         <!-- Register -->
                         <a href="#"
-                           class="h-12 px-6 rounded-full bg-secondary text-white font-semibold flex items-center justify-center hover:scale-105 transition duration-300 shadow-lg shadow-secondary/30">
+                           class="h-12 px-6 rounded-full bg-primary text-white font-semibold flex items-center justify-center hover:scale-105 transition duration-300 shadow-lg shadow-primary/30">
                             Register
                         </a>
 
@@ -121,7 +121,7 @@
                             >
 
                                 <a href="#"
-                                class="flex items-center justify-between px-5 py-2 hover:bg-dark transition">
+                                class="flex items-center justify-between px-5 py-2 rounded-sm hover:bg-secondary-100 transition">
                                     <div class="flex items-center gap-3">
                                         <span class="text-xl">🇺🇸</span>
                                         <span class="font-medium text-primary">English</span>
@@ -132,7 +132,7 @@
                                     </span>
                                 </a>
 
-                                <a href="#" class="flex items-center gap-3 px-5 py-2 hover:bg-dark transition">
+                                <a href="#" class="flex items-center gap-3 px-5 py-2 rounded-sm hover:bg-secondary-100 transition">
                                     <span class="text-xl">🇸🇦</span>
                                     <span class="font-medium text-primary">العربية</span>
                                 </a>
@@ -461,7 +461,7 @@
 
 
     <!-- services start  -->
-    <section class="section-padding">
+    <section class="pt-8 pb-34 bg-linear-to-b from-primary-50 via-primary-50 to-secondary-100">
         <div class="container">
             <div class="section-head text-center max-w-9/10">
                 <h2 class="heading-center">Explore Our Services</h2>
@@ -536,10 +536,11 @@
     <!-- Rider Facilities start -->
     <section class="section-padding">
         <div class="container">
-
-            <h2 class="section-heading">Rider Facilities</h2>
-            <h2 class="section-title">Become a MANC Rider & Earn Easily!</h2>
-            <p class="text">Drive with Pathao Bike and earn up to 45,000–50,000 BDT per month. As a new rider, enjoy ride-sharing with only 1% commission. In addition to ride-sharing, there are extra earning opportunities through parcel delivery. Become a Pathao Hero today!</p>
+            <div class="section-head text-center max-w-9/10">
+                <h2 class="heading-center">Why join with us?</h2>
+                <h1 class="section-title">Become a MANC Rider & Earn Easily!</h1>
+                <p class="text-base/7 text-dark">We follow a fast and easy process to take your order, assign a rider, and deliver your food hot and fresh to your doorstep.</p>
+            </div>
 
             <div class="grid grid-cols-3 gap-12 mt-12">
                 <div class="">
@@ -614,7 +615,7 @@
 
 
     <!-- message from md start  -->
-    <section class="md-message section-padding">
+    <section class="md-message section-padding bg-linear-to-t  from-secondary-100 via-primary-50 to-secondary-100 ">
         <div class="container">
             <!-- <div class="section-head text-center max-w-9/10">
                 <h2 class="heading-center">Our Seervices</h2>
@@ -624,25 +625,24 @@
 
             <div class="flex gap-8">
                 <div class="w-[340px]">
-                    <img src="static/img/team1.jpg" class="w-full h-auto object-contain " alt="">
+                    <img src="static/img/team1.jpg" class="w-full h-auto object-contain border border-4 border-accent shadow-2xl" alt="">
                     <div class="border-l-12 border-secondary ps-5 mt-6">
-                        <h5 class="capitalize text-dark text-xl font-semibold">Mamun hasan</h5>
-                        <p class="text-base text-dark-700 font-medium">Managing Director</p>
+                        <h5 class="capitalize text-dark text-2xl font-semibold">Mehedi hasan</h5>
+                        <p class="text-base text-dark-800 font-medium">Managing Director</p>
                     </div>
                 </div>
 
                 <div>
-                    <h1 class="section-title capitalize">message from managing directior</h1>
+                    <h1 class="section-title text-dark capitalize">message from managing directior</h1>
                     <p class="text-secondary text-lg font-medium capitalize mt-12">Message From</p>
-                    <h2 class="font-semibold text-dark text-2xl">Managing Director</h2>
+                    <h2 class="font-semibold text-dark text-2xl text-dark">Managing Director</h2>
 
                     <p class="mt-6 text-dark-800 ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo explicabo libero illo quos deleniti! Temporibus placeat nulla sunt repellat pariatur voluptate mollitia eius eligendi.</p>
 
                     <p class="mt-3 text-dark-800 ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo explicabo libero illo quos deleniti! Temporibus placeat nulla sunt repellat pariatur voluptate mollitia eius eligendi.</p>
 
                     <a href="#" class="block group mt-8 text-primary underline font-medium text-base hover:text-secondary transition duration-300">
-                        know More
-                        <i class="fa-solid fa-arrow-right-long ms-2 group-hover:translate-x-1 transition-all duration-300"></i>
+                        know More<i class="fa-solid fa-arrow-right-long ms-2 group-hover:translate-x-1 transition-all duration-300"></i>
                     </a>
                 </div>
             </div>
@@ -692,6 +692,10 @@
                     <h5 class="card-title mt-6 font-semibold capitalize">Secure handling</h5>
                     <p class="card-text mt-4">Backed by an agile team and dynamic operations, we promise to find the fastest solutions for your needs</p>
                 </div>
+            </div>
+
+            <div class=" text-center mt-16">
+                <a href="#" ><h5 class="mx-auto px-8 py-4 bg-accent text-dark w-64 font-semibold">Become a Partner</h5></a>
             </div>
         </div>
     </section>
@@ -836,7 +840,7 @@
 
 
     <!-- expert team start  -->
-    <section class="section-padding bg-white">
+    <section class="section-padding bg-linear-to-r/decreasing  from-secondary-50 to-primary-50">
         <div class="container mx-auto px-6">
             <div class="section-head text-center">
                 <h2 class="heading-center">Our Expert Team</h2>
@@ -967,7 +971,7 @@
 
 
     <!-- FAQ start  -->
-    <section class="section-padding pb-64 px-5 bg-primary-50">
+    <section class="section-padding pb-44 px-5 bg-primary-50">
 
         <div class="max-w-6xl mx-auto px-5">
 
@@ -1456,7 +1460,7 @@
                     <input 
                         type="email"
                         placeholder="@ Enter your email address"
-                        class="w-full h-14 rounded-full bg-dark-100 px-6 pr-36 outline-none border border-transparent focus:border-primary-500 focus:ring-4 focus:ring-primary-100 transition"
+                        class="w-full h-14 rounded-full bg-dark-100 px-6 pr-36 outline-none border border-transparent focus:border-primary-500 focus:ring-2 focus:ring-white transition"
                     >
 
                     <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-primary hover:bg-primary-600 text-white px-6 h-10 rounded-full font-medium transition shadow-lg cursor-pointer"> Subscribe </button>
