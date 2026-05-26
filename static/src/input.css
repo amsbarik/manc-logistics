@@ -51,7 +51,7 @@
         after:rounded-full;
     }
     .heading-center {
-        @apply relative inline-block text-lg uppercase mb-12 md:text-xl font-bold text-primary;
+        @apply relative inline-block  uppercase mb-12 text-base lg:text-lg xl:text-xl font-bold text-primary;
     }
 
     /* line under heading */
@@ -82,15 +82,15 @@
     }
 
     .section-title{
-        @apply text-dark text-4xl font-semibold mb-4
+        @apply text-dark font-semibold mb-4 text-2xl md:text-3xl xl:text-4xl
     }
 
     .section-head{
-        @apply xl:mb-18
+        @apply mb-9 md:mb-10 lg:mb-16 xl:mb-18
     }
 
     .section-padding{
-        @apply xl:py-20;
+        @apply py-10 lg:py-16 xl:py-20;
     }
 
     .font-heading{

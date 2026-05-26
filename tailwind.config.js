@@ -8,6 +8,12 @@ module.exports = {
   theme: {
     container: {
       center: true,
+      padding: {
+                // DEFAULT: '.5rem',
+                xs: '0.2rem',
+                sm: '0rem',
+                // lg: '0',
+            },
     },
 
     extend: {
@@ -69,6 +75,10 @@ module.exports = {
       }
 
       },
+
+      screens: {
+              xs: '22.5rem', // 360px
+          },
     },
   },
 
