@@ -1,6 +1,77 @@
 
+////////////////////////////////////////////////////
+// header mobile menu toggle js start 
+
+const menuBtn = document.getElementById('menuBtn');
+const closeBtn = document.getElementById('closeMenu');
+const mobileMenu = document.getElementById('mobileMenu');
+const overlay = document.getElementById('mobileOverlay');
+const navLinks = document.querySelectorAll('.mobile-link');
+
+function openMenu() {
+    overlay.classList.remove(
+        'opacity-0',
+        'invisible'
+    );
+
+    mobileMenu.classList.remove(
+        '-translate-x-full'
+    );
+}
+
+function closeMenu() {
+
+    mobileMenu.classList.add(
+        '-translate-x-full'
+    );
+
+    overlay.classList.add(
+        'opacity-0'
+    );
+
+    setTimeout(() => {
+
+        overlay.classList.add(
+            'invisible'
+        );
+
+    },300);
+}
+
+menuBtn.addEventListener(
+    'click',
+    openMenu
+);
+
+closeBtn.addEventListener(
+    'click',
+    closeMenu
+);
+
+navLinks.forEach(link => {
+
+    link.addEventListener(
+        'click',
+        closeMenu
+    );
+
+});
+
+overlay.addEventListener(
+    'click',
+    (e) => {
+
+        if(e.target === overlay){
+
+            closeMenu();
+
+        }
+
+    }
+);
 
 
+// header mobile menu toggle js end
 
 
 
@@ -339,6 +410,14 @@ faqItems.forEach(item=>{
 })();
 
 // partners slider js end///////////////////////////////
+
+
+
+
+
+
+
+
 
 /////////////////////////////////////////////////////////////////////////////
 

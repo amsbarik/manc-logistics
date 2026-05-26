@@ -85,7 +85,7 @@
         @apply text-dark font-semibold mb-4 text-2xl md:text-3xl xl:text-4xl
     }
     .section-txt{
-        @apply text-sm/6 md:text-base/7 xl:text-lg/7 text-dark
+        @apply text-base/7 xl:text-lg/7 text-dark
     }
 
     .section-head{

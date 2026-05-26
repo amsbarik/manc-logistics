@@ -142,10 +142,7 @@
                     </div>
 
                     <!-- ========= MOBILE MENU BUTTON ========= -->
-                    <button
-                        id="menuBtn"
-                        class="lg:hidden w-12 h-12 rounded-xl bg-dark/10 flex items-center justify-center text-dark-900"
-                    >
+                    <!-- <button id="menuBtn" class="lg:hidden w-12 h-12 rounded-xl bg-dark/10 flex items-center justify-center text-dark-900" >
                         <svg xmlns="http://www.w3.org/2000/svg"
                              fill="none"
                              viewBox="0 0 24 24"
@@ -156,76 +153,126 @@
                                   stroke-linejoin="round"
                                   d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
+                    </button> -->
+
+                    <button id="menuBtn" class="lg:hidden w-12 h-12 rounded-xl bg-dark/10 flex items-center justify-center text-dark-900">
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-7 h-7">
+
+                            <path stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+
+                        </svg>
+
                     </button>
 
                 </div>
             </div>
 
             <!-- ================= MOBILE MENU ================= -->
-            <div id="mobileMenu" class="hidden lg:hidden border-t border-white/10 bg-white"
-            >
-                <div class="px-5 py-6 space-y-5">
+            <div id="mobileOverlay"
+                class="fixed inset-0 bg-black/50 opacity-0 invisible transition-all duration-300 lg:hidden z-40">
 
-                    <!-- Search -->
-                    <!-- <div class="relative">
-                        <input
-                            type="text"
-                            placeholder="Search..."
-                            class="w-full h-12 rounded-full bg-white/10 border border-white/10 pl-5 pr-14 text-white placeholder:text-gray-400 outline-none focus:border-secondary"
-                        >
+                <div id="mobileMenu"
+                    class="absolute left-0 top-0 h-screen w-[85%] max-w-[320px] bg-white shadow-2xl
+                            -translate-x-full transition-transform duration-300 ease-in-out">
 
-                        <button class="absolute right-1 top-1 h-10 px-4 rounded-full bg-secondary text-white">
-                            Go
-                        </button>
-                    </div> -->
+                    <div class="px-5 py-6">
 
-                    <!-- Menu Links -->
-                    <div class="flex flex-col space-y-1">
+                        <!-- Top -->
+                        <div class="flex items-center justify-between pb-5 border-b">
 
-                        <a href="#" class="text-dark-900 rounded-xl px-4 py-3 font-medium"> Home </a>
-                        <a href="#" class="text-dark-900 rounded-xl px-4 py-3 font-medium"> Services</a>
-                        <a href="#" class="text-dark-900 rounded-xl px-4 py-3 font-medium"> About Us</a>
-                        <a href="#" class="text-dark-900 rounded-xl px-4 py-3 font-medium"> Contact</a>
+                            <h3 class="text-xl font-bold text-primary">
+                                MANC Riders
+                            </h3>
 
-                      
+                            <!-- Close Button -->
+                            <button id="closeMenu"
+                                    class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center hover:bg-gray-200">
 
-                    </div>
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-6 h-6">
 
-                    <!-- Buttons -->
-                    <div class="grid grid-cols-2 gap-3 pt-2">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
 
-                        <a href="#"
-                           class="h-12 rounded-full border border-primary text-dark-900 flex items-center justify-center">
-                            Login
-                        </a>
+                            </button>
 
-                        <a href="#"
-                           class="h-12 rounded-full bg-secondary text-white font-semibold flex items-center justify-center">
-                            Register
-                        </a>
+                        </div>
+
+                        <!-- Menu Links -->
+                        <div class="flex flex-col mt-6 space-y-1">
+
+                            <a href="#" class="mobile-link text-dark-900 rounded-xl px-4 py-3 font-medium hover:bg-primary/5">
+                                Home
+                            </a>
+
+                            <a href="#" class="mobile-link text-dark-900 rounded-xl px-4 py-3 font-medium hover:bg-primary/5">
+                                Services
+                            </a>
+
+                            <a href="#" class="mobile-link text-dark-900 rounded-xl px-4 py-3 font-medium hover:bg-primary/5">
+                                About Us
+                            </a>
+
+                            <a href="#" class="mobile-link text-dark-900 rounded-xl px-4 py-3 font-medium hover:bg-primary/5">
+                                Contact
+                            </a>
+
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="grid grid-cols-2 gap-3 pt-8">
+
+                            <a href="#"
+                            class="mobile-link h-12 rounded-full border border-primary text-dark-900 flex items-center justify-center">
+
+                                Login
+
+                            </a>
+
+                            <a href="#"
+                            class="mobile-link h-12 rounded-full bg-secondary text-white font-semibold flex items-center justify-center">
+
+                                Register
+
+                            </a>
+
+                        </div>
 
                     </div>
 
                 </div>
+
             </div>
 
         </nav>
     </header>
 
 
+
+
     <!-- hero slider start  -->
     <section class="relative overflow-hidden mt-[80px]">
 
-        <div id="slider" class="relative h-[840px] min-h-[400px]">
+        <div id="slider" class="relative  min-h-[440px] md:h-[470px] lg:h-[660px] xl:h-[760px] 2xl:h-[840px]">
 
            <!-- slide  -->
             <div class="slide active-slide absolute inset-0">
 
-                <img
-                    src="static/img/slider1.jpg"
-                    alt=""
-                    class="slide-bg absolute inset-0 w-full h-full object-cover"
-                >
+                <img src="static/img/slider1.jpg" alt="" class="slide-bg absolute inset-0 w-full h-full object-cover" >
 
                 <div class="absolute inset-0 bg-black/65"></div>
 
@@ -239,23 +286,110 @@
                                 🔥 Join and Earn as MANC Rider!
                             </span>
 
-                            <h1 class="mt-6  xl:text-6xl font-black text-white leading-tight">
+                            <h1 class="mt-6 text-3xl lg:text-4xl xl:text-6xl font-black text-white leading-tight">
                                 Ride & Earn Across Saudi Arabia
                             </h1>
 
-                            <p class="mt-6 text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed max-w-2xl">
+                            <p class="mt-4 lg:mt-6 text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed max-w-2xl">
                                 Join our food delivery team and choose the option that fits you best — use your own car or deliver without a car with flexible earning opportunities.
                             </p>
 
-                            <div class="flex flex-col sm:flex-row gap-4 mt-10">
+                            <div class="flex flex-row gap-4 mt-10">
 
-                                <a href="#"
-                                   class="h-14 px-8 rounded-full bg-accent text-dark font-semibold flex items-center justify-center hover:scale-105 transition">
+                                <a href="#" class="h-10 xl:h-14 px-6 xl:px-8 text-sm lg:text-base rounded-full bg-accent text-dark font-semibold flex items-center justify-center hover:scale-105 transition">
                                     Apply With Car
                                 </a>
 
-                                <a href="#"
-                                   class="h-14 px-8 rounded-full border border-accent/50 text-white font-semibold flex items-center justify-center hover:bg-white/10 transition">
+                                <a href="#" class="h-10 xl:h-14 px-6 xl:px-8 text-sm lg:text-base rounded-full border border-accent/50 text-white font-semibold flex items-center justify-center hover:bg-white/10 transition">
+                                    Apply Without Car
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+           <!-- slide  -->
+            <div class="slide  absolute inset-0">
+
+                <img src="static/img/slider1.jpg" alt="" class="slide-bg absolute inset-0 w-full h-full object-cover" >
+
+                <div class="absolute inset-0 bg-black/65"></div>
+
+                <div class="absolute inset-0 flex items-center z-10">
+
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+
+                        <div class="slide-content max-w-3xl">
+
+                            <span class="inline-flex items-center px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-medium backdrop-blur">
+                                🔥 Join and Earn as MANC Rider!
+                            </span>
+
+                            <h1 class="mt-6 text-3xl lg:text-4xl xl:text-6xl font-black text-white leading-tight">
+                                Ride & Earn Across Saudi Arabia
+                            </h1>
+
+                            <p class="mt-4 lg:mt-6 text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed max-w-2xl">
+                                Join our food delivery team and choose the option that fits you best — use your own car or deliver without a car with flexible earning opportunities.
+                            </p>
+
+                            <div class="flex flex-row gap-4 mt-10">
+
+                                <a href="#" class="h-10 xl:h-14 px-6 xl:px-8 text-sm lg:text-base rounded-full bg-accent text-dark font-semibold flex items-center justify-center hover:scale-105 transition">
+                                    Apply With Car
+                                </a>
+
+                                <a href="#" class="h-10 xl:h-14 px-6 xl:px-8 text-sm lg:text-base rounded-full border border-accent/50 text-white font-semibold flex items-center justify-center hover:bg-white/10 transition">
+                                    Apply Without Car
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+           <!-- slide  -->
+            <div class="slide  absolute inset-0">
+
+                <img src="static/img/slider1.jpg" alt="" class="slide-bg absolute inset-0 w-full h-full object-cover" >
+
+                <div class="absolute inset-0 bg-black/65"></div>
+
+                <div class="absolute inset-0 flex items-center z-10">
+
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+
+                        <div class="slide-content max-w-3xl">
+
+                            <span class="inline-flex items-center px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-medium backdrop-blur">
+                                🔥 Join and Earn as MANC Rider!
+                            </span>
+
+                            <h1 class="mt-6 text-3xl lg:text-4xl xl:text-6xl font-black text-white leading-tight">
+                                Ride & Earn Across Saudi Arabia
+                            </h1>
+
+                            <p class="mt-4 lg:mt-6 text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed max-w-2xl">
+                                Join our food delivery team and choose the option that fits you best — use your own car or deliver without a car with flexible earning opportunities.
+                            </p>
+
+                            <div class="flex flex-row gap-4 mt-10">
+
+                                <a href="#" class="h-10 xl:h-14 px-6 xl:px-8 text-sm lg:text-base rounded-full bg-accent text-dark font-semibold flex items-center justify-center hover:scale-105 transition">
+                                    Apply With Car
+                                </a>
+
+                                <a href="#" class="h-10 xl:h-14 px-6 xl:px-8 text-sm lg:text-base rounded-full border border-accent/50 text-white font-semibold flex items-center justify-center hover:bg-white/10 transition">
                                     Apply Without Car
                                 </a>
 
@@ -271,11 +405,11 @@
 
 
             <!-- prev btn  -->
-            <button id="prevBtn" class="slider-btn absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white text-xl hover:bg-primary" > ❮</button>
+            <button id="prevBtn" class="hidden 2xl:block slider-btn absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white text-xl hover:bg-primary" > ❮</button>
 
           
             <!-- next btn  -->
-            <button id="nextBtn" class="slider-btn absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white text-xl hover:bg-primary"> ❯</button>
+            <button id="nextBtn" class="hidden 2xl:block slider-btn absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white text-xl hover:bg-primary"> ❯</button>
 
             <!-- INDICATORS  -->
             <div class="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-3">
@@ -331,7 +465,7 @@
     <!-- services start  -->
     <section class="pt-8 pb-34 bg-linear-to-b from-primary-50 via-primary-50 to-secondary-100">
         <div class="container">
-            <div class="section-head text-center max-w-9/10">
+            <div class="section-head text-center max-w-9/10 mx-auto">
                 <h2 class="heading-center">Explore Our Services</h2>
                 <h1 class="section-title">Delicious Food & Reliable Delivery</h1>
                 <p class="text-base/7 text-dark">
@@ -339,11 +473,26 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-y-22 gap-6">
                 
                 <!-- service-card  -->
                 <div class="service-card group relative">
-                    <img src="static/img/banner/s1.jpg" class="rounded-2xl z-10 w-full h-[420px] object-cover" alt="">
+                    <img src="static/img/banner/s1.jpg" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover" alt="">
+                    <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
+                        <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
+                        
+                        <a href="#" class="flex mt-7 justify-between group-hover:text-primary">
+                                <h5 class="font-semibold text-xl capitalize  text-dark hover:text-primary hover:underline -mt-1">Catering service</h5>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <p class="card-text overflow-hidden max-h-0 opacity-0 translate-y-6 mt-0 transition-all duration-500 ease-in-out group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0  group-hover:mt-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque soluta corrupti provident!</p>
+                    </div>
+                </div>
+
+
+                <!-- service-card  -->
+                <div class="service-card group relative">
+                    <img src="static/img/banner/s3.png" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[420px] object-cover" alt="">
                     <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
                         <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
                         
@@ -356,7 +505,7 @@
                 </div>
                 <!-- service-card  -->
                 <div class="service-card group relative">
-                    <img src="static/img/banner/s3.png" class="rounded-2xl z-10 w-full h-[420px] object-cover" alt="">
+                    <img src="static/img/banner/s4.jpg" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[420px] object-cover" alt="">
                     <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
                         <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
                         
@@ -369,20 +518,7 @@
                 </div>
                 <!-- service-card  -->
                 <div class="service-card group relative">
-                    <img src="static/img/banner/s4.jpg" class="rounded-2xl z-10 w-full h-[420px] object-cover" alt="">
-                    <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
-                        <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
-                        
-                        <a href="#" class="flex mt-7 justify-between group-hover:text-primary">
-                                <h5 class="font-semibold text-xl capitalize  text-dark hover:text-primary hover:underline -mt-1">Catering service</h5>
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <p class="card-text overflow-hidden max-h-0 opacity-0 translate-y-6 mt-0 transition-all duration-500 ease-in-out group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0  group-hover:mt-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque soluta corrupti provident!</p>
-                    </div>
-                </div>
-                <!-- service-card  -->
-                <div class="service-card group relative">
-                    <img src="static/img/banner/s2.jpeg" class="rounded-2xl z-10 w-full h-[420px] object-cover" alt="">
+                    <img src="static/img/banner/s2.jpeg" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[420px] object-cover" alt="">
                     <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
                         <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
                         
@@ -404,27 +540,27 @@
     <!-- Rider Facilities start -->
     <section class="section-padding">
         <div class="container">
-            <div class="section-head text-center max-w-9/10">
+            <div class="section-head text-center max-w-9/10 mx-auto">
                 <h2 class="heading-center">Why join with us?</h2>
                 <h1 class="section-title">Become a MANC Rider & Earn Easily!</h1>
-                <p class="text-base/7 text-dark">We follow a fast and easy process to take your order, assign a rider, and deliver your food hot and fresh to your doorstep.</p>
+                <p class="section-txt">We follow a fast and easy process to take your order, assign a rider, and deliver your food hot and fresh to your doorstep.</p>
             </div>
 
-            <div class="grid grid-cols-3 gap-12 mt-12">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mt-12">
                 <div class="">
-                    <img src="static/img/icons/icon-insured.png" alt="">
-                    <h5 class="mt-6 font-semibold text-xl text-dark">Safe Rides</h5>
-                    <p class="text-dark-800 mt-2 text-lg/7">Every ride with Pathao is safe and covered under Safety Coverage Services, making each trip more secure and reliable.</p>
+                    <img src="static/img/icons/icon-insured.png" class="w-[64px] md:w-[74px] lg:w-[84px] xl:w-[96px] h-auto object-contain" alt="">
+                    <h5 class="mt-4 lg:mt-6 font-semibold text-lg lg:text-xl text-dark">Safe Rides</h5>
+                    <p class="text-dark-800 mt-1 lg:mt-2 text-sm/6 lg:text-lg/7">Every ride with Pathao is safe and covered under Safety Coverage Services, making each trip more secure and reliable.</p>
                 </div>
                 <div>
-                    <img src="static/img/icons/icon-bonus.png" alt="">
-                    <h5 class="mt-6 font-semibold text-xl text-dark">Extra Bonuses Along with Regular Income</h5>
-                    <p class="text-dark-800 mt-2 text-lg/7">Every ride with Pathao is safe and covered under Safety Coverage Services, making each trip more secure and reliable.</p>
+                    <img src="static/img/icons/icon-bonus.png" class="w-[64px] md:w-[74px] lg:w-[84px] xl:w-[96px] h-auto object-contain" alt="">
+                    <h5 class="mt-4 lg:mt-6 font-semibold text-lg lg:text-xl text-dark">Extra Bonuses Along with Regular Income</h5>
+                    <p class="text-dark-800 mt-1 lg:mt-2 text-sm/6 lg:text-lg/7">Every ride with Pathao is safe and covered under Safety Coverage Services, making each trip more secure and reliable.</p>
                 </div>
                 <div>
-                    <img src="static/img/icons/icon-time.png" alt="">
-                    <h5 class="mt-6 font-semibold text-xl text-dark">On-Time Payments</h5>
-                    <p class="text-dark-800 mt-2 text-lg/7">Every ride with Pathao is safe and covered under Safety Coverage Services, making each trip more secure and reliable.</p>
+                    <img src="static/img/icons/icon-time.png" class="w-[64px] md:w-[74px] lg:w-[84px] xl:w-[96px] h-auto object-contain" alt="">
+                    <h5 class="mt-4 lg:mt-6 font-semibold text-lg lg:text-xl text-dark">On-Time Payments</h5>
+                    <p class="text-dark-800 mt-1 lg:mt-2 text-sm/6 lg:text-lg/7">Every ride with Pathao is safe and covered under Safety Coverage Services, making each trip more secure and reliable.</p>
                 </div>
             </div>
             
@@ -435,22 +571,22 @@
     <!-- with and without car rider reg form start  -->
     <section class="section-padding">
         <div class="container">
-            <div class="grid grid-cols-2 gap-12 ">
-                <div class="">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 ">
+                <div class="order-2 lg:order-1">
                     <h2 class="section-heading">We have helped clients</h2>
                     <h2 class="section-title">We have helped clients optimize all logistics operations.</h2>
-                    <p class="mt-3 text-lg/7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sequi nobis perferendis.</p>
+                    <p class="section-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sequi nobis perferendis.</p>
 
                     <!-- join with car -->
-                    <div class="group flex justify-between bg-primary-200 px-8 py-6 border-l-6 border-primary rounded-xl hover:bg-accent-300 transition-all duration-300 mt-10">
+                    <div class="group flex justify-between bg-primary-200 px-5 py-3 xl:px-8 xl:py-6 border-l-6 border-primary rounded-xl hover:bg-accent-300 transition-all duration-300 mt-6 lg:mt-10">
                         <div class="pe-6">
                             <a href="#">
-                                <h2 class="font-semibold text-2xl capitalize text-dark">Join with car</h2>
-                                <p class="mt-3 text-lg/7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sequi nobis perferendis.</p>
+                                <h2 class="font-semibold text-xl xl:text-2xl capitalize text-dark">Join with car</h2>
+                                <p class="mt-1 lg:mt-3 text-sm/6 lg:text-lg/7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sequi nobis perferendis.</p>
                             </a>
                         </div>
                         <div class="flex items-center">
-                            <a href="#" class="bg-primary rounded-full size-6 p-6 flex items-center justify-center">
+                            <a href="#" class="bg-primary rounded-full size-4 p-5 lg:size-6 lg:p-6 flex items-center justify-center">
                                 <i class="fa-solid fa-arrow-right -rotate-45 text-accent transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
                             </a>
                         </div>
@@ -458,42 +594,36 @@
 
 
                     <!-- join without car -->
-                    <div class="group flex justify-between bg-secondary-200 px-8 py-6 mt-6 border-l-6 border-primary rounded-xl hover:bg-accent-300 transition-all duration-300">
+                    <div class="group flex justify-between bg-secondary-200 px-5 py-3 xl:px-8 xl:py-6 mt-6 border-l-6 border-primary rounded-xl hover:bg-accent-300 transition-all duration-300">
                         <div class="pe-6">
                             <a href="#">
-                                <h2 class="font-semibold text-2xl capitalize text-dark">Join without car</h2>
-                                <p class="mt-3 text-lg/7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sequi nobis perferendis.</p>
+                                <h2 class="font-semibold text-xl xl:text-2xl capitalize text-dark">Join without car</h2>
+                                <p class="mt-1 lg:mt-3 text-sm/6 lg:text-lg/7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sequi nobis perferendis.</p>
                             </a>
                         </div>
                         <div class="flex items-center">
-                            <a href="#" class="bg-primary rounded-full size-6 p-6 flex items-center justify-center">
+                            <a href="#" class="bg-primary rounded-full size-4 p-5 lg:size-6 lg:p-6 flex items-center justify-center">
                                 <i class="fa-solid fa-arrow-right -rotate-45 text-accent transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="overflow-hidden">
-                    <img src="static//img//rider-banner.jpg" class="w-full h-full object-cover [clip-path:polygon(120px_0,100%_0,100%_100%,0_100%,0_120px)]" alt="">
+
+                <div class="overflow-hidden order-1 lg:order-2">
+                    <img src="static//img//rider-banner.jpg" class="w-full h-[260px] lg:h-full object-cover [clip-path:polygon(60px_0,100%_0,100%_100%,0_100%,0_80px)] lg:[clip-path:polygon(120px_0,100%_0,100%_100%,0_100%,0_120px)]" alt="">
                 </div>
             </div>
         </div>
     </section>
 
 
-
-
     <!-- message from md start  -->
     <section class="md-message section-padding bg-linear-to-t  from-secondary-100 via-primary-50 to-secondary-100 ">
         <div class="container">
-            <!-- <div class="section-head text-center max-w-9/10">
-                <h2 class="heading-center">Our Seervices</h2>
-                <h1 class="section-title">Fast & Easy Delivery Process!</h1>
-                <p class="text-base/7 text-dark">We follow a fast and easy process to take your order, assign a rider, and deliver your food hot and fresh to your doorstep.</p>
-            </div> -->
 
-            <div class="flex gap-8">
-                <div class="w-[340px]">
-                    <img src="static/img/team1.jpg" class="w-full h-auto object-contain border border-4 border-accent shadow-2xl" alt="">
+            <div class="md:flex gap-8">
+                <div class="w-full lg:w-[340px] fle">
+                    <img src="static/img/team1.jpg" class="w-[240px] md:w-full h-auto object-contain border border-4 border-accent shadow-2xl" alt="">
                     <div class="border-l-12 border-secondary ps-5 mt-6">
                         <h5 class="capitalize text-dark text-2xl font-semibold">Mehedi hasan</h5>
                         <p class="text-base text-dark-800 font-medium">Managing Director</p>
@@ -501,8 +631,8 @@
                 </div>
 
                 <div>
-                    <h1 class="section-title text-dark capitalize">message from managing directior</h1>
-                    <p class="text-secondary text-lg font-medium capitalize mt-12">Message From</p>
+                    <h1 class="section-title text-dark capitalize hidden lg:block">message from managing directior</h1>
+                    <p class="text-secondary text-lg font-medium capitalize mt-8 lg:mt-12">Message From</p>
                     <h2 class="font-semibold text-dark text-2xl text-dark">Managing Director</h2>
 
                     <p class="mt-6 text-dark-800 ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo explicabo libero illo quos deleniti! Temporibus placeat nulla sunt repellat pariatur voluptate mollitia eius eligendi.</p>
