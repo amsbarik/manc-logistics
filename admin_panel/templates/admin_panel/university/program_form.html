@@ -1,0 +1,346 @@
+{% extends 'admin_panel/layouts/master.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Program Form {% endblock title %}
+
+{% block content %}
+
+<style>
+    .form .mb-3 {
+        margin-bottom: 0 !important;
+    }
+</style>
+
+<h1 class="app-page-title mt-lg-4 mb-0">Program Form</h1>
+<hr>
+
+<form action="" method="POST" class="form" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="row g-2 g-md-3 row-cols-1 row-cols-md-2">
+        <div class="col">
+            {{ form.name | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.qualification | as_crispy_field }}
+        </div>
+
+        <!-- Discipline -->
+        <div class="col">
+            <label class="form-label custom-lavel">Discipline<span>*</span></label>
+            <div class="custom-dropdown" id="discipline-dropdown">
+                <div class="dropdown-selected" id="discipline-selected">
+                    {% if form.fields.discipline.initial %}
+                    {{ form.fields.discipline.initial.name }}
+                    {% else %}
+                    Select Discipline
+                    {% endif %}
+                </div>
+                <div class="dropdown-list" id="discipline-list">
+                    <input type="text" id="discipline-search" placeholder="Search here..." />
+                    <ul id="discipline-options" class="mt-3"></ul>
+                </div>
+                <input type="hidden" name="discipline" id="id_discipline"
+                    value="{% if form.fields.discipline.initial %}{{ form.fields.discipline.initial.id }}{% endif %}" />
+            </div>
+        </div>
+
+
+        <!-- University -->
+        <div class="col">
+            <label class="form-label custom-lavel">University<span>*</span></label>
+            <div class="custom-dropdown" id="university-dropdown">
+                <div class="dropdown-selected" id="university-selected">
+                    {% if form.instance.pk and form.instance.university %}
+                    {{ form.instance.university.name }}
+                    {% else %}
+                    Select University
+                    {% endif %}
+                </div>
+                <div class="dropdown-list" id="university-list">
+                    <input type="text" id="university-search" placeholder="Search here..." />
+                    <ul id="university-options" class="mt-3"></ul>
+                </div>
+                <input type="hidden" name="university" id="id_university"
+                    value="{% if form.instance.pk and form.instance.university %}{{ form.instance.university.id }}{% endif %}" />
+            </div>
+        </div>
+
+        <!-- Department -->
+        <div class="col">
+            <label class="form-label custom-lavel">Department<span>*</span></label>
+            <div class="custom-dropdown" id="department-dropdown">
+                <div class="dropdown-selected" id="department-selected">
+                    {% if form.instance.pk and form.instance.department %}
+                    {{ form.instance.department.name }}
+                    {% else %}
+                    Select Department
+                    {% endif %}
+                </div>
+                <div class="dropdown-list" id="department-list">
+                    <input type="text" id="department-search" placeholder="Search here..." />
+                    <ul id="department-options" class="mt-3"></ul>
+                </div>
+                <input type="hidden" name="department" id="id_department"
+                    value="{% if form.instance.pk and form.instance.department %}{{ form.instance.department.id }}{% endif %}" />
+            </div>
+        </div>
+
+        <!-- Subject -->
+        <div class="col">
+            <label class="form-label custom-lavel">Subject<span>*</span></label>
+            <div class="custom-dropdown" id="subject-dropdown">
+                <div class="dropdown-selected" id="subject-selected">
+                    {% if form.instance.pk and form.instance.subject %}
+                    {{ form.instance.subject.name }}
+                    {% else %}
+                    Select Subject
+                    {% endif %}
+                </div>
+                <div class="dropdown-list" id="subject-list">
+                    <input type="text" id="subject-search" placeholder="Search here..." />
+                    <ul id="subject-options" class="mt-3"></ul>
+                </div>
+                <input type="hidden" name="subject" id="id_subject"
+                    value="{% if form.instance.pk and form.instance.subject %}{{ form.instance.subject.id }}{% endif %}" />
+            </div>
+        </div>
+
+        <!-- Other fields -->
+        <div class="col">
+            {{ form.duration | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.tuition_fee | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.min_ssc_gpa | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.min_hsc_gpa | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.min_bachelor_cgpa | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.min_masters_cgpa | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.min_work_experience_years | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.min_research_experience_years | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.min_ielts | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.min_toefl | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.min_duolingo | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.order | as_crispy_field }}
+        </div>
+
+    </div>
+
+    <div class="mt-3">
+        {{ form.apply_url | as_crispy_field }}
+    </div>
+
+    <!-- Job Opportunities  -->
+    <!-- <div class="mt-3">
+        <label class="form-label">Job Opportunities</label>
+        <div class="row bg-white mx-0 pb-2 pt-3" style="margin-top: -16px; font-size: 14px;">
+            {% for checkbox in form.job_opportunity %}
+            <div class="col-md-4 mb-2">
+                <div class="form-check">
+                    {{ checkbox.tag }}
+                    <label class="form-check-label" for="{{ checkbox.id_for_label }}">
+                        {{ checkbox.choice_label }}
+                    </label>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div> -->
+
+    <!-- Job Intakes  -->
+    <div class="mt-3">
+        <label class="form-label">Intakes</label>
+        <div class="row bg-white mx-0 pb-2 pt-3" style="margin-top: -16px; font-size: 14px;">
+            {% for checkbox in form.intake %}
+            <div class="col-md-4 mb-2">
+                <div class="form-check">
+                    {{ checkbox.tag }}
+                    <label class="form-check-label" for="{{ checkbox.id_for_label }}">
+                        {{ checkbox.choice_label }}
+                    </label>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="mt-3">
+        {{ form.admission_requirements | as_crispy_field }}
+    </div>
+    <div class="mt-3">
+        {{ form.is_active | as_crispy_field }}
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4 me-3">Submit</button>
+    <a href="{% url 'program_list' %}" class="btn btn-dark mt-4"> Cancel</a>
+</form>
+
+<!-- Program form custom dropdown search and filter js start  -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function initDropdown({ dropdownId, selectedId, listId, searchId, optionsId, hiddenInputId, fetchUrl, paramKey = null, onChange = null, initialLabel = "Select Option" }) {
+            const dropdown = document.getElementById(dropdownId);
+            const selected = document.getElementById(selectedId);
+            const list = document.getElementById(listId);
+            const search = document.getElementById(searchId);
+            const optionsContainer = document.getElementById(optionsId);
+            const hiddenInput = document.getElementById(hiddenInputId);
+
+            let allOptions = [];
+
+            selected.addEventListener("click", () => {
+                list.style.display = (list.style.display === "block") ? "none" : "block";
+                search.focus();
+            });
+
+            document.addEventListener("click", function (e) {
+                if (!dropdown.contains(e.target)) list.style.display = "none";
+            });
+
+            function renderOptions(data, query = "") {
+                optionsContainer.innerHTML = "";
+                const q = query.toLowerCase();
+                const toShow = q ? data.filter(i => i.name.toLowerCase().includes(q)) : data;
+
+                if (!toShow.length) {
+                    const li = document.createElement("li");
+                    li.textContent = "No options found";
+                    li.style.color = "#888";
+                    optionsContainer.appendChild(li);
+                    return;
+                }
+
+                const currentSelectedId = hiddenInput.value;
+
+                toShow.forEach(item => {
+                    const li = document.createElement("li");
+                    li.textContent = item.name;
+                    li.dataset.id = item.id;
+                    if (String(item.id) === String(currentSelectedId)) selected.textContent = item.name;
+
+                    li.addEventListener("click", function () {
+                        hiddenInput.value = item.id;
+                        selected.textContent = item.name;
+                        list.style.display = "none";
+                        if (onChange) onChange(item.id);
+                    });
+
+                    optionsContainer.appendChild(li);
+                });
+            }
+
+            function fetchOptions(param = null) {
+                let url = fetchUrl;
+                if (paramKey && param) url += "?" + paramKey + "=" + param;
+
+                fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                        allOptions = Array.isArray(data) ? data : [];
+                        renderOptions(allOptions, search.value || "");
+                    })
+                    .catch(err => { console.error(err); renderOptions([]); });
+            }
+
+            search.addEventListener("input", function () { renderOptions(allOptions, this.value); });
+
+            function reset() {
+                hiddenInput.value = "";
+                selected.textContent = initialLabel;
+                search.value = "";
+                optionsContainer.innerHTML = "";
+                allOptions = [];
+            }
+
+            return { fetchOptions, reset };
+        }
+
+        // =========================
+        // Initialize cascading dropdowns
+        // =========================
+        const disciplineDropdown = initDropdown({
+            dropdownId: "discipline-dropdown",
+            selectedId: "discipline-selected",
+            listId: "discipline-list",
+            searchId: "discipline-search",
+            optionsId: "discipline-options",
+            hiddenInputId: "id_discipline",
+            fetchUrl: "{% url 'ajax_load_disciplines' %}",
+            initialLabel: "Select Discipline",
+            onChange: (id) => { universityDropdown.reset(); departmentDropdown.reset(); subjectDropdown.reset(); universityDropdown.fetchOptions(id); }
+        });
+
+        const universityDropdown = initDropdown({
+            dropdownId: "university-dropdown",
+            selectedId: "university-selected",
+            listId: "university-list",
+            searchId: "university-search",
+            optionsId: "university-options",
+            hiddenInputId: "id_university",
+            fetchUrl: "{% url 'ajax_load_universities' %}",
+            paramKey: "discipline",
+            initialLabel: "Select University",
+            onChange: (id) => { departmentDropdown.reset(); subjectDropdown.reset(); departmentDropdown.fetchOptions(id); }
+        });
+
+        const departmentDropdown = initDropdown({
+            dropdownId: "department-dropdown",
+            selectedId: "department-selected",
+            listId: "department-list",
+            searchId: "department-search",
+            optionsId: "department-options",
+            hiddenInputId: "id_department",
+            fetchUrl: "{% url 'ajax_load_departments' %}",
+            paramKey: "university",
+            initialLabel: "Select Department",
+            onChange: (id) => { subjectDropdown.reset(); subjectDropdown.fetchOptions(id); }
+        });
+
+        const subjectDropdown = initDropdown({
+            dropdownId: "subject-dropdown",
+            selectedId: "subject-selected",
+            listId: "subject-list",
+            searchId: "subject-search",
+            optionsId: "subject-options",
+            hiddenInputId: "id_subject",
+            fetchUrl: "{% url 'ajax_load_subjects' %}",
+            paramKey: "department",
+            initialLabel: "Select Subject"
+        });
+
+        // Preload for edit
+        const initialDiscipline = document.getElementById("id_discipline").value;
+        if (initialDiscipline) { disciplineDropdown.fetchOptions(); universityDropdown.fetchOptions(initialDiscipline); }
+        else { disciplineDropdown.fetchOptions(); }
+
+        const initialUniversity = document.getElementById("id_university").value;
+        if (initialUniversity) { departmentDropdown.fetchOptions(initialUniversity); }
+
+        const initialDepartment = document.getElementById("id_department").value;
+        if (initialDepartment) { subjectDropdown.fetchOptions(initialDepartment); }
+    });
+</script>
+
+
+
+{% endblock content %}

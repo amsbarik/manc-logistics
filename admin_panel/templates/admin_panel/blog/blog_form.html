@@ -1,0 +1,106 @@
+{% extends 'admin_panel/layouts/master.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Blog Form {% endblock title %}
+
+{% block content %}
+
+<h1 class="app-page-title mt-lg-4 mb-0">Blog Overview</h1>
+<hr>
+
+<form action="" method="POST" class="form" enctype="multipart/form-data"> {% csrf_token %}
+    
+    <div class="">
+        {{ form.title | as_crispy_field }}
+    </div>
+    <div class="row row-cols-1 row-cols-md-2">
+        <div class="col">
+            {{ form.category | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.cover_photo | as_crispy_field }}
+        </div>
+    </div>
+    <div class="mt-3">
+        {{ form.intro | as_crispy_field }}
+    </div>
+
+    <div class="mt-3">
+        {{ form.paragraph_01 | as_crispy_field }}
+    </div>
+    <div class="mt-3">
+        {{ form.paragraph_02 | as_crispy_field }}
+    </div>
+
+    <div class="mt-3">
+        {{ form.comment | as_crispy_field }}
+    </div>
+
+
+    <hr class="mt-3 mt-md-4">
+    <h5 class="title mb-3 mb-md-4">Gallery Section</h5>
+    <div class="row row-cols-1 row-cols-md-2">
+        <div class="col">
+            {{ form.gallery_title | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.gallery_image_01 | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.gallery_image_02 | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.gallery_image_03 | as_crispy_field }}
+        </div>
+    </div>
+    <div class="mt-3">
+        {{ form.paragraph_03 | as_crispy_field }}
+    </div>
+
+
+    <hr class="mt-3 mt-md-4">
+    <h5 class="title mb-3 mb-md-4">Highlight Section</h5>
+    <div class="row row-cols-1 row-cols-md-2">
+        <div class="col">
+            {{ form.highlight_title | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.key_point_01 | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.key_point_02 | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.key_point_03 | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.key_point_04 | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.key_point_05 | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.key_point_06 | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.key_point_07 | as_crispy_field }}
+        </div>
+    </div>
+    <div class="mt-3">
+        {{ form.paragraph_04 | as_crispy_field }}
+    </div>
+    <div class="mt-3">
+        {{ form.paragraph_05 | as_crispy_field }}
+    </div>
+
+
+    
+    <div class="mt-3">
+        {{ form.is_active | as_crispy_field }}
+    </div>
+    
+    <button type="submit" class="btn btn-primary mt-4 me-3">Submit</button>
+    <a href="{% url 'blog_list' %}" class="btn btn-dark mt-4"> Cancel</a>
+</form>
+
+
+{% endblock content %}

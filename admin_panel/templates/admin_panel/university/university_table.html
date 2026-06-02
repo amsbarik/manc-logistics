@@ -1,0 +1,102 @@
+{% load static %}
+{% load custom_filters %}
+
+
+<table class="table app-table-hover mb-0 text-left">
+    <thead>
+        <tr>
+            <th class="cell">ID</th>
+            <th class="cell">Updated At</th>
+            <th class="cell">Logo</th>
+            <th class="cell">University Name</th>
+            <th class="cell">Country</th>
+            <th class="cell">Order</th>
+            <th class="cell">Status</th>
+            <th class="cell">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for university in universities %}
+        <tr>
+            <td class="cell">{{ university.id }}</td>
+            <td class="cell"><span>{{ university.updated_at | abbreviate_month }}</span><span class="note">{{ university.updated_at | time:"h:i A" }}</span></td>
+
+        
+            <td class="cell">
+              {% if uni_logo %}
+                <img src="{{ university.uni_logo.url }}" alt="logo" style="width: 40px; height: auto; object-fit: contain;" />
+                {% else%}
+                N/A
+              {% endif %}
+            </td>
+
+            <td class="cell"><span class="truncate">{{ university.name }}</span></td>
+            <td class="cell">{{ university.country }}</td>
+            
+            <td class="cell">{% if university.order %} {{ university.order  }}{% else %} N/A {% endif %} </td>
+
+
+            <td class="cell">{{ university.is_active | active_inactive }}</td>
+
+            <td class="cell">
+                <a href="{% url 'university_update' university.id %}" class=" px-1" style="color: var(--primary);"><i class="fa-regular fa-pen-to-square"></i></a>
+            </td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% if universities.paginator.count > 15 %}
+<nav class="app-pagination mt-3">
+  <ul class="pagination justify-content-center">
+    {% with total=universities.paginator.num_pages current=universities.number %}
+      {% if universities.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ universities.previous_page_number }}&per_page={{ per_page }}">Previous</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled"><span class="page-link">Previous</span></li>
+      {% endif %}
+
+      <!-- Show First and ... -->
+      {% if current > 3 %}
+        <li class="page-item">
+          <a class="page-link" href="?page=1&per_page={{ per_page }}">1</a>
+        </li>
+        {% if current > 4 %}
+          <li class="page-item disabled"><span class="page-link">...</span></li>
+        {% endif %}
+      {% endif %}
+
+      <!-- Sliding page window -->
+      {% for i in current|page_window:total %}
+        <li class="page-item {% if i == current %}active{% endif %}">
+          <a class="page-link" href="?page={{ i }}&per_page={{ per_page }}">{{ i }}</a>
+        </li>
+      {% endfor %}
+
+      <!-- Show ... and Last -->
+      {% if current < total|add:"-2" %}
+        {% if current < total|add:"-3" %}
+          <li class="page-item disabled"><span class="page-link">...</span></li>
+        {% endif %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ total }}&per_page={{ per_page }}">{{ total }}</a>
+        </li>
+      {% endif %}
+
+      {% if universities.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ universities.next_page_number }}&per_page={{ per_page }}">Next</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled"><span class="page-link">Next</span></li>
+      {% endif %}
+    {% endwith %}
+  </ul>
+</nav>
+
+{% endif %}
+

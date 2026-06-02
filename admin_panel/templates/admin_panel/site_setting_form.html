@@ -1,0 +1,67 @@
+{% extends 'admin_panel/layouts/master.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Site Settings Form {% endblock title %}
+
+{% block content %}
+
+<h1 class="app-page-title mt-lg-4 mb-0">Site Settings Form</h1>
+<hr>
+
+<form action="" method="POST" class="form" enctype="multipart/form-data"> {% csrf_token %}
+
+    <div class="">
+        {{ form.favicon | as_crispy_field }}
+    </div>
+
+    <div class="row mt-3 row-cols-1 row-cols-md-2">
+        
+        <div class="col">
+            {{ form.header_logo | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.footer_logo | as_crispy_field }}
+        </div>
+
+        <div class="col">
+            {{ form.mobile_sale | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.mobile_support | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.email_sale | as_crispy_field }}
+        </div>
+        
+        <div class="col">
+            {{ form.email_support | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.address | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.office_hours | as_crispy_field }}
+        </div>
+
+        <div class="col">
+            {{ form.facebook_url | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.linkedin_url | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.instagram_url | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.youtube_url | as_crispy_field }}
+        </div>
+    </div>
+
+    
+    <button type="submit" class="btn btn-primary mt-4 me-3">Submit</button>
+    <a href="{% url 'site_setting' %}" class="btn btn-dark mt-4"> Cancel</a>
+</form>
+                
+
+
+{% endblock content %}

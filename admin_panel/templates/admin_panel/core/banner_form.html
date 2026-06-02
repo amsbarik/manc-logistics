@@ -1,0 +1,44 @@
+{% extends 'admin_panel/layouts/master.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Banner Form {% endblock title %}
+
+{% block content %}
+
+<h1 class="app-page-title mt-lg-4 mb-0">Banner Form</h1>
+<hr>
+
+<form action="" method="POST" class="form" enctype="multipart/form-data"> {% csrf_token %}
+    
+    <div class="row row-cols-1">
+        <div class="col">
+            {{ form.top_banner | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.top_banner_url | as_crispy_field }}
+        </div>
+    </div>
+
+    <hr> <br>
+    <div class="row row-cols-1 row-cols-md-2">
+        <div class="col">
+            {{ form.banner_ads1 | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.banner_ads2 | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.banner_ads3 | as_crispy_field }}
+        </div>
+        <div class="col">
+            {{ form.banner_ads4 | as_crispy_field }}
+        </div>
+    </div>
+
+   
+    
+    <button type="submit" class="btn btn-primary mt-4 me-3">Save</button>
+    <a href="{% url 'dashboard' %}" class="btn btn-dark mt-4"> Cancel</a>
+</form>
+			 
+
+{% endblock content %}

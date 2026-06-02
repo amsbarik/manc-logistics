@@ -1,0 +1,78 @@
+{% load custom_filters %}
+
+<table class="table app-table-hover mb-0 text-left">
+    <thead>
+        <tr>
+            <th class="cell">ID</th>
+            <th class="cell">Updated At</th>
+            <th class="cell">Job Opportunity</th>
+            <th class="cell">Order</th>
+            <th class="cell">Status</th>
+            <th class="cell">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for job in jobs %}
+        <tr>
+            <td class="cell">{{ job.id }}</td>
+            <td class="cell">
+                <span>{{ job.updated_at|abbreviate_month }}</span>
+                <span class="note">{{ job.updated_at|time:"h:i A" }}</span>
+            </td>
+            <td class="cell"><span class="truncate">{{ job.title }}</span></td>
+            <td class="cell">{% if job.order %}{{ job.order }}{% else %}N/A{% endif %}</td>
+            <td class="cell">{{ job.is_active|active_inactive }}</td>
+            <td class="cell">
+                <a href="{% url 'job_update' job.id %}" class="px-1" style="color: var(--primary);">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Pagination (only if total items > 15) -->
+{% if jobs.paginator.count > 15 %}
+<nav class="app-pagination mt-3">
+  <ul class="pagination justify-content-center">
+    {% with total=jobs.paginator.num_pages current=jobs.number %}
+      {% if jobs.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ jobs.previous_page_number }}&per_page={{ per_page }}">Previous</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled"><span class="page-link">Previous</span></li>
+      {% endif %}
+
+      {% if current > 3 %}
+        <li class="page-item"><a class="page-link" href="?page=1&per_page={{ per_page }}">1</a></li>
+        {% if current > 4 %}
+          <li class="page-item disabled"><span class="page-link">...</span></li>
+        {% endif %}
+      {% endif %}
+
+      {% for i in current|page_window:total %}
+        <li class="page-item {% if i == current %}active{% endif %}">
+          <a class="page-link" href="?page={{ i }}&per_page={{ per_page }}">{{ i }}</a>
+        </li>
+      {% endfor %}
+
+      {% if current < total|add:"-2" %}
+        {% if current < total|add:"-3" %}
+          <li class="page-item disabled"><span class="page-link">...</span></li>
+        {% endif %}
+        <li class="page-item"><a class="page-link" href="?page={{ total }}&per_page={{ per_page }}">{{ total }}</a></li>
+      {% endif %}
+
+      {% if jobs.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ jobs.next_page_number }}&per_page={{ per_page }}">Next</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled"><span class="page-link">Next</span></li>
+      {% endif %}
+    {% endwith %}
+  </ul>
+</nav>
+{% endif %}

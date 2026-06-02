@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- fontwesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- tailwind css link  -->
+    <!-- <link rel="stylesheet" href="{% static 'dist/style.css' %}"> -->
+    <link rel="stylesheet" href="static/dist/style.css">
+
+
+    {% if site_settings and site_settings.favicon %}
+        <link rel="icon" href="{{ site_settings.favicon.url }}" type="image/x-icon">
+    {% endif %}
+
+    <!-- custom css link -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title> {% block title %}      {% endblock title %} </title>
+
+
+</head>
+<body class="bg-primary-50">
+
+    <!-- header  -->
+    {% block header %}
+        {% include 'layouts/header.html' %}
+    {% endblock header %}
+
+
+    <!-- main content  -->
+    <main>
+        {% if messages %}
+        <div class="messages" style="position: fixed; right: 16px; top: 108px; z-index: 100;">
+            {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} d-flex align-items-center" role="alert">
+                <span class="flex-grow-1">{{ message }}</span>
+                <button type="button" class="btn-close ms-3" aria-label="Close" onclick="this.parentElement.remove();"></button>
+            </div>
+            {% endfor %}
+        </div>
+
+        <script>
+            // Auto remove alerts after 3 seconds
+            setTimeout(function() {
+                document.querySelectorAll('.alert').forEach(alert => {
+                    alert.remove();
+                });
+            }, 3000);
+        </script>
+        {% endif %}
+
+        
+
+        {% block content %}
+            main content here
+        {% endblock content %}
+
+
+    </main>
+
+
+    <!-- footer start  -->
+     {% block footer %}
+        {% include 'layouts/footer.html' %}
+     {% endblock footer %}
+   
+
+
+    <!-- Scroll Progress Button -->
+    <div id="scrollBtn" class="fixed bottom-8 right-8 opacity-0 invisible transition-all duration-300 cursor-pointer z-50">
+
+        <div class="relative w-16 h-16">
+
+            <!-- Progress Circle -->
+            <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
+
+                <!-- Background -->
+                <circle cx="50"  cy="50" r="38"  stroke="#e5e7eb" stroke-width="6" fill="none" />
+
+                <!-- Progress -->
+                <circle id="progressCircle"
+                    cx="50"
+                    cy="50"
+                    r="38"
+                    stroke="#E7000B"
+                    stroke-width="6"
+                    stroke-linecap="round"
+                    fill="none"
+                    stroke-dasharray="264"
+                    stroke-dashoffset="264"
+                />
+            </svg>
+
+            <!-- Arrow Button -->
+            <button
+                id="topBtn"
+                class="absolute inset-0 m-auto w-11 h-11 rounded-full bg-white shadow-lg flex items-center justify-center">
+
+                <i class="fa-solid fa-chevron-up text-xl text-dark"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- main js link  -->
+    <script src="static/js/main.js"></script>
+</body>
+</html>

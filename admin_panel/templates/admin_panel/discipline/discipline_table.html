@@ -1,0 +1,88 @@
+{% load custom_filters %}
+
+<table class="table app-table-hover mb-0 text-left">
+    <thead>
+        <tr>
+            <th class="cell">ID</th>
+            <th class="cell">Updated At</th>
+            <th class="cell">Name</th>
+            <th class="cell">Icon</th>
+            <th class="cell">Description</th>
+            <th class="cell">Order</th>
+            <th class="cell">Status</th>
+            <th class="cell">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for discipline in disciplines %}
+        <tr>
+            <td class="cell">{{ discipline.id }}</td>
+            <td class="cell">
+                <span>{{ discipline.updated_at|abbreviate_month }}</span>
+                <span class="note">{{ discipline.updated_at|time:"h:i A" }}</span>
+            </td>
+            <td class="cell"><span class="truncate">{{ discipline.name }}</span></td>
+            <td class="cell">
+                {% if discipline.icon %}
+                    <img src="{{ discipline.icon.url }}" alt="icon" style="width:40px; height:auto; object-fit:contain;" />
+                {% else %}
+                    N/A
+                {% endif %}
+            </td>
+            <td class="cell"><span class="truncate">{{ discipline.description }}</span></td>
+            <td class="cell">{% if discipline.order %}{{ discipline.order }}{% else %}N/A{% endif %}</td>
+            <td class="cell">{{ discipline.is_active|active_inactive }}</td>
+            <td class="cell">
+                <a href="{% url 'discipline_update' discipline.id %}" class="px-1" style="color: var(--primary);">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Pagination -->
+{% if disciplines.paginator.count > 15 %}
+<nav class="app-pagination mt-3">
+  <ul class="pagination justify-content-center">
+    {% with total=disciplines.paginator.num_pages current=disciplines.number %}
+      {% if disciplines.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ disciplines.previous_page_number }}&per_page={{ per_page }}">Previous</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled"><span class="page-link">Previous</span></li>
+      {% endif %}
+
+      {% if current > 3 %}
+        <li class="page-item"><a class="page-link" href="?page=1&per_page={{ per_page }}">1</a></li>
+        {% if current > 4 %}
+          <li class="page-item disabled"><span class="page-link">...</span></li>
+        {% endif %}
+      {% endif %}
+
+      {% for i in current|page_window:total %}
+        <li class="page-item {% if i == current %}active{% endif %}">
+          <a class="page-link" href="?page={{ i }}&per_page={{ per_page }}">{{ i }}</a>
+        </li>
+      {% endfor %}
+
+      {% if current < total|add:"-2" %}
+        {% if current < total|add:"-3" %}
+          <li class="page-item disabled"><span class="page-link">...</span></li>
+        {% endif %}
+        <li class="page-item"><a class="page-link" href="?page={{ total }}&per_page={{ per_page }}">{{ total }}</a></li>
+      {% endif %}
+
+      {% if disciplines.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ disciplines.next_page_number }}&per_page={{ per_page }}">Next</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled"><span class="page-link">Next</span></li>
+      {% endif %}
+    {% endwith %}
+  </ul>
+</nav>
+{% endif %}

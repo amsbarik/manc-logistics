@@ -2,5 +2,11 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.3.0",
     "tailwindcss": "^4.3.0"
+  },
+
+
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./static/src/input.css -o ./static/dist/style.css --watch",
+    "build": "npx @tailwindcss/cli -i ./static/src/input.css -o ./static/dist/style.css --minify"
   }
 }

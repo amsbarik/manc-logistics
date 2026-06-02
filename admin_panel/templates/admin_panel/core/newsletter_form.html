@@ -1,0 +1,21 @@
+{% extends 'admin_panel/layouts/master.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Newsletter Form {% endblock title %}
+
+{% block content %}
+
+<h1 class="app-page-title mt-lg-4 mb-0">Newsletter Form</h1>
+<hr>
+
+<form action="" method="POST" class="form" enctype="multipart/form-data"> {% csrf_token %}
+    
+    <div>
+        {{ form.email | as_crispy_field }}
+    </div>
+    
+    <button type="submit" class="btn btn-primary mt-4 me-3">Submit</button>
+    <a href="{% url 'newsletter_all' %}" class="btn btn-dark mt-4"> Cancel</a>
+</form>
+			 
+
+{% endblock content %}
