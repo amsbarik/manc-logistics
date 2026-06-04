@@ -1,0 +1,158 @@
+{% extends 'layouts/master.html' %}
+{% load static %}
+
+{% block title %}  Rider Registration Form  {% endblock title %}
+
+
+{% block content %}
+<br>
+    <br>
+    <br>
+    <br>
+
+
+    <!-- ================= CONTACT SECTION ================= -->
+    <section class="section-padding">
+
+        <div class="container ">
+
+            <div class="grid lg:grid-cols-2 gap-y-14 lg:gap-y-0 gap-6 lg:gap-12">
+
+                <!-- ================= LEFT CONTENT ================= -->
+                <div>
+                    <div class="section-head">
+                        <h2 class="section-heading">Join with us</h2>
+                        <h2 class="section-title capitalize">Earn with or without car!</h2>
+                        <p class="section-txt">Now earn from 45,000 to 50,000 taka per month being a MANC rider. As a new rider, enjoy 1% commission on ride sharing.</p>
+                    </div>
+
+                    
+                    <div class="space-y-7 lg:space-y-10 mt-8 lg:mt-12">
+                        <div class="flex">
+                            <img src="static/img/icons/icon-insured.png" class="w-[64px] md:w-[74px] xl:w-[84px] h-auto object-contain" alt="">
+                            <div class="ms-6">
+                                <h5 class="font-semibold text-lg lg:text-xl text-dark">Safe Rides</h5>
+                                <p class="text-dark-800 mt-1 lg:mt-2 text-sm/6 lg:text-base/7 xl:lg:text-base/7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore molestias aliquam quasi placeat praesentium facilis incidunt quia maiores.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <img src="static/img/icons/icon-bonus.png" class="w-[64px] md:w-[74px] xl:w-[84px] h-auto object-contain" alt="">
+                            <div class="ms-6">
+                                <h5 class="font-semibold text-lg lg:text-xl text-dark">Earn More with Bonus</h5>
+                                <p class="text-dark-800 mt-1 lg:mt-2 text-sm/6 lg:text-base/7 xl:lg:text-base/7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore molestias aliquam quasi placeat praesentium facilis incidunt quia maiores.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <img src="static/img/icons/icon-time.png" class="w-[64px] md:w-[74px] xl:w-[84px] h-auto object-contain" alt="">
+                            <div class="ms-6">
+                                <h5 class="font-semibold text-lg lg:text-xl text-dark">On-Time Payments</h5>
+                                <p class="text-dark-800 mt-1 lg:mt-2 text-sm/6 lg:text-base/7 xl:lg:text-base/7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore molestias aliquam quasi placeat praesentium facilis incidunt quia maiores.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="lg:mt-16 xl:mt-20 space-y-6">
+                        <h2 class="text-dark text-3xl font-semibold">What is required to apply</h2>
+                        <p class="section-txt mt-2 lg:mt-4">Not sure if you’re eligible to be a rider? If you have the following, you can join us!</p>
+
+                        <div class="flex items-center">
+                            <div class="size-10 bg-primary text-white rounded-full flex items-center justify-center font-semibold text-xl">1</div>
+                            <p class="ms-4 text-dark text-base lg:text-lg">Original copy of National Identity Card.</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="size-10 bg-primary text-white rounded-full flex items-center justify-center font-semibold text-xl">2</div>
+                            <p class="ms-4 text-dark text-base lg:text-lg">Driving License (Professional / Non-Professional).</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="size-10 bg-primary text-white rounded-full flex items-center justify-center font-semibold text-xl">3</div>
+                            <p class="ms-4 text-dark text-base lg:text-lg">Vehicle Registration Paper.</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="size-10 bg-primary text-white rounded-full flex items-center justify-center font-semibold text-xl">4</div>
+                            <p class="ms-4 text-dark text-base lg:text-lg">Tax Token.</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="size-10 bg-primary text-white rounded-full flex items-center justify-center font-semibold text-xl">1</div>
+                            <p class="ms-4 text-dark text-base lg:text-lg">Akama with minimum 3 months validity</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ================= FORM AREA ================= -->
+                <div class="">
+
+                    <div class=" p-8 lg:p-14 bg-white rounded-xl shadow-lg ">
+
+                        <h2 class="text-2xl lg:text-3xl font-semibold text-dark"> Register Now  </h2>
+
+                        <form id="contactForm" class="space-y-6 mt-8">
+
+                            <!-- Full Name -->
+                            <div>
+                                <input  type="text"  placeholder="Full Name*"
+                                    class="w-full text-sm lg:text-base h-12 lg:h-13 px-5 rounded-lg border border-dark-200 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none transition-all duration-300"
+                                    required >
+                            </div>
+                            <div>
+                                <input  type="tel"  placeholder="Mobile Number*"
+                                    class="w-full text-sm lg:text-base h-12 lg:h-13 px-5 rounded-lg border border-dark-200 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none transition-all duration-300"
+                                    required >
+                            </div>
+                            <div>
+                                <input  type="email"  placeholder="Email Address"
+                                    class="w-full text-sm lg:text-base h-12 lg:h-13 px-5 rounded-lg border border-dark-200 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none transition-all duration-300"
+                                    >
+                            </div>
+
+                            <style>
+                                select{
+                                    -webkit-appearance:none;
+                                    -moz-appearance:none;
+                                    appearance:none;
+                                    background-image:none;
+                                }
+
+                                select::-ms-expand{
+                                    display:none;
+                                }
+                            </style>
+
+                            <div>
+                                <select
+                                    class="w-full text-gray-500 text-sm lg:text-base h-12 lg:h-13 px-5 pr-12 rounded-lg border border-dark-200 bg-white appearance-none focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none transition-all duration-300"
+                                    style="
+                                        background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 fill=%22none%22 stroke=%22%236b7280%22 stroke-width=%222.5%22 viewBox=%220 0 24 24%22%3E%3Cpath d=%22M6 9l6 6 6-6%22/%3E%3C/svg%3E');
+                                        background-repeat:no-repeat;
+                                        background-position:right 16px center;
+                                        background-size:22px;
+                                    ">
+                                    <option value="">Select City*</option>
+                                    <option class="hover:bg-primary">Riyadh</option>
+                                    <option>Jeddah</option>
+                                    <option>Makkah</option>
+                                </select>
+                            </div>
+                            <br>
+
+                            <!-- Button -->
+                            <button  type="submit" class="group px-6 py-3 rounded-lg bg-primary hover:bg-secondary text-white font-semibold text-sm lg:text-base transition-all duration-300">
+                                Next Step<i class="fa-solid fa-arrow-right-long ms-2"></i>
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    
+{% endblock content %}
