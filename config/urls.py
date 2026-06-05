@@ -21,7 +21,16 @@ from django.conf import settings
 from django.conf.urls.static import static 
 
 
+from django.conf.urls.i18n import i18n_patterns  # for multi languages
+
+
 urlpatterns = [
+    path('i18n/', include('django.conf.urls.i18n')),  # language switch endpoint
+]
+
+
+# for multi languages 
+urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('', include('about_us.urls')),
@@ -32,7 +41,21 @@ urlpatterns = [
     path('', include('service.urls')),
     path('', include('translation.urls')),
     path('', include('vendor.urls')),
-]
+)
+
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', include('core.urls')),
+#     path('', include('about_us.urls')),
+#     path('', include('accounts.urls')),
+#     path('', include('admin_panel.urls')),
+#     path('', include('contact.urls')),
+#     path('', include('rider.urls')),
+#     path('', include('service.urls')),
+#     path('', include('translation.urls')),
+#     path('', include('vendor.urls')),
+# ]
 
 
 #for media
