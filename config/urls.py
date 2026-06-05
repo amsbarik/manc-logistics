@@ -31,7 +31,8 @@ urlpatterns = [
 
 # for multi languages 
 urlpatterns += i18n_patterns(
-    path('admin/', admin.site.urls),
+    path('dj-admin/', admin.site.urls),
+    path('admin/', include('accounts.urls')),
     path('', include('core.urls')),
     path('', include('about_us.urls')),
     path('', include('accounts.urls')),

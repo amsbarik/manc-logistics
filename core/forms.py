@@ -3,7 +3,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 # # import bleach
 
-from .models import HeroSlider, Partner
+from .models import HeroSlider, Partner, WhyChooseUs
 # from .models import Newsletter, Banner, 
 
 
@@ -36,6 +36,32 @@ class PartnerForm(forms.ModelForm):
         self.helper.add_input(Submit('submit', 'Save'))
 
 
+
+
+# WhyChooseUs Form 
+class WhyChooseUsForm(forms.ModelForm):
+    class Meta:
+        model = WhyChooseUs
+        fields = [
+            'icon',
+            'is_active',
+            'order',
+
+            # English fields
+            'title_en',
+            'description_en',
+
+            # Arabic fields
+            'title_ar',
+            'description_ar',
+        ]
+
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Save'))
 
 
 

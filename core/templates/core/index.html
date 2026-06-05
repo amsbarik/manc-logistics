@@ -176,27 +176,13 @@
         <div class="partners-slider" id="partnersSlider">
             <div class="partners-track flex" id="partnersTrack">
                 <!-- logos -->
+                 {% for partner in partners %}
                 <div class="partner-item">
-                    <img class="partner-logo" src="static/img/icons/partner-1.png" alt="...">
+                    {% if partner.partner_logo %}
+                    <img class="partner-logo" src="{{ partner.partner_logo.url }}" alt="...">
+                    {% endif %}
                 </div>
-                <div class="partner-item">
-                    <img class="partner-logo" src="static/img/icons/partner-2.png" alt="...">
-                </div>
-                <div class="partner-item">
-                    <img class="partner-logo" src="static/img/icons/partner-3.png" alt="...">
-                </div>
-                <div class="partner-item">
-                    <img class="partner-logo" src="static/img/icons/partner-4.png" alt="...">
-                </div>
-                <div class="partner-item">
-                    <img class="partner-logo" src="static/img/icons/partner-5.png" alt="...">
-                </div>
-                <div class="partner-item">
-                    <img class="partner-logo" src="static/img/icons/partner-6.png" alt="...">
-                </div>
-                <div class="partner-item">
-                    <img class="partner-logo" src="static/img/icons/partner-2.png" alt="...">
-                </div>
+                {% endfor %}
                 
             </div>
         </div>
@@ -401,37 +387,23 @@
         </div>
 
         <div class="grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16">
-            <div class="b2b-card">
+            <!-- <div class="b2b-card">
                 <img src="static/img/icons/Fastest-solutions.png" class="object-contain w-20 md:w-22 lg:w-26 xl:w-28 h-auto w-20 md:w-22 lg:w-26 xl:w-28 h-auto" alt="">
                 <h5 class="card-title mt-6 font-semibold capitalize">Fastest solutions</h5>
                 <p class="card-text mt-4">Backed by an agile team and dynamic operations, we promise to find the fastest solutions for your needs</p>
-            </div>
+            </div> -->
 
+            {% for benefit in benefits %}
             <div class="b2b-card">
-                <img src="static/img/icons/Nationwide-coverage.png" class="object-contain w-20 md:w-22 lg:w-26 xl:w-28 h-auto" alt="">
-                <h5 class="card-title mt-6 font-semibold capitalize">Nationwide coverage</h5>
-                <p class="card-text mt-4">Backed by an agile team and dynamic operations, we promise to find the fastest solutions for your needs</p>
+                {% if benefit.icon %}
+                <img src="{{ benefit.icon.url }}" class="object-contain w-20 md:w-22 lg:w-26 xl:w-28 h-auto" alt="{{ benefit.title }}">
+                {% endif %}
+                <h5 class="card-title mt-6 font-semibold capitalize">{{ benefit.title }}</h5>
+                <p class="card-text mt-4">{{ benefit.description }}</p>
             </div>
-            <div class="b2b-card">
-                <img src="static/img/icons/Industry-leading-tech.png" class="object-contain w-20 md:w-22 lg:w-26 xl:w-28 h-auto" alt="">
-                <h5 class="card-title mt-6 font-semibold capitalize">Industry-leading tech</h5>
-                <p class="card-text mt-4">Backed by an agile team and dynamic operations, we promise to find the fastest solutions for your needs</p>
-            </div>
-            <div class="b2b-card">
-                <img src="static/img/icons/next-day-payment.svg" class="object-contain w-20 md:w-22 lg:w-26 xl:w-28 h-auto" alt="">
-                <h5 class="card-title mt-6 font-semibold capitalize">Next day payment</h5>
-                <p class="card-text mt-4">Backed by an agile team and dynamic operations, we promise to find the fastest solutions for your needs</p>
-            </div>
-            <div class="b2b-card">
-                <img src="static/img/icons/best-cod-rates.svg" class="object-contain w-20 md:w-22 lg:w-26 xl:w-28 h-auto" alt="">
-                <h5 class="card-title mt-6 font-semibold capitalize">Best COD rates</h5>
-                <p class="card-text mt-4">Backed by an agile team and dynamic operations, we promise to find the fastest solutions for your needs</p>
-            </div>
-            <div class="b2b-card">
-                <img src="static/img/icons/secure-handling.svg" class="object-contain w-20 md:w-22 lg:w-26 xl:w-28 h-auto" alt="">
-                <h5 class="card-title mt-6 font-semibold capitalize">Secure handling</h5>
-                <p class="card-text mt-4">Backed by an agile team and dynamic operations, we promise to find the fastest solutions for your needs</p>
-            </div>
+            {% endfor %}
+
+            
         </div>
 
         <div class=" text-center mt-16">

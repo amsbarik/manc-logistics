@@ -80,7 +80,13 @@
                                         d="M12 21a9 9 0 100-18 9 9 0 000 18zm0 0c2.485 0 4.5-4.03 4.5-9s-2.015-9-4.5-9m0 18c-2.485 0-4.5-4.03-4.5-9s2.015-9 4.5-9m-9 9h18" />
                                 </svg>
 
-                                <span class="font-medium">English</span>
+                                {% if LANGUAGE_CODE == 'ar' %}
+                                    <!-- <span class="text-xl">🇸🇦</span> -->
+                                    <span class="font-medium">العربية</span>
+                                {% else %}
+                                    <!-- <span class="text-xl">🇺🇸</span> -->
+                                    <span class="font-medium">English</span>
+                                {% endif %}
 
                                 <!-- Arrow -->
                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +101,6 @@
                                 </svg>
                             </button>
 
-                            <!-- Dropdown Menu -->
                             <!-- Language Dropdown -->
                             <div class="absolute right-0 mt-0 p-2 w-56 rounded-xl bg-white shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300 overflow-hidden">
 
@@ -146,34 +151,11 @@
 
                             </div>
 
-
-                            <!-- <div
-                                class="absolute right-0 mt-0 p-2 w-56 rounded-xl bg-white shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300 overflow-hidden"
-                            >
-
-                                <a href="#"
-                                class="flex items-center justify-between px-5 py-2 rounded-sm hover:bg-secondary-100 transition">
-                                    <div class="flex items-center gap-3">
-                                        <span class="text-xl">🇺🇸</span>
-                                        <span class="font-medium text-primary">English</span>
-                                    </div>
-
-                                    <span class="text-xs bg-secondary text-white px-2 py-1 rounded-full">
-                                        Active
-                                    </span>
-                                </a>
-
-                                <a href="#" class="flex items-center gap-3 px-5 py-2 rounded-sm hover:bg-secondary-100 transition">
-                                    <span class="text-xl">🇸🇦</span>
-                                    <span class="font-medium text-primary">العربية</span>
-                                </a>
-
-                            </div> -->
-
-
-
                         </div>
+                        
                     </div>
+
+
 
                     <!-- ========= MOBILE MENU BUTTON ========= -->
                     <!-- <button id="menuBtn" class="lg:hidden w-12 h-12 rounded-xl bg-dark/10 flex items-center justify-center text-dark-900" >

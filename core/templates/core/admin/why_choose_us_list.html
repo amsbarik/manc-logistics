@@ -2,14 +2,14 @@
 {% load custom_filters %}
 {% load static %}
 
-{% block title %} Hero Sliders List {% endblock title %}
+{% block title %} Why Choose Us List {% endblock title %}
 
 {% block content %} 
 
 <!-- search start  -->
 <div class="row g-3 mb-4 align-items-center justify-content-between">
     <div class="col-auto">
-        <h1 class="app-page-title mb-0 text-capitalize">Hero Sliders</h1>
+        <h1 class="app-page-title mb-0 text-capitalize">Why Choose Us</h1>
 
     </div>
     <div class="col-auto">
@@ -28,7 +28,7 @@
                 </div> -->
 
                 <div class="col-auto">
-                    <h5 class="card-title mb-0 text-end"><a href="{% url 'hero_slider_create' %}" class="btn btn-primary text-capitalize">Add New Silder</a></h5>
+                    <h5 class="card-title mb-0 text-end"><a href="{% url 'why_choose_us_create' %}" class="btn btn-primary text-capitalize">Add New Benefit</a></h5>
                 </div>
             </div><!--//row-->
         </div><!--//table-utilities-->
@@ -44,9 +44,8 @@
                         <th class="cell text-capitalize">ID</th>
                         <th class="cell text-capitalize">Updated At</th>
 
-                        <th class="cell text-capitalize">Heading</th>
-                        <th class="cell text-capitalize">CTA Message</th>
-                        <th class="cell text-capitalize">Banner</th>
+                        <th class="cell text-capitalize">Title</th>
+                        <th class="cell text-capitalize">Icon</th>
 
                         <th class="cell text-capitalize">Order</th>
                         <th class="cell text-capitalize">Status</th>
@@ -55,23 +54,23 @@
                 </thead>
 
                 <tbody>
-                    {% for hero_slider in hero_sliders %}
+                    {% for benefit in benefits %}
                     <tr>
-                        <td class="cell">{{ hero_slider.id }}</td>
-                        <td class="cell"><span>{{ hero_slider.updated_at | abbreviate_month }}</span><span class="note">{{ hero_slider.updated_at | time:"h:i A" }}</span></td>
-                        <td class="cell"><span class="truncate">{{ hero_slider.heading }}</span></td>
-                        <td class="cell">{{ hero_slider.cta_message }}</td>
+                        <td class="cell">{{ benefit.id }}</td>
+                        <td class="cell"><span>{{ benefit.updated_at | abbreviate_month }}</span><span class="note">{{ benefit.updated_at | time:"h:i A" }}</span></td>
+                        <td class="cell"><span class="truncate">{{ benefit.title }}</span></td>
+                        <!-- <td class="cell">{{ benefit.description }}</td> -->
                         <td class="cell">
-                            {% if hero_slider.image %}
-                            <img src="{{ hero_slider.image.url }}" style="width: 60px; height: auto; object-fit: cover;" alt="">
+                            {% if benefit.icon %}
+                            <img src="{{ benefit.icon.url }}" style="width: 60px; height: auto; object-fit: cover;" alt="">
                             {% endif  %}
                         </td>
 
-                        <td class="cell">{% if hero_slider.order %} {{ hero_slider.order  }}{% else %} N/A {% endif %} </td>
-                        <td class="cell">{{ hero_slider.is_active | active_inactive }}</td>
+                        <td class="cell">{% if benefit.order %} {{ benefit.order  }}{% else %} N/A {% endif %} </td>
+                        <td class="cell">{{ benefit.is_active | active_inactive }}</td>
                         
                         <td class="cell">
-                            <a href="{% url 'hero_slider_update' hero_slider.id %}" class=" px-1" style="color: var(--primary);"><i class="fa-regular fa-pen-to-square"></i></a>
+                            <a href="{% url 'why_choose_us_update' benefit.id %}" class=" px-1" style="color: var(--primary);"><i class="fa-regular fa-pen-to-square"></i></a>
                             <!-- <a href="#" class=" px-1" style="color: var(--danger);"><i class="fa-regular fa-trash-can"></i></a> -->
                         </td>
                     </tr>

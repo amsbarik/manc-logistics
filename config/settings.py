@@ -172,6 +172,7 @@ LANGUAGES = [
 #     ('ar', 'Arabic'),
 # ]
 
+# LANGUAGE_CODE = 'ar'
 LANGUAGE_CODE = 'en'
 
 USE_I18N = True

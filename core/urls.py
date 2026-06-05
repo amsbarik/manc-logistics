@@ -15,6 +15,11 @@ urlpatterns = [
     path('partners/', views.partner_list, name='partner_list'),
     path('partner/form/', views.partner_form, name='partner_create'),
     path('partner/update/<int:pk>/', views.partner_form, name='partner_update'),
+
+    # why choose us 
+    path('benefits/', views.why_choose_us_list, name='why_choose_us_list'),
+    path('benefit/form/', views.why_choose_us_form, name='why_choose_us_create'),
+    path('benefit/update/<int:pk>/', views.why_choose_us_form, name='why_choose_us_update'),
     
 ]
 

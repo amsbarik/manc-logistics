@@ -8,8 +8,8 @@ from datetime import timedelta
 
 from accounts.permissions import is_admin
 
-from .models import HeroSlider, Partner
-from .forms import HeroSliderForm, PartnerForm
+from .models import HeroSlider, Partner, WhyChooseUs, WhyChooseUs
+from .forms import HeroSliderForm, PartnerForm, WhyChooseUsForm
 
 
 
@@ -19,9 +19,13 @@ from .forms import HeroSliderForm, PartnerForm
 def index(request):
 
     hero_sliders = HeroSlider.objects.filter(is_active=True).order_by('order')
+    partners = Partner.objects.filter(is_active=True).order_by('order')[:20]
+    benefits = WhyChooseUs.objects.filter(is_active=True).order_by('order')[:6]
 
     context = {
         'hero_sliders': hero_sliders,
+        'partners': partners,
+        'benefits': benefits,
     }
   
     return render(request, 'core/index.html', context)
@@ -71,7 +75,7 @@ def hero_slider_form(request, pk=0):
 
 
 
-
+# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 # Partner_list view 
 @login_required
 @user_passes_test(is_admin)
@@ -106,6 +110,49 @@ def partner_form(request, pk=0):
             form.save()
             
         return redirect('partner_list')
+
+
+# ////////////////////////////////////////////////////////////////////////////
+# WhyChooseUs  view 
+@login_required
+@user_passes_test(is_admin)
+def why_choose_us_list(request):
+    benefits = WhyChooseUs.objects.all()
+    
+    return render(request, 'core/admin/why_choose_us_list.html', {'benefits': benefits})
+
+
+# WhyChooseUs create & update form view 
+@login_required
+@user_passes_test(is_admin)
+def why_choose_us_form(request, pk=0):
+    
+    if request.method == 'GET':
+        if pk == 0:
+            form = WhyChooseUsForm()
+        else:
+            benefit = WhyChooseUs.objects.get(id=pk)
+            form = WhyChooseUsForm(instance=benefit)
+            
+        return render(request, 'core/admin/why_choose_us_form.html', {'form': form})
+    
+    else:
+        if pk == 0:
+            form = WhyChooseUsForm(request.POST, request.FILES)
+        else:
+            benefit = WhyChooseUs.objects.get(id=pk)
+            form = WhyChooseUsForm(request.POST, request.FILES, instance=benefit)
+
+        if form.is_valid():
+            form.save()
+            
+        return redirect('why_choose_us_list')
+
+
+
+
+
+
 
 
 
