@@ -28,6 +28,11 @@ urlpatterns = [
     path('faqs/', views.faq_list, name='faq_list'),
     path('faq/form/', views.faq_create_or_update, name='faq_create'),
     path('faq/update/<int:pk>/', views.faq_create_or_update, name='faq_update'),
+
+    path('newsletters/', views.newsletter_list, name='newsletter_list'),
+    path('newsletter/form/', views.newsletter_form, name='newsletter_create'),
+    path('newsletter/update/<int:pk>/', views.newsletter_form, name='newsletter_update'),
+    # path('newsletter/delete/<int:pk>/', views.newsletter_delete, name='newsletter_delete'),
 ]
 
 
@@ -54,10 +59,7 @@ urlpatterns = [
 #     path('toplink-form/', views.top_link_form, name='top_link_form'),
 
 
-#     path('newsletters/', views.newsletter_all, name='newsletter_all'),
-#     path('newsletter/form/', views.newsletter_form, name='newsletter_form'),
-#     path('newsletter/update/<int:pk>/', views.newsletter_form, name='newsletter_update'),
-#     # path('newsletter/delete/<int:pk>/', views.newsletter_delete, name='newsletter_delete'),
+#    
 
 #     
 

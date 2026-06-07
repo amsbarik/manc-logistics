@@ -84,9 +84,6 @@ class FAQ(BaseModel):
         return self.question
     
 
-# FAQ.objects.filter(faq_type=FAQ.FAQType.RIDER)
-# FAQ.objects.filter(faq_type=FAQ.FAQType.MERCHANT)
-
 
 
 

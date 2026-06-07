@@ -8,8 +8,8 @@ from datetime import timedelta
 
 from accounts.permissions import is_admin
 
-from .models import HeroSlider, Partner, LeadershipMessage, WhyChooseUs, FAQ
-from .forms import HeroSliderForm, PartnerForm, LeadershipMessageForm, WhyChooseUsForm, FAQForm
+from .models import HeroSlider, Partner, LeadershipMessage, WhyChooseUs, FAQ, Newsletter
+from .forms import HeroSliderForm, PartnerForm, LeadershipMessageForm, WhyChooseUsForm, FAQForm, NewsletterForm
 
 
 
@@ -22,12 +22,19 @@ def index(request):
     partners = Partner.objects.filter(is_active=True).order_by('order')[:20]
     leadership_message = LeadershipMessage.objects.first()
     benefits = WhyChooseUs.objects.filter(is_active=True).order_by('order')[:6]
+    # faqs = FAQ.objects.filter(is_active=True).order_by('order')
+    faqs_rider = FAQ.objects.filter(is_active=True, faq_type=FAQ.FAQType.RIDER).order_by('order')
+    faqs_merchant = FAQ.objects.filter(is_active=True, faq_type=FAQ.FAQType.MERCHANT).order_by('order')
+
+
 
     context = {
         'hero_sliders': hero_sliders,
         'partners': partners,
         'leadership_message': leadership_message,
         'benefits': benefits,
+        'faqs_rider': faqs_rider,
+        'faqs_merchant': faqs_merchant,
     }
   
     return render(request, 'core/index.html', context)
@@ -206,6 +213,61 @@ def faq_create_or_update(request, pk=0):
         return redirect('faq_list')
 
 
+# ////////////////////////////////////////////////////////////////// 
+#newsletter from user
+def newsletter(request):
+    if request.method == "POST":
+        news_email = request.POST.get("news-email")  # Get email from input field
+        
+        if not news_email:
+            messages.error(request, "Email field cannot be empty.")
+        else:
+            if Newsletter.objects.filter(email=news_email).exists():
+                messages.warning(request, "You are already subscribed.")
+            else:
+                Newsletter.objects.create(email=news_email)
+                messages.success(request, "Thank you for subscribing!")
+        
+        return redirect('index')  # Reload the page with messages
+
+    return render(request, 'core/index.html')  # Render template
+
+
+# from admin ///////////////////
+# newsletter_all views
+@login_required
+@user_passes_test(is_admin)
+def newsletter_list(request):
+    newsletters = Newsletter.objects.all()
+    
+    return render(request, 'core/admin/newsletter_list.html', {'newsletters': newsletters})
+
+
+@login_required
+@user_passes_test(is_admin)
+def newsletter_form(request, pk=0):
+    
+    if request.method == 'GET':
+        if pk == 0:
+            form = NewsletterForm()
+        else:
+            newsletter = Newsletter.objects.get(id=pk)
+            form = NewsletterForm(instance=newsletter)
+            
+        return render(request, 'core/admin/newsletter_form.html', {'form': form})
+    
+    else:
+        if pk == 0:
+            form = NewsletterForm(request.POST, request.FILES)
+        else:
+            newsletter = Newsletter.objects.get(id=pk)
+            form = NewsletterForm(request.POST, request.FILES, instance=newsletter)
+
+        if form.is_valid():
+            form.save()
+            
+        return redirect('newsletter_list')
+    
 
 
 
@@ -235,25 +297,6 @@ def faq_create_or_update(request, pk=0):
 
 # # ///////////////////////////////////////////////
 # before codes 
-
-
-# #newsletter 
-# def newsletter(request):
-#     if request.method == "POST":
-#         news_email = request.POST.get("news-email")  # Get email from input field
-        
-#         if not news_email:
-#             messages.error(request, "Email field cannot be empty.")
-#         else:
-#             if Newsletter.objects.filter(email=news_email).exists():
-#                 messages.warning(request, "You are already subscribed.")
-#             else:
-#                 Newsletter.objects.create(email=news_email)
-#                 messages.success(request, "Thank you for subscribing!")
-        
-#         return redirect('index')  # Reload the page with messages
-
-#     return render(request, 'core/index.html')  # Render template
 
 
 
@@ -328,42 +371,6 @@ def faq_create_or_update(request, pk=0):
 
 
 
-
-
-# # newsletter_all views
-# @login_required
-# @user_passes_test(is_superuser)
-# def newsletter_all(request):
-#     newsletters = Newsletter.objects.order_by('subscribed_at').all()
-    
-#     return render(request, 'admin_panel/core/newsletter_all.html', {'newsletters': newsletters})
-
-
-# @login_required
-# @user_passes_test(is_superuser)
-# def newsletter_form(request, pk=0):
-    
-#     if request.method == 'GET':
-#         if pk == 0:
-#             form = NewsletterForm()
-#         else:
-#             newsletter = Newsletter.objects.get(id=pk)
-#             form = NewsletterForm(instance=newsletter)
-            
-#         return render(request, 'admin_panel/core/newsletter_form.html', {'form': form})
-    
-#     else:
-#         if pk == 0:
-#             form = NewsletterForm(request.POST, request.FILES)
-#         else:
-#             newsletter = Newsletter.objects.get(id=pk)
-#             form = NewsletterForm(request.POST, request.FILES, instance=newsletter)
-
-#         if form.is_valid():
-#             form.save()
-            
-#         return redirect('newsletter_all')
-    
 
 
 
