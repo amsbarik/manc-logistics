@@ -20,16 +20,16 @@ class BaseModel(models.Model):
 
 # HeroSlider model
 class HeroSlider(BaseModel):
-    heading = models.CharField(max_length=200, blank=True, help_text="Heading of the slide")
-    short_description = models.TextField(blank=True, help_text="Description for the slide")
-    image = models.ImageField(upload_to='heor_slider_img/', help_text="Image for the slide")
+    heading = models.CharField(max_length=200, blank=True)
+    short_description = models.TextField(blank=True)
+    image = models.ImageField(upload_to='heor_slider_img/')
 
     cta_message = models.CharField(max_length=100, blank=True)
     primary_btn_txt = models.CharField(max_length=100, blank=True)
-    primary_btn_url = models.URLField(max_length=250, blank=True, help_text="URL the button will link to")
+    primary_btn_url = models.URLField(max_length=250, blank=True)
 
     secondary_btn_txt = models.CharField(max_length=100, blank=True)
-    secondary_btn_url = models.URLField(max_length=250, blank=True, help_text="URL the button will link to")
+    secondary_btn_url = models.URLField(max_length=250, blank=True)
 
 
     def __str__(self):
@@ -56,6 +56,7 @@ class LeadershipMessage(BaseModel):
 
     def __str__(self):
         return self.name
+        
 
 # WhyChooseUs model 
 class WhyChooseUs(BaseModel):

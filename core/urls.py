@@ -16,6 +16,9 @@ urlpatterns = [
     path('partner/form/', views.partner_form, name='partner_create'),
     path('partner/update/<int:pk>/', views.partner_form, name='partner_update'),
 
+    # leadership_message 
+    path('leadership-message/', views.leadership_message, name='leadership_message'),
+
     # why choose us 
     path('benefits/', views.why_choose_us_list, name='why_choose_us_list'),
     path('benefit/form/', views.why_choose_us_form, name='why_choose_us_create'),

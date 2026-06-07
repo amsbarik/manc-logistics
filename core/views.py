@@ -8,8 +8,8 @@ from datetime import timedelta
 
 from accounts.permissions import is_admin
 
-from .models import HeroSlider, Partner, WhyChooseUs, WhyChooseUs
-from .forms import HeroSliderForm, PartnerForm, WhyChooseUsForm
+from .models import HeroSlider, Partner, LeadershipMessage, WhyChooseUs
+from .forms import HeroSliderForm, PartnerForm, LeadershipMessageForm, WhyChooseUsForm
 
 
 
@@ -20,11 +20,13 @@ def index(request):
 
     hero_sliders = HeroSlider.objects.filter(is_active=True).order_by('order')
     partners = Partner.objects.filter(is_active=True).order_by('order')[:20]
+    leadership_message = LeadershipMessage.objects.first()
     benefits = WhyChooseUs.objects.filter(is_active=True).order_by('order')[:6]
 
     context = {
         'hero_sliders': hero_sliders,
         'partners': partners,
+        'leadership_message': leadership_message,
         'benefits': benefits,
     }
   
@@ -110,6 +112,24 @@ def partner_form(request, pk=0):
             form.save()
             
         return redirect('partner_list')
+
+
+
+# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# leadership messages create & update view 
+@login_required
+@user_passes_test(is_admin)
+def leadership_message(request):
+    message = LeadershipMessage.objects.first()  # Get the existing one or None
+    if request.method == 'POST':
+        form = LeadershipMessageForm(request.POST, request.FILES, instance=message)
+        if form.is_valid():
+            form.save()
+            return redirect('leadership_message')
+    else:
+        form = LeadershipMessageForm(instance=message)
+    
+    return render(request, 'core/admin/leadership_message_form.html', {'form': form})
 
 
 # ////////////////////////////////////////////////////////////////////////////

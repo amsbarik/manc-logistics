@@ -17,9 +17,17 @@
         <link rel="icon" href="{{ site_settings.favicon.url }}" type="image/x-icon">
     {% endif %}
 
-  
-    <title> {% block title %}      {% endblock title %} </title>
 
+    {% if site_setting %}
+    <meta name="description" content="{{ site_setting.meta_description }}">
+    <meta name="keywords" content="{{ site_setting.meta_keywords }}">
+    {% endif %}
+
+    <title>
+        {% block title %}
+            {% if site_setting %}{{ site_setting.meta_title }}{% endif %}
+        {% endblock title %}
+    </title>
 
 </head>
 <body class="bg-primary-50">
@@ -109,6 +117,6 @@
 
 
     <!-- main js link  -->
-    <script src="static/js/main.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

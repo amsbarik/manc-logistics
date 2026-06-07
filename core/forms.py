@@ -3,16 +3,32 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 # # import bleach
 
-from .models import HeroSlider, Partner, WhyChooseUs
+from .models import HeroSlider, Partner, LeadershipMessage, WhyChooseUs, FAQ, SiteSetting
 # from .models import Newsletter, Banner, 
-
 
 
 # HeroSlider Form 
 class HeroSliderForm(forms.ModelForm):
     class Meta:
         model = HeroSlider
-        fields = '__all__'
+        fields = ['is_active', 'order', 'image', 'primary_btn_url', 'secondary_btn_url',
+
+            # English fields
+            'heading_en',
+            'short_description_en',
+            'cta_message_en',
+            'primary_btn_txt_en',
+            'secondary_btn_txt_en',
+
+            #Arabic fields
+            'heading_ar',
+            'short_description_ar',
+            'cta_message_ar',
+            'primary_btn_txt_ar',
+            'secondary_btn_txt_ar',
+
+        ]
+        
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -35,6 +51,36 @@ class PartnerForm(forms.ModelForm):
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Save'))
 
+
+
+
+# LeadershipMessage Form 
+class LeadershipMessageForm(forms.ModelForm):
+    class Meta:
+        model = LeadershipMessage
+        fields = ['is_active', 'order', 'photo',
+
+            # English fields
+            'heading_en',
+            'name_en',
+            'designation_en',
+            'message_01_en',
+            'message_02_en',
+
+            # Arabic fields
+            'heading_ar',
+            'name_ar',
+            'designation_ar',
+            'message_01_ar',
+            'message_02_ar',
+        ]
+
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Save'))
 
 
 
@@ -62,6 +108,69 @@ class WhyChooseUsForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Save'))
+
+
+
+class FAQForm(forms.ModelForm):
+    class Meta:
+        model = FAQ
+        fields = ['is_active', 'order', 'question_en', 'answer_en', 'question_ar', 'answer_ar', 'faq_type',]
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Save'))
+
+
+
+
+# SiteSetting Form 
+class SiteSettingForm(forms.ModelForm):
+    class Meta:
+        model = SiteSetting
+        fields = ['favicon', 'header_logo', 'footer_logo', 'email_sale', 'email_support', 
+        
+            'facebook_url', 
+            'linkedin_url', 
+            'instagram_url', 
+            'youtube_url', 
+            'tiktok_url', 
+
+            'meta_title', 
+            'meta_description', 
+            'meta_keywords', 
+            'og_image', 
+            'google_site_verification', 
+
+            # English fields
+            'mobile_sale_en',
+            'mobile_support_en',
+            'address_en',
+            'about_company_en',
+            'office_hours_en',
+
+            #Arabic fields
+            'mobile_sale_ar',
+            'mobile_support_ar',
+            'address_ar',
+            'about_company_ar',
+            'office_hours_ar',
+        ]
+        
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Save'))
+        # self.fields['category'].empty_label = 'Select Category'
+
+
+
+
+
+
 
 
 
@@ -99,17 +208,6 @@ class WhyChooseUsForm(forms.ModelForm):
 
 
  
-# class FAQForm(forms.ModelForm):
-#     class Meta:
-#         model = FAQ
-#         fields = '__all__'
-        
-#     def __init__(self, *args, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         self.helper = FormHelper()
-#         self.helper.form_method = 'post'
-#         self.helper.add_input(Submit('submit', 'Save'))
-
 
 
 

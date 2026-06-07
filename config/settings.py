@@ -72,6 +72,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 
@@ -94,7 +96,7 @@ TEMPLATES = [
 
 
                 # custom processor
-                # 'core.context_processors.site_settings',
+                'core.context_processors.site_data',
             ],
         },
     },

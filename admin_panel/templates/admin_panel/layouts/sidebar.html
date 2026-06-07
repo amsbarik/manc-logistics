@@ -69,7 +69,9 @@
                     <div id="universityUtils" class="accordion-collapse collapse submenu resume-submenu" data-bs-parent="#menu-accordion">
                         <ul class="submenu-list list-unstyled">
                       
+                            <li class="submenu-item "><a class="submenu-link {% if request.resolver_match.url_name == 'hero_slider_list' %}active{% endif %}" href="{% url 'hero_slider_list' %}">Hero Sliders</a></li>
                             <li class="submenu-item "><a class="submenu-link {% if request.resolver_match.url_name == 'partner_list' %}active{% endif %}" href="{% url 'partner_list' %}">Partners</a></li>
+                            <li class="submenu-item "><a class="submenu-link {% if request.resolver_match.url_name == 'leadership_message' %}active{% endif %}" href="{% url 'leadership_message' %}">Leadership Message</a></li>
                             <li class="submenu-item "><a class="submenu-link {% if request.resolver_match.url_name == 'why_choose_us_list' %}active{% endif %}" href="{% url 'why_choose_us_list' %}">Why Choose Us </a></li>
                            
                         </ul>
