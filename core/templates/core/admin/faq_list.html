@@ -2,14 +2,14 @@
 {% load custom_filters %}
 {% load static %}
 
-{% block title %} Hero Sliders List {% endblock title %}
+{% block title %} FAQs List {% endblock title %}
 
 {% block content %} 
 
 <!-- search start  -->
 <div class="row g-3 mb-4 align-items-center justify-content-between">
     <div class="col-auto">
-        <h1 class="app-page-title mb-0 text-capitalize">Hero Sliders</h1>
+        <h1 class="app-page-title mb-0 text-capitalize">FAQs List</h1>
 
     </div>
     <div class="col-auto">
@@ -28,7 +28,7 @@
                 </div> -->
 
                 <div class="col-auto">
-                    <h5 class="card-title mb-0 text-end"><a href="{% url 'hero_slider_create' %}" class="btn btn-primary text-capitalize">Add New Silder</a></h5>
+                    <h5 class="card-title mb-0 text-end"><a href="{% url 'faq_create' %}" class="btn btn-primary text-capitalize">Add New FAQ</a></h5>
                 </div>
             </div>
         </div>
@@ -53,25 +53,20 @@
                         <th class="cell text-capitalize">Action</th>
                     </tr>
                 </thead>
-
                 <tbody>
-                    {% for hero_slider in hero_sliders %}
+                    {% for faq in faqs %}
                     <tr>
-                        <td class="cell">{{ hero_slider.id }}</td>
-                        <td class="cell"><span>{{ hero_slider.updated_at | abbreviate_month }}</span><span class="note">{{ hero_slider.updated_at | time:"h:i A" }}</span></td>
-                        <td class="cell"><span class="truncate">{{ hero_slider.heading }}</span></td>
-                        <td class="cell">{{ hero_slider.cta_message }}</td>
-                        <td class="cell">
-                            {% if hero_slider.image %}
-                            <img src="{{ hero_slider.image.url }}" style="width: 60px; height: auto; object-fit: cover;" alt="">
-                            {% endif  %}
-                        </td>
-
-                        <td class="cell">{% if hero_slider.order %} {{ hero_slider.order  }}{% else %} N/A {% endif %} </td>
-                        <td class="cell">{{ hero_slider.is_active | active_inactive }}</td>
+                        <td class="cell">{{ faq.id }}</td>
+                        <td class="cell"><span>{{ faq.updated_at | abbreviate_month }}</span><span class="note">{{ faq.updated_at | time:"h:i A" }}</span></td>
+                        <td class="cell"><span class="truncate">{{ faq.question }}</span></td>
+                        <td class="cell">{{ faq.answer }}</td>
+                        <td class="cell">{{ faq.faq_type }}</td>
+                       
+                        <td class="cell">{% if faq.order %} {{ faq.order  }}{% else %} N/A {% endif %} </td>
+                        <td class="cell">{{ faq.is_active | active_inactive }}</td>
                         
                         <td class="cell">
-                            <a href="{% url 'hero_slider_update' hero_slider.id %}" class=" px-1" style="color: var(--primary);"><i class="fa-regular fa-pen-to-square"></i></a>
+                            <a href="{% url 'faq_update' faq.id %}" class=" px-1" style="color: var(--primary);"><i class="fa-regular fa-pen-to-square"></i></a>
                             <!-- <a href="#" class=" px-1" style="color: var(--danger);"><i class="fa-regular fa-trash-can"></i></a> -->
                         </td>
                     </tr>

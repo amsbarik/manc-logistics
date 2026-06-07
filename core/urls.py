@@ -24,6 +24,10 @@ urlpatterns = [
     path('benefit/form/', views.why_choose_us_form, name='why_choose_us_create'),
     path('benefit/update/<int:pk>/', views.why_choose_us_form, name='why_choose_us_update'),
     
+    # FAQs 
+    path('faqs/', views.faq_list, name='faq_list'),
+    path('faq/form/', views.faq_create_or_update, name='faq_create'),
+    path('faq/update/<int:pk>/', views.faq_create_or_update, name='faq_update'),
 ]
 
 
@@ -55,9 +59,7 @@ urlpatterns = [
 #     path('newsletter/update/<int:pk>/', views.newsletter_form, name='newsletter_update'),
 #     # path('newsletter/delete/<int:pk>/', views.newsletter_delete, name='newsletter_delete'),
 
-#     path('faqs/', views.faq_all, name='faq_all'),
-#     path('faq/form/', views.faq_form, name='faq_form'),
-#     path('faq/update/<int:pk>/', views.faq_form, name='faq_update'),
+#     
 
 #   
 # ]

@@ -8,8 +8,8 @@ from datetime import timedelta
 
 from accounts.permissions import is_admin
 
-from .models import HeroSlider, Partner, LeadershipMessage, WhyChooseUs
-from .forms import HeroSliderForm, PartnerForm, LeadershipMessageForm, WhyChooseUsForm
+from .models import HeroSlider, Partner, LeadershipMessage, WhyChooseUs, FAQ
+from .forms import HeroSliderForm, PartnerForm, LeadershipMessageForm, WhyChooseUsForm, FAQForm
 
 
 
@@ -169,7 +169,41 @@ def why_choose_us_form(request, pk=0):
         return redirect('why_choose_us_list')
 
 
+# /////////////////////////////////////////////////////////////////
+# FAQs view 
+@login_required
+@user_passes_test(is_admin)
+def faq_list(request):
+    faqs = FAQ.objects.all()
+    
+    return render(request, 'core/admin/faq_list.html', {'faqs': faqs})
 
+
+# FAQs create & update form view 
+@login_required
+@user_passes_test(is_admin)
+def faq_create_or_update(request, pk=0):
+    
+    if request.method == 'GET':
+        if pk == 0:
+            form = FAQForm()
+        else:
+            faq = FAQ.objects.get(id=pk)
+            form = FAQForm(instance=faq)
+            
+        return render(request, 'core/admin/faq_form.html', {'form': form})
+    
+    else:
+        if pk == 0:
+            form = FAQForm(request.POST, request.FILES)
+        else:
+            faq = FAQ.objects.get(id=pk)
+            form = FAQForm(request.POST, request.FILES, instance=faq)
+
+        if form.is_valid():
+            form.save()
+            
+        return redirect('faq_list')
 
 
 
@@ -201,40 +235,6 @@ def why_choose_us_form(request, pk=0):
 
 # # ///////////////////////////////////////////////
 # before codes 
-
-# # Create your views here.
-# def index(request):
-#     # Fetch active top sliders
-#     top_sliders = TopSlider.objects.filter(is_active=True).order_by('order')
-#     top_links = TopLink.objects.first()
-
-#     # universities = University.objects.filter(is_top=True).order_by('order')[:15]
-#     universities = University.objects.order_by('order')[:15]
-#     testimonials = Testimonial.objects.filter(is_active=True).order_by('order')[:8]
-#     banner = Banner.objects.first()
-#     faqs = FAQ.objects.filter(is_active=True).order_by('order')
-#     partners = Partner.objects.filter(is_active=True).order_by('order')[:10]
-
-#     # disciplines
-#     disciplines = Discipline.objects.filter(is_active=True).order_by('-order').all()
-#     # PricingPlan
-#     pricing_plans = PricingPlan.objects.prefetch_related('features').filter(is_active=True).order_by('order').all()
-   
-#     context = {
-#         'top_sliders': top_sliders,
-#         'top_links': top_links,
-#         'universities': universities,
-#         'testimonials': testimonials,
-#         'banner': banner,
-#         'faqs': faqs,
-#         'partners': partners,
-
-#         'disciplines': disciplines,
-#         'pricing_plans': pricing_plans,
-#     }
-
-#     return render(request, 'core/index.html', context)
-
 
 
 # #newsletter 
@@ -433,40 +433,7 @@ def why_choose_us_form(request, pk=0):
 
 
 
-# # FAQs view 
-# @login_required
-# @user_passes_test(is_superuser)
-# def faq_all(request):
-#     faqs = FAQ.objects.order_by('created_at').all()
-    
-#     return render(request, 'admin_panel/core/faq_all.html', {'faqs': faqs})
 
-
-# # FAQs create & update form view 
-# @login_required
-# @user_passes_test(is_superuser)
-# def faq_form(request, pk=0):
-    
-#     if request.method == 'GET':
-#         if pk == 0:
-#             form = FAQForm()
-#         else:
-#             faq = FAQ.objects.get(id=pk)
-#             form = FAQForm(instance=faq)
-            
-#         return render(request, 'admin_panel/core/faq_form.html', {'form': form})
-    
-#     else:
-#         if pk == 0:
-#             form = FAQForm(request.POST, request.FILES)
-#         else:
-#             faq = FAQ.objects.get(id=pk)
-#             form = FAQForm(request.POST, request.FILES, instance=faq)
-
-#         if form.is_valid():
-#             form.save()
-            
-#         return redirect('faq_all')
 
 
 

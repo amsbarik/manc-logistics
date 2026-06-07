@@ -38,7 +38,6 @@ class HeroSliderForm(forms.ModelForm):
         # self.fields['category'].empty_label = 'Select Category'
 
 
-
 # Partner Form
 class PartnerForm(forms.ModelForm):
     class Meta:
@@ -50,8 +49,6 @@ class PartnerForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Save'))
-
-
 
 
 # LeadershipMessage Form 
@@ -81,7 +78,6 @@ class LeadershipMessageForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Save'))
-
 
 
 # WhyChooseUs Form 

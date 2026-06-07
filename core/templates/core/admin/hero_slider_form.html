@@ -9,59 +9,33 @@
 
 <form action="" method="POST" class="form" enctype="multipart/form-data"> {% csrf_token %}
     
-    <!-- english version -->
+    <!-- english Content -->
     <div class="row row-cols-1 row-cols-md-2">
         
         <div class="">
             <h5 class="my-3 my-md-4">English Content</h5>
 
-            <div class="col">
-                {{ form.heading_en | as_crispy_field }}
-            </div>
-            <div class="col">
-                {{ form.cta_message_en | as_crispy_field }}
-            </div>
-           
-            <div class="col">
-                {{ form.primary_btn_txt_en | as_crispy_field }}
-            </div>
+            <div class="col"> {{ form.heading_en | as_crispy_field }} </div>
+            <div class="col"> {{ form.cta_message_en | as_crispy_field }} </div>
             
-            <div class="col">
-                {{ form.secondary_btn_txt_en | as_crispy_field }}
-            </div>
-            
-           
-            <div>
-                {{ form.short_description_en | as_crispy_field }}
-            </div>
+            <div class="col">  {{ form.primary_btn_txt_en | as_crispy_field }} </div>
+            <div class="col"> {{ form.secondary_btn_txt_en | as_crispy_field }} </div>
+            <div class="col">  {{ form.short_description_en | as_crispy_field }} </div>
         </div>
 
-        <!-- arabic version -->
+        <!-- arabic Content -->
         <div class="">
             <h5 class="my-3 my-md-4">Arabic Content</h5>
 
-            <div class="col">
-                {{ form.heading_ar | as_crispy_field }}
-            </div>
-            <div class="col">
-                {{ form.cta_message_ar | as_crispy_field }}
-            </div>
-            <div class="col">
-                {{ form.primary_btn_txt_ar | as_crispy_field }}
-            </div>
-        
-            <div class="col">
-                {{ form.secondary_btn_txt_ar | as_crispy_field }}
-            </div>
+            <div class="col"> {{ form.heading_ar | as_crispy_field }} </div>
+            <div class="col"> {{ form.cta_message_ar | as_crispy_field }} </div>
 
-            <div>
-                {{ form.short_description_ar | as_crispy_field }}
-            </div>
+            <div class="col">   {{ form.primary_btn_txt_ar | as_crispy_field }} </div>
+            <div class="col"> {{ form.secondary_btn_txt_ar | as_crispy_field }} </div>
+            <div class="col"> {{ form.short_description_ar | as_crispy_field }} </div>
         
-            
         </div>
     
-        
     </div>
 
     <!-- Display & Settings  -->
@@ -90,7 +64,6 @@
     <button type="submit" class="btn btn-primary mt-4 me-3">Submit</button>
     <a href="{% url 'hero_slider_list' %}" class="btn btn-dark mt-4"> Cancel</a>
 </form>
-
 
 
 {% endblock content %}
