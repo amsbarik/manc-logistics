@@ -224,7 +224,7 @@
             <h5 class="text-base lg:lg 2xl:text-2xl text-white mt-4 md:mt-6">Subscribe to our newslatter for the latest updates and insights!</h5>
             <div class="relative w-full max-w-xl mt-3 md:mt-4 lg:mt-6">
 
-                <form action="" method="POST"> {% csrf_token %}
+                <form action="{% url 'newsletter' %}" method="POST"> {% csrf_token %}
 
                     <input type="email" name="news-email" placeholder="@ Enter your email address"
                         class="text-sm lg:text-base w-full h-12 lg:h-14 rounded-full bg-dark-100 px-4 lg:px-6 pr-30 xl:pr-36 outline-none border border-transparent focus:border-primary-500 focus:ring-2 focus:ring-white transition"

@@ -29,6 +29,8 @@ urlpatterns = [
     path('faq/form/', views.faq_create_or_update, name='faq_create'),
     path('faq/update/<int:pk>/', views.faq_create_or_update, name='faq_update'),
 
+    # Newsletter 
+    path('subscribe/', views.newsletter, name='newsletter'),
     path('newsletters/', views.newsletter_list, name='newsletter_list'),
     path('newsletter/form/', views.newsletter_form, name='newsletter_create'),
     path('newsletter/update/<int:pk>/', views.newsletter_form, name='newsletter_update'),
@@ -41,7 +43,7 @@ urlpatterns = [
 
 # urlpatterns = [
 #     path('', views.index, name='index'),
-#     path('newsletter/', views.newsletter, name='newsletter'),
+#     
 #     path('banners/', views.create_or_update_banner, name='create_or_update_banner'),
 
 #     path('contact/', views.contact, name='contact'),

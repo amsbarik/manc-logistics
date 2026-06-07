@@ -7,6 +7,7 @@ from datetime import timedelta
 
 
 from accounts.permissions import is_admin
+from service.models import Service
 
 from .models import HeroSlider, Partner, LeadershipMessage, WhyChooseUs, FAQ, Newsletter
 from .forms import HeroSliderForm, PartnerForm, LeadershipMessageForm, WhyChooseUsForm, FAQForm, NewsletterForm
@@ -20,6 +21,7 @@ def index(request):
 
     hero_sliders = HeroSlider.objects.filter(is_active=True).order_by('order')
     partners = Partner.objects.filter(is_active=True).order_by('order')[:20]
+    services = Service.objects.filter(is_active=True).order_by('order')[:4]
     leadership_message = LeadershipMessage.objects.first()
     benefits = WhyChooseUs.objects.filter(is_active=True).order_by('order')[:6]
     # faqs = FAQ.objects.filter(is_active=True).order_by('order')
@@ -31,6 +33,7 @@ def index(request):
     context = {
         'hero_sliders': hero_sliders,
         'partners': partners,
+        'services': services,
         'leadership_message': leadership_message,
         'benefits': benefits,
         'faqs_rider': faqs_rider,
@@ -234,7 +237,7 @@ def newsletter(request):
 
 
 # from admin ///////////////////
-# newsletter_all views
+# newsletter list views
 @login_required
 @user_passes_test(is_admin)
 def newsletter_list(request):

@@ -4,10 +4,10 @@ from .import views
 urlpatterns = [
     path('services/', views.services, name='services'),
    
-#     # partner 
-#     path('partners/', views.partner_list, name='partner_list'),
-#     path('partner/form/', views.partner_form, name='partner_form'),
-#     path('partner/update/<int:pk>/', views.partner_form, name='partner_update'),
+    # Service 
+    path('Services/', views.service_list, name='service_list'),
+    path('Service/form/', views.service_create_or_update, name='service_create'),
+    path('Service/update/<int:pk>/', views.service_create_or_update, name='service_update'),
     
 ]
 
