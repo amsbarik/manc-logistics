@@ -1,13 +1,14 @@
 from django.urls import path 
 from .import views
 
+
 urlpatterns = [
     path('', views.about_us, name='about_us'),
    
-#     # partner 
-#     path('partners/', views.partner_list, name='partner_list'),
-#     path('partner/form/', views.partner_form, name='partner_form'),
-#     path('partner/update/<int:pk>/', views.partner_form, name='partner_update'),
+    # expert_team 
+    path('expert-teams/', views.expert_team_list, name='expert_team_list'),
+    path('expert-team/form/', views.expert_team_create_or_update, name='expert_team_create'),
+    path('expert-team/update/<int:pk>/', views.expert_team_create_or_update, name='expert_team_update'),
     
 ]
 

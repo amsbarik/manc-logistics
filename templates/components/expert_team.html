@@ -1,0 +1,25 @@
+{% load static %}
+
+{% for expert in expert_teams %}
+    <div class="group text-center">
+
+        <!-- Image Container -->
+        <div class="relative overflow-hidden rounded-[16px] 2xl:rounded-[30px]">
+            <img src="{{ expert.photo.url }}" alt="{{ expert.name }}" class="w-full h-[183px] sm:h-[231px] md:h-[283px] lg:h-[316px] xl:h-[273px] 2xl:h-[336px] object-cover transition-transform duration-500 [clip-path:polygon(0_0,75%_0,100%_18%,100%_100%,0_100%)]">
+            <!-- Dark Overlay -->
+            <div class="absolute inset-0 bg-dark/0 group-hover:bg-dark/30 transition-all duration-500 [clip-path:polygon(0_0,75%_0,100%_18%,100%_100%,0_100%)]"> </div>
+
+            <!-- Floating Button -->
+            <a href="#" class="absolute bottom-2 md:bottom-3 xl:bottom-4 right-2 md:right-3 xl:right-4 bg-primary size-8 md:size-10 xl:size-12 text-sm md:text-base xl:text-lg rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:bg-secondary">
+                <i class="fa-solid fa-link text-white"></i>
+            </a>
+        </div>
+
+        <!-- Content -->
+        <div class="mt-3 md:mt-4 xl:mt-5">
+            <h3 class="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-dark"> {{ expert.name }} </h3>
+            <p class="text-sm md:text-base  xl:text-lg text-dark-800 mt-1"> {{ expert.designation }} </p>
+        </div>
+
+    </div>
+{%endfor  %}
