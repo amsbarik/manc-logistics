@@ -28,7 +28,7 @@
                 </div> -->
 
                 <div class="col-auto">
-                    <h5 class="card-title mb-0 text-end"><a href="{% url 'working_processs_create' %}" class="btn btn-primary text-capitalize">Add New Team</a></h5>
+                    <h5 class="card-title mb-0 text-end"><a href="{% url 'working_process_create' %}" class="btn btn-primary text-capitalize">Add New Step</a></h5>
                 </div>
             </div>
         </div>
@@ -44,9 +44,9 @@
                         <th class="cell text-capitalize">ID</th>
                         <th class="cell text-capitalize">Updated At</th>
 
-                        <th class="cell text-capitalize">Name</th>
-                        <th class="cell text-capitalize">Designation</th>
-                        <th class="cell text-capitalize">Photo</th>
+                        <th class="cell text-capitalize">Process Name</th>
+                        <th class="cell text-capitalize">Details</th>
+                        <th class="cell text-capitalize">Thum Icon</th>
 
                         <th class="cell text-capitalize">Order</th>
                         <th class="cell text-capitalize">Status</th>
@@ -55,15 +55,15 @@
                 </thead>
 
                 <tbody>
-                    {% for process in working_processs %}
+                    {% for process in working_process %}
                     <tr>
                         <td class="cell">{{ process.id }}</td>
                         <td class="cell"><span>{{ process.updated_at | abbreviate_month }}</span><span class="note">{{ process.updated_at | time:"h:i A" }}</span></td>
-                        <td class="cell"><span class="truncate">{{ process.name }}</span></td>
-                        <td class="cell">{{ process.designation }}</td>
+                        <td class="cell"><span class="truncate">{{ process.title }}</span></td>
+                        <td class="cell">{{ process.short_description }}</td>
                         <td class="cell">
-                            {% if process.photo %}
-                            <img src="{{ process.photo.url }}" style="width: 60px; height: auto; object-fit: cover;" alt="">
+                            {% if process.image %}
+                            <img src="{{ process.image.url }}" style="width: 60px; height: auto; object-fit: cover;" alt="">
                             {% endif  %}
                         </td>
 
@@ -71,7 +71,7 @@
                         <td class="cell">{{ process.is_active | active_inactive }}</td>
                         
                         <td class="cell">
-                            <a href="{% url 'working_processs_update' process.id %}" class=" px-1" style="color: var(--primary);"><i class="fa-regular fa-pen-to-square"></i></a>
+                            <a href="{% url 'working_process_update' process.id %}" class=" px-1" style="color: var(--primary);"><i class="fa-regular fa-pen-to-square"></i></a>
                             <!-- <a href="#" class=" px-1" style="color: var(--danger);"><i class="fa-regular fa-trash-can"></i></a> -->
                         </td>
                     </tr>

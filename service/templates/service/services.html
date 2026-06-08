@@ -8,13 +8,13 @@
 
     <section class="mt-[80px]">
         <div class="containr">
-            <div class="bg-[url(static/img/page-top1.jpg)] h-[260px] md:h-[320px] xl:h-[420px]">
+            <div class="bg-[url({% static 'img/page-top1.jpg' %})] h-[260px] md:h-[320px] xl:h-[420px]">
                 <div class="container h-full flex items-center sm:pl-8 lg:pl-30 xl:pl-40">
                     <div class="">
                         <h2 class="font-semibold text-2xl lg:text-4xl xl:text-5xl text-dark">Save your time!</h2>
                         <p class="text-dark-800 text-base lg:text-lg mt-2 lg:mt-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque, atque!</p>
 
-                        <div class="mt-10 lg:mt-12"><a href="#" class="bg-primary text-white px-4 lg:px-5 py-2 rounded-sm hover:bg-secondary text-sm lg:text-base">Order Now</a></div>
+                        <div class="mt-10 lg:mt-12"><a href="#" class="bg-primary text-white px-4 lg:px-5 py-2 rounded-sm hover:bg-secondary text-sm lg:text-base">Explore Now</a></div>
                     </div>
                 </div>
             </div>
@@ -36,166 +36,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-y-22 gap-6">
                 
                 <!-- service-card  -->
-                <div class="service-card group relative">
-                    <img src="static/img/banner/s1.jpg" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover" alt="">
-                    <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
-                        <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
-                        
-                        <a href="#" class="flex mt-7 justify-between group-hover:text-primary">
-                                <h5 class="font-semibold text-xl capitalize  text-dark hover:text-primary hover:underline -mt-1">Catering service</h5>
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <p class="card-text overflow-hidden max-h-0 opacity-0 translate-y-6 mt-0 transition-all duration-500 ease-in-out group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0  group-hover:mt-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque soluta corrupti provident!</p>
-                    </div>
-                </div>
-
-
-                <!-- service-card  -->
-                <div class="service-card group relative">
-                    <img src="static/img/banner/s3.png" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[420px] object-cover" alt="">
-                    <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
-                        <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
-                        
-                        <a href="#" class="flex mt-7 justify-between group-hover:text-primary">
-                                <h5 class="font-semibold text-xl capitalize  text-dark hover:text-primary hover:underline -mt-1">Catering service</h5>
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <p class="card-text overflow-hidden max-h-0 opacity-0 translate-y-6 mt-0 transition-all duration-500 ease-in-out group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0  group-hover:mt-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque soluta corrupti provident!</p>
-                    </div>
-                </div>
-                <!-- service-card  -->
-                <div class="service-card group relative">
-                    <img src="static/img/banner/s4.jpg" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[420px] object-cover" alt="">
-                    <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
-                        <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
-                        
-                        <a href="#" class="flex mt-7 justify-between group-hover:text-primary">
-                                <h5 class="font-semibold text-xl capitalize  text-dark hover:text-primary hover:underline -mt-1">Catering service</h5>
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <p class="card-text overflow-hidden max-h-0 opacity-0 translate-y-6 mt-0 transition-all duration-500 ease-in-out group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0  group-hover:mt-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque soluta corrupti provident!</p>
-                    </div>
-                </div>
-                <!-- service-card  -->
-                <div class="service-card group relative">
-                    <img src="static/img/banner/s2.jpeg" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[420px] object-cover" alt="">
-                    <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
-                        <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
-                        
-                        <a href="#" class="flex mt-7 justify-between group-hover:text-primary">
-                                <h5 class="font-semibold text-xl capitalize  text-dark hover:text-primary hover:underline -mt-1">Catering service</h5>
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <p class="card-text overflow-hidden max-h-0 opacity-0 translate-y-6 mt-0 transition-all duration-500 ease-in-out group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0  group-hover:mt-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque soluta corrupti provident!</p>
-                    </div>
-                </div>
-                <!-- service-card  -->
-                <div class="service-card group relative">
-                    <img src="static/img/banner/s4.jpg" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[420px] object-cover" alt="">
-                    <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
-                        <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
-                        
-                        <a href="#" class="flex mt-7 justify-between group-hover:text-primary">
-                                <h5 class="font-semibold text-xl capitalize  text-dark hover:text-primary hover:underline -mt-1">Catering service</h5>
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <p class="card-text overflow-hidden max-h-0 opacity-0 translate-y-6 mt-0 transition-all duration-500 ease-in-out group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0  group-hover:mt-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque soluta corrupti provident!</p>
-                    </div>
-                </div>
-                <!-- service-card  -->
-                <div class="service-card group relative">
-                    <img src="static/img/banner/s2.jpeg" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[420px] object-cover" alt="">
-                    <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
-                        <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
-                        
-                        <a href="#" class="flex mt-7 justify-between group-hover:text-primary">
-                                <h5 class="font-semibold text-xl capitalize  text-dark hover:text-primary hover:underline -mt-1">Catering service</h5>
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <p class="card-text overflow-hidden max-h-0 opacity-0 translate-y-6 mt-0 transition-all duration-500 ease-in-out group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0  group-hover:mt-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque soluta corrupti provident!</p>
-                    </div>
-                </div>
-                
-                <!-- service-card  -->
-                <div class="service-card group relative">
-                    <img src="static/img/banner/s1.jpg" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover" alt="">
-                    <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
-                        <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
-                        
-                        <a href="#" class="flex mt-7 justify-between group-hover:text-primary">
-                                <h5 class="font-semibold text-xl capitalize  text-dark hover:text-primary hover:underline -mt-1">Catering service</h5>
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <p class="card-text overflow-hidden max-h-0 opacity-0 translate-y-6 mt-0 transition-all duration-500 ease-in-out group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0  group-hover:mt-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque soluta corrupti provident!</p>
-                    </div>
-                </div>
-
-
-                <!-- service-card  -->
-                <div class="service-card group relative">
-                    <img src="static/img/banner/s3.png" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[420px] object-cover" alt="">
-                    <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
-                        <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
-                        
-                        <a href="#" class="flex mt-7 justify-between group-hover:text-primary">
-                                <h5 class="font-semibold text-xl capitalize  text-dark hover:text-primary hover:underline -mt-1">Catering service</h5>
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <p class="card-text overflow-hidden max-h-0 opacity-0 translate-y-6 mt-0 transition-all duration-500 ease-in-out group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0  group-hover:mt-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque soluta corrupti provident!</p>
-                    </div>
-                </div>
-                <!-- service-card  -->
-                <div class="service-card group relative">
-                    <img src="static/img/banner/s4.jpg" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[420px] object-cover" alt="">
-                    <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
-                        <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
-                        
-                        <a href="#" class="flex mt-7 justify-between group-hover:text-primary">
-                                <h5 class="font-semibold text-xl capitalize  text-dark hover:text-primary hover:underline -mt-1">Catering service</h5>
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <p class="card-text overflow-hidden max-h-0 opacity-0 translate-y-6 mt-0 transition-all duration-500 ease-in-out group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0  group-hover:mt-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque soluta corrupti provident!</p>
-                    </div>
-                </div>
-                <!-- service-card  -->
-                <div class="service-card group relative">
-                    <img src="static/img/banner/s2.jpeg" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[420px] object-cover" alt="">
-                    <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
-                        <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
-                        
-                        <a href="#" class="flex mt-7 justify-between group-hover:text-primary">
-                                <h5 class="font-semibold text-xl capitalize  text-dark hover:text-primary hover:underline -mt-1">Catering service</h5>
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <p class="card-text overflow-hidden max-h-0 opacity-0 translate-y-6 mt-0 transition-all duration-500 ease-in-out group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0  group-hover:mt-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque soluta corrupti provident!</p>
-                    </div>
-                </div>
-                <!-- service-card  -->
-                <div class="service-card group relative">
-                    <img src="static/img/banner/s4.jpg" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[420px] object-cover" alt="">
-                    <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
-                        <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
-                        
-                        <a href="#" class="flex mt-7 justify-between group-hover:text-primary">
-                                <h5 class="font-semibold text-xl capitalize  text-dark hover:text-primary hover:underline -mt-1">Catering service</h5>
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <p class="card-text overflow-hidden max-h-0 opacity-0 translate-y-6 mt-0 transition-all duration-500 ease-in-out group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0  group-hover:mt-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque soluta corrupti provident!</p>
-                    </div>
-                </div>
-                <!-- service-card  -->
-                <div class="service-card group relative">
-                    <img src="static/img/banner/s2.jpeg" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[420px] object-cover" alt="">
-                    <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
-                        <img src="static/img/sv1.png" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
-                        
-                        <a href="#" class="flex mt-7 justify-between group-hover:text-primary">
-                                <h5 class="font-semibold text-xl capitalize  text-dark hover:text-primary hover:underline -mt-1">Catering service</h5>
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <p class="card-text overflow-hidden max-h-0 opacity-0 translate-y-6 mt-0 transition-all duration-500 ease-in-out group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0  group-hover:mt-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque soluta corrupti provident!</p>
-                    </div>
-                </div>
+                {% include 'components/service_card.html' %}
                 
             </div>
         </div>

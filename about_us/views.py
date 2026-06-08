@@ -7,15 +7,29 @@ from datetime import timedelta
 
 from accounts.permissions import is_admin
 
-from .models import ExpertTeam
-from .forms import ExpertTeamForm
+from core.models import LeadershipMessage
+
+from .models import About, WorkingProcess, ExpertTeam
+from .forms import AboutForm, WorkingProcessForm, ExpertTeamForm
 
 
 
 # Create your views here.
 
 def about_us(request):
-    pass
+    
+    about_us = About.objects.first()
+    leadership_message = LeadershipMessage.objects.first()
+    working_process = WorkingProcess.objects.filter(is_active=True).order_by('id')[:3]
+    expert_teams = ExpertTeam.objects.filter(is_active=True).order_by('order')[:5]
+
+    context = {
+        'about_us': about_us,
+        'leadership_message': leadership_message,
+        'working_process': working_process,
+        'expert_teams': expert_teams,
+    }
+    return render(request, 'about_us/about_us.html', context)
 
 
 
@@ -24,6 +38,35 @@ def about_us(request):
 # ////////////////////////////////////////////////////
 # admin views start here  //////////////////////////////////////////////////////////
 
+# about create & update form view 
+def about_create_or_update(request):
+
+    about = About.objects.first()
+
+    if request.method == 'POST':
+        form = AboutForm(request.POST, request.FILES, instance=about)
+
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, 'About section saved successfully.')
+
+            return redirect('about_create_or_update')
+
+    else:
+        form = AboutForm(instance=about)
+
+    context = {
+        'form': form,
+        'object': about,
+    }
+
+    return render(request, 'about_us/admin/about_form.html', context)
+
+
+
+
+# //////////////////////////////////////////////////////////////////////////////////
 # Expert Team view 
 @login_required
 @user_passes_test(is_admin)
@@ -61,6 +104,41 @@ def expert_team_create_or_update(request, pk=0):
 
 
 # //////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+
+# working process view 
+@login_required
+@user_passes_test(is_admin)
+def working_process_list(request):
+    working_process = WorkingProcess.objects.all()
+    
+    return render(request, 'about_us/admin/working_process_list.html', {'working_process': working_process})
+
+
+# working process create & update form view 
+@login_required
+@user_passes_test(is_admin)
+def working_process_create_or_update(request, pk=0):
+    
+    if request.method == 'GET':
+        if pk == 0:
+            form = WorkingProcessForm()
+        else:
+            working_process = WorkingProcess.objects.get(id=pk)
+            form = WorkingProcessForm(instance=working_process)
+            
+        return render(request, 'about_us/admin/working_process_form.html', {'form': form})
+    
+    else:
+        if pk == 0:
+            form = WorkingProcessForm(request.POST, request.FILES)
+        else:
+            working_process = WorkingProcess.objects.get(id=pk)
+            form = WorkingProcessForm(request.POST, request.FILES, instance=working_process)
+
+        if form.is_valid():
+            form.save()
+            
+        return redirect('working_process_list')
 
 
 

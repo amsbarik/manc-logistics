@@ -1,0 +1,69 @@
+{% load static %}
+<section class="section-padding bg-white overflow-hidden">
+    <div class="container mx-auto px-6">
+        <div class="section-head text-center max-w-9/10 mx-auto">
+            <h2 class="heading-center">WORKING PROCESS</h2>
+            <h1 class="section-title">Fast & Easy Delivery Process!</h1>
+            <p class="section-txt">We follow a fast and easy process to take your order, assign a rider, and deliver your food hot and fresh to your doorstep.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 xl:gap-12">
+
+            {% for process in working_process %}
+            <!-- Step 1 -->
+            <div class="group relative text-center">
+
+                <!-- Timeline -->
+                <div class="relative flex justify-center mb-6 md:mb-8 lg:mb-12 xl:mb-14">
+
+                    <!-- Right dashed line -->
+                    {% if process.id == 1 or process.id == 2  %}
+                    <div class="hidden md:block absolute top-1/2 left-1/2 w-full border-t border-dashed border-primary-300"></div>
+                    <div class="hidden md:block absolute top-1/2 right-1/2 w-1/2 border-t border-dashed border-primary-300"></div>
+                    {% endif %}
+
+                    <!-- Right dashed line -->
+                    {% if process.id == 3  %}
+                    <div class="hidden md:block absolute top-1/2 left-1/2 w-1/2 border-t border-dashed border-primary-300"></div>
+                    {% endif %}
+
+                    <!-- Car -->
+                     {% if process.id == 1 or process.id == 2  %}
+                    <div class="hidden md:flex absolute top-1/2 left-full -translate-x-1/2 -translate-y-1/2 z-20 bg-white px-2">
+                        <i class="fa-solid fa-car-side text-primary text-xl"></i>
+                    </div>
+                    {% endif %}
+
+                    <!-- Number -->
+                    <div class="relative z-10 size-12 lg:size-14 rounded-full bg-primary-100 flex items-center justify-center text-lg lg:text-xl xl:text-2xl font-semibold text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300"> 0{{ process.id }} </div>
+
+                </div>
+
+                <!-- Step content  -->
+                <div class="relative">
+                    
+                    <!-- Step Arrow -->
+                    {% if process.id == 1 or process.id == 2  %}
+                    <div class="hidden md:block absolute h-[170px] top-[30px] -right-24">
+                        <img src="{% static 'img/step-sh.png' %}" alt="">
+                    </div>
+                    {% endif %}
+
+                    <!-- Step Image -->
+                    <div class="mx-auto size-[170px] rounded-full border border-dark p-2 relative z-10">
+                        <div class="overflow-hidden rounded-full size-full">
+                            <img src="{{ process.image.url }}" class="w-full h-full object-cover"   alt="{{ process.title }}">
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-4 md:mt-6 xl:mt-8 text-xl md:text-2xl xl:text-3xl font-semibold text-dark"> {{ process.title }} </h3>
+                <p class="mt-2 md:mt-3 xl:mt-4 text-dark-800 text-base lg:text-lg"> {{ process.short_description }} </p>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>

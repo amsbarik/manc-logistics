@@ -148,25 +148,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-y-22 gap-6">
             
             <!-- service-card  -->
-            {% for service in services %}
-            <div class="service-card group relative">
-                {% if service.thumbnail %}
-                <img src="{{ service.thumbnail.url }}" class="rounded-2xl z-10 w-full h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover h-[406px] sm:h-[353px] md:h-[427px] lg:h-[574px] xl:h-[347px] 2xl:h-[420px] object-cover" alt="">
-                {% endif %}
-
-                <div class="absolute shadow-xl/6 p-6 bg-white z-20 rounded-2xl transition-all duration-500 -mt-18   group-hover:-mt-42 w-19/20">
-                    {% if service.thumbnail %}
-                    <img src="{{ service.icon.url }}" class="-mt-10 transition-all group-hover:-mt-10 duration-500" alt="">
-                    {% endif %}
-                    
-                    <a href="#" class="flex mt-7 justify-between group-hover:text-primary">
-                            <h5 class="font-semibold text-xl capitalize  text-dark hover:text-primary hover:underline -mt-1">{{ service.title }}</h5>
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                    <p class="card-text overflow-hidden max-h-0 opacity-0 translate-y-6 mt-0 transition-all duration-500 ease-in-out group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0  group-hover:mt-4 ">{{ service.short_description }}</p>
-                </div>
-            </div>
-            {% endfor %}
+            {% include 'components/service_card.html' %}
 
         </div>
     </div>
@@ -256,34 +238,9 @@
 
 
 <!-- message from md start  -->
-<section class="md-message section-padding bg-linear-to-t  from-secondary-100 via-primary-50 to-secondary-100 ">
-    <div class="container">
 
-        <div class="md:flex gap-8">
-            <div class="w-full lg:w-[340px] fle">
-                <img src="{{ leadership_message.photo.url }}" class="w-[240px] md:w-full h-auto object-contain border border-4 border-accent shadow-2xl" alt="">
-                <div class="border-l-12 border-secondary ps-5 mt-6">
-                    <h5 class="capitalize text-dark text-2xl font-semibold">{{ leadership_message.name }}</h5>
-                    <p class="text-base text-dark-800 font-medium">{{ leadership_message.designation }}</p>
-                </div>
-            </div>
-            
-            <div>
-                <h1 class="section-title text-dark capitalize hidden lg:block">{{ leadership_message.heading }}</h1>
-                <p class="text-secondary text-lg font-medium capitalize mt-8 lg:mt-12">Message From</p>
-                <h2 class="font-semibold text-dark text-2xl text-dark">{{ leadership_message.designation }}</h2>
+    {% include 'components/leadership_message.html' %}
 
-                <p class="mt-6 text-dark-800 ">{{ leadership_message.message_01 }}</p>
-
-                <p class="mt-3 text-dark-800 ">{{ leadership_message.message_02 }}</p>
-
-                <a href="#" class="block group mt-8 text-primary underline font-medium text-base hover:text-secondary transition duration-300">
-                    know More<i class="fa-solid fa-arrow-right-long ms-2 group-hover:translate-x-1 transition-all duration-300"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
 <!-- message from md end -->
 
 
@@ -325,157 +282,14 @@
 
 
 <!-- working progress start  -->
-<section class="section-padding bg-white overflow-hidden">
-    <div class="container mx-auto px-6">
-        <div class="section-head text-center max-w-9/10 mx-auto">
-            <h2 class="heading-center">WORKING PROCESS</h2>
-            <h1 class="section-title">Fast & Easy Delivery Process!</h1>
-            <p class="section-txt">We follow a fast and easy process to take your order, assign a rider, and deliver your food hot and fresh to your doorstep.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 xl:gap-12">
-
-            <!-- Step 1 -->
-            <div class="group relative text-center">
-
-                <!-- Timeline -->
-                <div class="relative flex justify-center mb-6 md:mb-8 lg:mb-12 xl:mb-14">
-
-                    <!-- Right dashed line -->
-                    <div class="hidden md:block absolute top-1/2 left-1/2 w-full border-t border-dashed border-primary-300"></div>
-                    <div class="hidden md:block absolute top-1/2 right-1/2 w-1/2 border-t border-dashed border-primary-300"></div>
-
-                    <!-- Car -->
-                    <div class="hidden md:flex absolute top-1/2 left-full -translate-x-1/2 -translate-y-1/2 z-20 bg-white px-2">
-                        <i class="fa-solid fa-car-side text-primary text-xl"></i>
-                    </div>
-
-                    <!-- Number -->
-                    <div class="relative z-10 size-12 lg:size-14 rounded-full bg-primary-100 flex items-center justify-center text-lg lg:text-xl xl:text-2xl font-semibold text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">01 </div>
-
-                </div>
-
-                <div class="relative">
-                    <!-- Step Arrow -->
-                    <div class="hidden md:block absolute h-[170px] top-[30px] -right-24">
-                        <img src="static/img/step-sh.png" alt="">
-                    </div>
-
-                    <!-- Step Image -->
-                    <div class="mx-auto size-[170px] rounded-full border border-dark p-2 relative z-10">
-                        <div class="overflow-hidden rounded-full size-full">
-                            <img src="static/img/st1.png" class="w-full h-full object-cover"   alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="mt-4 md:mt-6 xl:mt-8 text-xl md:text-2xl xl:text-3xl font-semibold text-dark"> Order Placed </h3>
-                <p class="mt-2 md:mt-3 xl:mt-4 text-dark-800 text-base lg:text-lg"> You place your food order easily </p>
-
-            </div>
-
-            <!-- Step 2 -->
-            <div class="group relative text-center">
-
-                <!-- Timeline -->
-                <div class="relative flex justify-center mb-6 md:mb-8 lg:mb-12 xl:mb-14">
-
-                    <!-- Right dashed line -->
-                    <div class="hidden md:block absolute top-1/2 left-1/2 w-full border-t border-dashed border-primary-300"></div>
-                    <div class="hidden md:block absolute top-1/2 right-1/2 w-1/2 border-t border-dashed border-primary-300"></div>
-
-                    <!-- Car -->
-                    <div class="hidden md:flex absolute top-1/2 left-full -translate-x-1/2 -translate-y-1/2 z-20 bg-white px-2">
-                        <i class="fa-solid fa-car-side text-primary text-xl"></i>
-                    </div>
-
-                    <!-- Number -->
-                    <div class="relative z-10 size-12 lg:size-14 rounded-full bg-primary-100 flex items-center justify-center text-lg lg:text-xl xl:text-2xl font-semibold text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">02 </div>
-
-                </div>
-
-                <div class="relative">
-                    <!-- Step Arrow -->
-                    <div class="hidden md:block absolute h-[170px] top-[30px] -right-24">
-                        <img src="static/img/step-sh.png" alt="">
-                    </div>
-
-                    <!-- Step Image -->
-                    <div class="mx-auto size-[170px] rounded-full border border-primary p-2 relative z-10">
-                        <div class="overflow-hidden rounded-full size-full">
-                            <img src="static/img/st2.png" class="w-full h-full object-cover"   alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="mt-4 md:mt-6 xl:mt-8 text-xl md:text-2xl xl:text-3xl font-semibold text-dark"> Rider Assigned </h3>
-                <p class="mt-2 md:mt-3 xl:mt-4 text-dark-800 text-base lg:text-lg"> Nearest rider is assigned to your order </p>
-
-            </div>
-
-            <!-- Step 3 -->
-            <div class="group relative text-center">
-
-                <!-- Timeline -->
-                <div class="relative flex justify-center mb-6 md:mb-8 lg:mb-12 xl:mb-14">
-
-                    <!-- Right dashed line -->
-                    <!-- <div class="hidden md:block absolute top-1/2 left-1/2 w-full border-t border-dashed border-primary-300"></div> -->
-                    <div class="hidden md:block absolute top-1/2 left-1/2 w-1/2 border-t border-dashed border-primary-300"></div>
-
-                    <!-- Car -->
-                    <!-- <div class="hidden md:flex absolute top-1/2 left-full -translate-x-1/2 -translate-y-1/2 z-20 bg-white px-2">
-                        <i class="fa-solid fa-car-side text-primary text-xl"></i>
-                    </div> -->
-
-                    <!-- Number -->
-                    <div class="relative z-10 size-12 lg:size-14 rounded-full bg-primary-100 flex items-center justify-center text-lg lg:text-xl xl:text-2xl font-semibold text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">03 </div>
-
-                </div>
-
-                <div class="relative">
-                    <!-- Step Arrow -->
-                    <!-- <div class="hidden md:block absolute h-[170px] top-[30px] -right-24">
-                        <img src="static/img/step-sh.png" alt="">
-                    </div> -->
-
-                    <!-- Step Image -->
-                    <div class="mx-auto size-[170px] rounded-full border border-dark p-2 relative z-10">
-                        <div class="overflow-hidden rounded-full size-full">
-                            <img src="static/img/st3.png" class="w-full h-full object-cover"   alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="mt-4 md:mt-6 xl:mt-8 text-xl md:text-2xl xl:text-3xl font-semibold text-dark"> Food Delivered </h3>
-                <p class="mt-2 md:mt-3 xl:mt-4 text-dark-800 text-base lg:text-lg"> Hot food delivered to your doorstep fast</p>
-
-            </div>
-
-        </div>
-
-    </div>
-</section>
+{% include 'components/working_process.html' %}
 <!-- working progress end -->
 
 
 <!-- expert team start  -->
-<section class="section-padding bg-linear-to-r/decreasing  from-secondary-50 to-primary-50">
-    <div class="container mx-auto px-6">
-        <div class="section-head text-center">
-            <h2 class="heading-center">Our Expert Team</h2>
-            <h1 class="section-title">We support with our honesty!</h1>
-            <p class="section-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque cum, consectetur dolorem veniam illo aut dolores.</p>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 lg:gap-6 xl:gap-8">
 
-            <!-- Card -->
-            {% include 'components/expert_team.html' %}
-            
-        </div>
+    {% include 'components/expert_team.html' %}
 
-    </div>
-</section>
 <!-- expert team end  -->
 
 

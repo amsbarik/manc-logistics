@@ -8,7 +8,7 @@ from datetime import timedelta
 
 from accounts.permissions import is_admin
 from service.models import Service
-from about_us.models import ExpertTeam
+from about_us.models import WorkingProcess, ExpertTeam
 
 from .models import HeroSlider, Partner, LeadershipMessage, WhyChooseUs, FAQ, Newsletter
 from .forms import HeroSliderForm, PartnerForm, LeadershipMessageForm, WhyChooseUsForm, FAQForm, NewsletterForm
@@ -25,6 +25,7 @@ def index(request):
     services = Service.objects.filter(is_active=True).order_by('order')[:4]
     leadership_message = LeadershipMessage.objects.first()
     benefits = WhyChooseUs.objects.filter(is_active=True).order_by('order')[:6]
+    working_process = WorkingProcess.objects.filter(is_active=True).order_by('id')[:3]
     expert_teams = ExpertTeam.objects.filter(is_active=True).order_by('order')[:5]
     faqs_rider = FAQ.objects.filter(is_active=True, faq_type=FAQ.FAQType.RIDER).order_by('order')
     faqs_merchant = FAQ.objects.filter(is_active=True, faq_type=FAQ.FAQType.MERCHANT).order_by('order')
@@ -37,6 +38,8 @@ def index(request):
         'services': services,
         'leadership_message': leadership_message,
         'benefits': benefits,
+        'working_process': working_process,
+        'expert_teams': expert_teams,
         'faqs_rider': faqs_rider,
         'faqs_merchant': faqs_merchant,
     }

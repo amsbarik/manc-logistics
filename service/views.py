@@ -10,7 +10,13 @@ from .forms import ServiceForm
 
 def services(request):
 
-    return render(request, 'service/services.html')
+    services = Service.objects.filter(is_active=True).order_by('order')
+
+    context = {
+        'services': services
+    }
+
+    return render(request, 'service/services.html', context)
 
 
 
