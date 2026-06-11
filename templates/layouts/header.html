@@ -21,7 +21,9 @@
                                 Food Delivery Company
                             </p>
                         </div> -->
-                        <img src="static/img/manc-logo-header.png" class="h-[60px] w-auto" alt="">
+                        {% if site_setting.header_logo %}
+                        <img src="{{ site_setting.header_logo.url }}" class="h-[60px] w-auto" alt="">
+                        {% endif %}
                     </a>
 
                     
@@ -50,7 +52,7 @@
                         </div>
 
                         <!-- Login -->
-                        <a href="login.html"
+                        <a href="#"
                            class="h-12 px-5 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-white/10 transition lg:text-sm xl:text-base">
                             Login
                         </a>

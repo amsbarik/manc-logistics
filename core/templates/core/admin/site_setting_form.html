@@ -1,10 +1,10 @@
 {% extends 'admin_panel/layouts/master.html' %}
 {% load crispy_forms_tags %}
-{% block title %} Hero Slider Form {% endblock title %}
+{% block title %} Site Settings Form {% endblock title %}
 
 {% block content %}
 
-<h1 class="app-page-title mt-lg-2 mb-0 text-capitalize">Hero Silder Form</h1>
+<h1 class="app-page-title mt-lg-2 mb-0 text-capitalize">Site Settings Form</h1>
 <hr>
 
 <form action="" method="POST" class="form" enctype="multipart/form-data"> {% csrf_token %}
@@ -38,23 +38,6 @@
     
     </div>
  
-    model = SiteSetting
-        fields = ['', '', '', 'email_sale', 'email_support', 
-        
-            'facebook_url', 
-            'linkedin_url', 
-            'instagram_url', 
-            'youtube_url', 
-            'tiktok_url', 
-
-            'meta_title', 
-            'meta_description', 
-            'meta_keywords', 
-            'og_image', 
-            'google_site_verification', 
-
-            
-        ]
 
     <!-- Display & Settings  -->
     <div>
@@ -70,12 +53,53 @@
             <div class="col-12">
                 {{ form.footer_logo | as_crispy_field }}
             </div>
+          
+        </div>
+    </div>
+
+    <!-- Social media  -->
+    <div>
+        <h5 class="mb-2 mb-md-3 mt-4 mt-md-5">Social Media</h5>
+        <hr>
+        <div class="row">
             <div class="col-12">
-                {{ form.order | as_crispy_field }}
+                {{ form.facebook_url | as_crispy_field }}
             </div>
-            <div class="mt-3">
-                {{ form.is_active | as_crispy_field }}
+            <div class="col-12">
+                {{ form.linkedin_url | as_crispy_field }}
             </div>
+            <div class="col-12">
+                {{ form.instagram_url | as_crispy_field }}
+            </div>
+            <div class="col-12">
+                {{ form.youtube_url | as_crispy_field }}
+            </div>
+            <div class="col-12">
+                {{ form.tiktok_url | as_crispy_field }}
+            </div>
+        </div>
+    </div>
+
+    <!-- Social media  -->
+    <div>
+        <h5 class="mb-2 mb-md-3 mt-4 mt-md-5">Meta for SEO</h5>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                {{ form.meta_title | as_crispy_field }}
+            </div>
+            <div class="col-12">
+                {{ form.meta_description | as_crispy_field }}
+            </div>
+            <div class="col-12">
+                {{ form.meta_keywords | as_crispy_field }}
+            </div>
+            <!-- <div class="col-12">
+                {{ form.og_image | as_crispy_field }}
+            </div>
+            <div class="col-12">
+                {{ form.google_site_verification | as_crispy_field }}
+            </div> -->
         </div>
     </div>
 

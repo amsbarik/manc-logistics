@@ -286,7 +286,7 @@ def site_setting_view(request):
         form = SiteSettingForm(request.POST, request.FILES, instance=setting)
         if form.is_valid():
             form.save()
-            return redirect('site_setting')
+            return redirect('site_settings')
     else:
         form = SiteSettingForm(instance=setting)
     
@@ -333,22 +333,6 @@ def site_setting_view(request):
 # # admin panel views here ///////////////////////////////////
 
 
-
-
-# # TopLink view
-# @login_required
-# @user_passes_test(is_superuser)
-# def top_link_form(request):
-#     top_link = TopLink.objects.first()  # Get the existing one or None
-#     if request.method == 'POST':
-#         form = TopLinkForm(request.POST, request.FILES, instance=top_link)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('top_link_form')
-#     else:
-#         form = TopLinkForm(instance=top_link)
-    
-#     return render(request, 'admin_panel/core/top_link_form.html', {'form': form})
 
 
 
