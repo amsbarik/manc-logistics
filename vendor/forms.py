@@ -73,4 +73,3 @@ class VendorBranchForm(forms.ModelForm):
         self.helper.add_input(Submit('submit', 'Save'))
         # self.fields['category'].empty_label = 'Select Category'
 
-

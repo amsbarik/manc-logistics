@@ -26,86 +26,31 @@
         <div class="container">
             <div class="grid gap-6 xl:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
 
+                {% for branch in vendor_branches %}
                 <div class="partner-card overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-none group transition-all duration-300">
+                    <img src="{{ branch.thumbnail.url }}" alt="" class="w-full h-auto object-cover rounded-bl-xl rounded-br-xl">
+                    <div class="px-5 py-4 lg:px-6 lg:py-5">
+                        <h5 class="font-semibold text-dark text-base xl:text-lg group-hover:text-primary transition-all duration-300">{{ branch.branch_name }}</h5>
+                        <p class="mt-1 text-gray-500 text-sm xl:text-base">
+                            {% for category in branch.categories.all %}
+                                {{ category.name }} {% if not forloop.last %} - {% endif %}
+                            {% endfor %}
+                        </p>
+                        <p class="text-dark-800 text-sm -ms-1 mt-1"><i class="fa-solid fa-location-dot text-primary"></i> {{ branch.address }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+
+              
+            
+                <!-- <div class="partner-card overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-none group transition-all duration-300">
                     <img src="static/img/r1.jpg" alt="" class="w-full h-auto object-cover rounded-bl-xl rounded-br-xl">
                     <div class="px-5 py-4 lg:px-6 lg:py-5">
                         <h5 class="font-semibold text-dark text-base xl:text-lg group-hover:text-primary transition-all duration-300">Domino's Pizza - Gulshan</h5>
                         <p class="mt-1 text-gray-500 text-sm xl:text-base">Pizza - Starter - Set Meals</p>
                         <p class="text-dark-800 text-sm -ms-1 mt-1"><i class="fa-solid fa-location-dot text-primary"></i> Gulshan, Dhaka, Bangladesh</p>
                     </div>
-                </div>
-                <div class="partner-card overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-none group transition-all duration-300">
-                    <img src="static/img/r1.jpg" alt="" class="w-full h-auto object-cover rounded-bl-xl rounded-br-xl">
-                    <div class="px-5 py-4 lg:px-6 lg:py-5">
-                        <h5 class="font-semibold text-dark text-base xl:text-lg group-hover:text-primary transition-all duration-300">Domino's Pizza - Gulshan</h5>
-                        <p class="mt-1 text-gray-500 text-sm xl:text-base">Pizza - Starter - Set Meals</p>
-                        <p class="text-dark-800 text-sm -ms-1 mt-1"><i class="fa-solid fa-location-dot text-primary"></i> Gulshan, Dhaka, Bangladesh</p>
-                    </div>
-                </div>
-                <div class="partner-card overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-none group transition-all duration-300">
-                    <img src="static/img/r1.jpg" alt="" class="w-full h-auto object-cover rounded-bl-xl rounded-br-xl">
-                    <div class="px-5 py-4 lg:px-6 lg:py-5">
-                        <h5 class="font-semibold text-dark text-base xl:text-lg group-hover:text-primary transition-all duration-300">Domino's Pizza - Gulshan</h5>
-                        <p class="mt-1 text-gray-500 text-sm xl:text-base">Pizza - Starter - Set Meals</p>
-                        <p class="text-dark-800 text-sm -ms-1 mt-1"><i class="fa-solid fa-location-dot text-primary"></i> Gulshan, Dhaka, Bangladesh</p>
-                    </div>
-                </div>
-                <div class="partner-card overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-none group transition-all duration-300">
-                    <img src="static/img/r1.jpg" alt="" class="w-full h-auto object-cover rounded-bl-xl rounded-br-xl">
-                    <div class="px-5 py-4 lg:px-6 lg:py-5">
-                        <h5 class="font-semibold text-dark text-base xl:text-lg group-hover:text-primary transition-all duration-300">Domino's Pizza - Gulshan</h5>
-                        <p class="mt-1 text-gray-500 text-sm xl:text-base">Pizza - Starter - Set Meals</p>
-                        <p class="text-dark-800 text-sm -ms-1 mt-1"><i class="fa-solid fa-location-dot text-primary"></i> Gulshan, Dhaka, Bangladesh</p>
-                    </div>
-                </div>
-                <div class="partner-card overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-none group transition-all duration-300">
-                    <img src="static/img/r1.jpg" alt="" class="w-full h-auto object-cover rounded-bl-xl rounded-br-xl">
-                    <div class="px-5 py-4 lg:px-6 lg:py-5">
-                        <h5 class="font-semibold text-dark text-base xl:text-lg group-hover:text-primary transition-all duration-300">Domino's Pizza - Gulshan</h5>
-                        <p class="mt-1 text-gray-500 text-sm xl:text-base">Pizza - Starter - Set Meals</p>
-                        <p class="text-dark-800 text-sm -ms-1 mt-1"><i class="fa-solid fa-location-dot text-primary"></i> Gulshan, Dhaka, Bangladesh</p>
-                    </div>
-                </div>
-                <div class="partner-card overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-none group transition-all duration-300">
-                    <img src="static/img/r1.jpg" alt="" class="w-full h-auto object-cover rounded-bl-xl rounded-br-xl">
-                    <div class="px-5 py-4 lg:px-6 lg:py-5">
-                        <h5 class="font-semibold text-dark text-base xl:text-lg group-hover:text-primary transition-all duration-300">Domino's Pizza - Gulshan</h5>
-                        <p class="mt-1 text-gray-500 text-sm xl:text-base">Pizza - Starter - Set Meals</p>
-                        <p class="text-dark-800 text-sm -ms-1 mt-1"><i class="fa-solid fa-location-dot text-primary"></i> Gulshan, Dhaka, Bangladesh</p>
-                    </div>
-                </div>
-                <div class="partner-card overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-none group transition-all duration-300">
-                    <img src="static/img/r1.jpg" alt="" class="w-full h-auto object-cover rounded-bl-xl rounded-br-xl">
-                    <div class="px-5 py-4 lg:px-6 lg:py-5">
-                        <h5 class="font-semibold text-dark text-base xl:text-lg group-hover:text-primary transition-all duration-300">Domino's Pizza - Gulshan</h5>
-                        <p class="mt-1 text-gray-500 text-sm xl:text-base">Pizza - Starter - Set Meals</p>
-                        <p class="text-dark-800 text-sm -ms-1 mt-1"><i class="fa-solid fa-location-dot text-primary"></i> Gulshan, Dhaka, Bangladesh</p>
-                    </div>
-                </div>
-                <div class="partner-card overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-none group transition-all duration-300">
-                    <img src="static/img/r1.jpg" alt="" class="w-full h-auto object-cover rounded-bl-xl rounded-br-xl">
-                    <div class="px-5 py-4 lg:px-6 lg:py-5">
-                        <h5 class="font-semibold text-dark text-base xl:text-lg group-hover:text-primary transition-all duration-300">Domino's Pizza - Gulshan</h5>
-                        <p class="mt-1 text-gray-500 text-sm xl:text-base">Pizza - Starter - Set Meals</p>
-                        <p class="text-dark-800 text-sm -ms-1 mt-1"><i class="fa-solid fa-location-dot text-primary"></i> Gulshan, Dhaka, Bangladesh</p>
-                    </div>
-                </div>
-                <div class="partner-card overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-none group transition-all duration-300">
-                    <img src="static/img/r1.jpg" alt="" class="w-full h-auto object-cover rounded-bl-xl rounded-br-xl">
-                    <div class="px-5 py-4 lg:px-6 lg:py-5">
-                        <h5 class="font-semibold text-dark text-base xl:text-lg group-hover:text-primary transition-all duration-300">Domino's Pizza - Gulshan</h5>
-                        <p class="mt-1 text-gray-500 text-sm xl:text-base">Pizza - Starter - Set Meals</p>
-                        <p class="text-dark-800 text-sm -ms-1 mt-1"><i class="fa-solid fa-location-dot text-primary"></i> Gulshan, Dhaka, Bangladesh</p>
-                    </div>
-                </div>
-                <div class="partner-card overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-none group transition-all duration-300">
-                    <img src="static/img/r1.jpg" alt="" class="w-full h-auto object-cover rounded-bl-xl rounded-br-xl">
-                    <div class="px-5 py-4 lg:px-6 lg:py-5">
-                        <h5 class="font-semibold text-dark text-base xl:text-lg group-hover:text-primary transition-all duration-300">Domino's Pizza - Gulshan</h5>
-                        <p class="mt-1 text-gray-500 text-sm xl:text-base">Pizza - Starter - Set Meals</p>
-                        <p class="text-dark-800 text-sm -ms-1 mt-1"><i class="fa-solid fa-location-dot text-primary"></i> Gulshan, Dhaka, Bangladesh</p>
-                    </div>
-                </div>
+                </div> -->
 
             </div>
         </div>

@@ -10,7 +10,7 @@ urlpatterns = [
     path('food-category/update/<int:pk>/', views.food_category_create_or_update, name='food_category_update'),
 
     # vendor  
-    path('vendors/', views.vendor_list, name='vendor_list'),
+    path('vendor-list/', views.vendor_list, name='vendor_list'),
     path('vendor/form/', views.vendor_create_or_update, name='vendor_create'),
     path('vendor/update/<int:pk>/', views.vendor_create_or_update, name='vendor_update'),
     

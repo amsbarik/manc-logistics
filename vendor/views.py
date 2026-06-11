@@ -13,7 +13,8 @@ from .forms import FoodCategoryForm, VendorForm, VendorBranchForm
 
 def vendors(request):
 
-    return render(request, 'vendor/vendors.html')
+    vendor_branches = VendorBranch.objects.filter(is_active=True).order_by('order')
+    return render(request, 'vendor/vendors.html', {'vendor_branches': vendor_branches})
 
 
 
@@ -133,3 +134,42 @@ def vendor_branch_create_or_update(request, pk=0):
             
         return redirect('vendor_branch_list')
 
+
+# @login_required
+# @user_passes_test(is_admin)
+# def vendor_branch_create_or_update(request, pk=0):
+
+#     if request.method == 'POST':
+
+#         if pk == 0:
+#             form = VendorBranchForm(request.POST, request.FILES)
+#         else:
+#             branch = VendorBranch.objects.get(id=pk)
+#             form = VendorBranchForm(
+#                 request.POST,
+#                 request.FILES,
+#                 instance=branch
+#             )
+
+#         if form.is_valid():
+#             if form.is_valid():
+#                 form.save()
+#                 return redirect('vendor_branch_list')
+
+#             print(form.errors)
+#             print(form.non_field_errors())
+
+#         print(form.errors)  # Debug
+
+#     else:
+#         if pk == 0:
+#             form = VendorBranchForm()
+#         else:
+#             branch = VendorBranch.objects.get(id=pk)
+#             form = VendorBranchForm(instance=branch)
+
+#     return render(
+#         request,
+#         'vendor/admin/vendor_branch_form.html',
+#         {'form': form}
+#     )
