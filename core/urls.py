@@ -35,6 +35,9 @@ urlpatterns = [
     path('newsletter/form/', views.newsletter_form, name='newsletter_create'),
     path('newsletter/update/<int:pk>/', views.newsletter_form, name='newsletter_update'),
     # path('newsletter/delete/<int:pk>/', views.newsletter_delete, name='newsletter_delete'),
+
+    # site_settings
+    path('site-settings/', views.site_setting_view, name='site_settings'),
 ]
 
 

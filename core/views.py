@@ -10,8 +10,8 @@ from accounts.permissions import is_admin
 from service.models import Service
 from about_us.models import WorkingProcess, ExpertTeam
 
-from .models import HeroSlider, Partner, LeadershipMessage, WhyChooseUs, FAQ, Newsletter
-from .forms import HeroSliderForm, PartnerForm, LeadershipMessageForm, WhyChooseUsForm, FAQForm, NewsletterForm
+from .models import HeroSlider, Partner, LeadershipMessage, WhyChooseUs, FAQ, Newsletter, SiteSetting
+from .forms import HeroSliderForm, PartnerForm, LeadershipMessageForm, WhyChooseUsForm, FAQForm, NewsletterForm, SiteSettingForm
 
 
 
@@ -278,6 +278,20 @@ def newsletter_form(request, pk=0):
 
 
 
+@login_required
+@user_passes_test(is_admin)
+def site_setting_view(request):
+    setting = SiteSetting.objects.first()  # Get the existing one or None
+    if request.method == 'POST':
+        form = SiteSettingForm(request.POST, request.FILES, instance=setting)
+        if form.is_valid():
+            form.save()
+            return redirect('site_setting')
+    else:
+        form = SiteSettingForm(instance=setting)
+    
+    return render(request, 'core/admin/site_setting_form.html', {'form': form})
+
 
 
 
@@ -286,20 +300,6 @@ def newsletter_form(request, pk=0):
 
 
 # # admin dashboard view
-# @login_required
-# @user_passes_test(is_superuser)
-# def site_setting_view(request):
-#     setting = SiteSetting.objects.first()  # Get the existing one or None
-#     if request.method == 'POST':
-#         form = SiteSettingForm(request.POST, request.FILES, instance=setting)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('site_setting')
-#     else:
-#         form = SiteSettingForm(instance=setting)
-    
-#     return render(request, 'admin_panel/site_setting_form.html', {'form': form})
-
 
 
 # # ///////////////////////////////////////////////
