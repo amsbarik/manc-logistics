@@ -1,7 +1,13 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.conf import settings
 
 
+
+from core.models import BaseModel
+
+
+# User 
 class User(AbstractUser):
 
     VENDOR = "vendor"
@@ -26,34 +32,77 @@ class User(AbstractUser):
 
 
 
-# class RiderProfile(models.Model):
+# RiderProfile
+class RiderProfile(BaseModel):
 
-#     BIKE = "bike"
-#     CAR = "car"
+    PENDING = "pending"
+    UNDER_REVIEW = "under_review"
+    # DOCUMENT_VERIFICATION = "document_verification"
+    INTERVIEW = "interview"
+    # TRAINING = "training"
+    ACTIVE = "active"
+    SUSPENDED = "suspended"
+    REJECTED = "rejected"
+    INACTIVE = "inactive"
 
-#     VEHICLE_CHOICES = [(BIKE, "Bike"), (CAR, "Car")]
 
-#     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="rider_profile")
+    STATUS_CHOICES = [
+        (PENDING, "Pending"),
+        (UNDER_REVIEW, "Under Review"),
+        (INTERVIEW, "Interview"),
+        (ACTIVE, "Active"),
+        (SUSPENDED, "Suspended"),
+        (INACTIVE, "Inactive"),
+        (REJECTED, "Rejected"),
+    ]
 
-#     full_name = models.CharField(max_length=255)
 
-#     phone = models.CharField(max_length=20)
+    CAR = "with_car"
+    WITHOUT = "without_car"
 
-#     profile_photo = models.ImageField(upload_to="riders/", blank=True, null=True)
+    VEHICLE_CHOICES = [
+        (CAR, "With Car"),
+        (WITHOUT, "Without Car"),
+    ]
 
-#     iqama_number = models.CharField(max_length=50, blank=True)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="rider_profile")
 
-#     driving_license_number = models.CharField(max_length=100, blank=True)
+    # Personal Information
+    full_name = models.CharField(max_length=150)
+    nationality = models.CharField(max_length=100, blank=True)
+    date_of_birth = models.DateField(blank=True, null=True)
+    profile_photo = models.ImageField( upload_to="riders/profile/", blank=True,  null=True)
 
-#     vehicle_type = models.CharField(max_length=20, choices=VEHICLE_CHOICES, default=BIKE)
+    # Location
+    city = models.CharField(max_length=100)
+    address = models.TextField(blank=True)
 
-#     vehicle_plate_number = models.CharField(max_length=50, blank=True)
+    # Saudi Documents
+    iqama_number = models.CharField(max_length=50, unique=True)
+    iqama_expired_date = models.DateField()
+    driving_license_number = models.CharField(max_length=100, unique=True)
 
-#     is_online = models.BooleanField(default=False)
+    # Vehicle
+    vehicle_type = models.CharField(max_length=30, choices=VEHICLE_CHOICES)
+    vehicle_plate_number = models.CharField(max_length=50, blank=True)
 
-#     is_available = models.BooleanField(default=True)
+    # System
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES,default=PENDING)
+    is_online = models.BooleanField(default=False)
+    is_available = models.BooleanField(default=False)
+    is_verified = models.BooleanField(default=False)
 
-#     is_approved = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.full_name
+
+
+
+
+
+
+
+
 
 
 

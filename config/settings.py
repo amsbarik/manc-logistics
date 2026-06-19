@@ -28,8 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# ALLOWED_HOSTS = ['studyvisionx.com', 'www.studyvisionx.com', 'https://studyvisionx.com', 'https://www.studyvisionx.com', 'mail.studyvisionx.com']
-
+# ALLOWED_HOSTS = ['logisticsmanc.com', 'www.logisticsmanc.com', 'https://logisticsmanc.com', 'https://www.logisticsmanc.com', 'mail.logisticsmanc.com']
 
 # Application definition
 
@@ -120,9 +119,9 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'studyvis_ion_x_pgsql_db_2408_2025',
-#         'USER': 'studyvis_ion_x_user_2025',
-#         'PASSWORD': 'i&r.1QDF(Ms}R[Bs[5Dn-^=x]$-G9%Sw',
+#         'NAME': 'ispermax_manc_rider_pgsql_db_2026',
+#         'USER': 'ispermax_manc_rider_pgsql_db_2026_user',
+#         'PASSWORD': 'i&r1QDF83wF_%+LsnJPKBuf',
 #         'HOST': '127.0.0.1',
 #         # 'HOST': 'localhost',
 #         'PORT': '5432',

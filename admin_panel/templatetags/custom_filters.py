@@ -45,6 +45,24 @@ def active_inactive(value):
 
 
 
+@register.filter(name='rider_status')
+def rider_status(value):
+
+    status_map = {
+        "pending": ("Pending", "bg-warning text-dark"),
+        "under_review": ("Under Review", "bg-info text-dark"),
+        "interview": ("Interview", "bg-primary"),
+        "active": ("Active", "bg-success"),
+        "suspended": ("Suspended", "bg-secondary"),
+        "inactive": ("Inactive", "bg-dark"),
+        "rejected": ("Rejected", "bg-danger"),
+    }
+    
+    text, color = status_map.get( value, ("Unknown", "bg-light text-dark"))
+
+    return mark_safe( f'<span class="badge {color}">{text}</span>')
+
+
 # for pages pagination 
 @register.filter
 def page_window(current_page, total_pages, visible=5):

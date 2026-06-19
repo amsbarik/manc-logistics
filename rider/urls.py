@@ -2,12 +2,31 @@ from django.urls import path
 from .import views
 
 urlpatterns = [
-    # path('', views.index, name='index'),
+
+    
+
+    path("riders/pending/", views.pending_riders, name="pending_riders"),
+    path("riders/under-review/", views.under_review_riders, name="under_review_riders"),
+    path("riders/interview/", views.interview_riders, name="interview_riders"),
+    path("riders/active/", views.active_riders, name="active_riders"),
+    path("riders/suspended/", views.suspended_riders, name="suspended_riders"),
+    path("riders/inactive/", views.inactive_riders, name="inactive_riders"),
+    path("riders/rejected/", views.rejected_riders, name="rejected_riders"),
+
+    path("rider/create/", views.rider_create_or_update, name="rider_create"),
+    path('rider/update/<int:pk>/', views.rider_create_or_update, name='rider_update'),
+
+
+    # path('riders/', views.rider_list, name='rider_list'),
+    # path('rider/update/<int:pk>/', views.rider_list, name='rider_update'),
+
+
+
+
+    # path("riders/<str:status>/", views.rider_manage, name="rider_manage_status"),
    
-#     # partner 
-#     path('partners/', views.partner_list, name='partner_list'),
-#     path('partner/form/', views.partner_form, name='partner_form'),
-#     path('partner/update/<int:pk>/', views.partner_form, name='partner_update'),
     
 ]
+
+
 

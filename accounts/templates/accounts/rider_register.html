@@ -81,67 +81,212 @@
                 </div>
 
                 <!-- ================= FORM AREA ================= -->
+                 <style>
+                    select{
+                        -webkit-appearance:none;
+                        -moz-appearance:none;
+                        appearance:none;
+                        background-image:none;
+                    }
+
+                    select::-ms-expand{
+                        display:none;
+                    }
+                </style>
+
                 <div class="">
 
                     <div class=" p-8 lg:p-14 bg-white rounded-xl shadow-lg ">
 
                         <h2 class="text-2xl lg:text-3xl font-semibold text-dark"> Register Now  </h2>
 
-                        <form id="contactForm" class="space-y-6 mt-8">
 
-                            <!-- Full Name -->
-                            <div>
-                                <input  type="text"  placeholder="Full Name*"
-                                    class="w-full text-sm lg:text-base h-12 lg:h-13 px-5 rounded-lg border border-dark-200 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none transition-all duration-300"
-                                    required >
-                            </div>
-                            <div>
-                                <input  type="tel"  placeholder="Mobile Number*"
-                                    class="w-full text-sm lg:text-base h-12 lg:h-13 px-5 rounded-lg border border-dark-200 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none transition-all duration-300"
-                                    required >
-                            </div>
-                            <div>
-                                <input  type="email"  placeholder="Email Address"
-                                    class="w-full text-sm lg:text-base h-12 lg:h-13 px-5 rounded-lg border border-dark-200 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none transition-all duration-300"
-                                    >
-                            </div>
 
-                            <style>
-                                select{
-                                    -webkit-appearance:none;
-                                    -moz-appearance:none;
-                                    appearance:none;
-                                    background-image:none;
-                                }
 
-                                select::-ms-expand{
-                                    display:none;
-                                }
-                            </style>
+    <form method="POST" enctype="multipart/form-data" id="contactForm" class="space-y-6 mt-8">
+        {% csrf_token %}
 
-                            <div>
-                                <select
-                                    class="w-full text-gray-500 text-sm lg:text-base h-12 lg:h-13 px-5 pr-12 rounded-lg border border-dark-200 bg-white appearance-none focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none transition-all duration-300"
-                                    style="
-                                        background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22 fill=%22none%22 stroke=%22%236b7280%22 stroke-width=%222.5%22 viewBox=%220 0 24 24%22%3E%3Cpath d=%22M6 9l6 6 6-6%22/%3E%3C/svg%3E');
-                                        background-repeat:no-repeat;
-                                        background-position:right 16px center;
-                                        background-size:22px;
-                                    ">
-                                    <option value="">Select City*</option>
-                                    <option class="hover:bg-primary">Riyadh</option>
-                                    <option>Jeddah</option>
-                                    <option>Makkah</option>
-                                </select>
-                            </div>
-                            <br>
+        <!-- STEP INDICATOR -->
+        <!-- <div class="flex items-center gap-5 text-sm font-semibold mb-8">
+            <span id="stepOneText" class="text-primary">1. Basic Info</span>
+            <span id="stepTwoText">2. Rider Details</span>
+            <span id="stepThreeText">3. Documents</span>
+        </div> -->
+        <div class="flex items-center gap-5 text-sm font-semibold mb-8">
 
-                            <!-- Button -->
-                            <button  type="submit" class="group px-6 py-3 rounded-lg bg-primary hover:bg-secondary text-white font-semibold text-sm lg:text-base transition-all duration-300">
-                                Next Step<i class="fa-solid fa-arrow-right-long ms-2"></i>
-                            </button>
+    <span id="stepOneText" class="text-primary">
+        1. Basic Info
+    </span>
 
-                        </form>
+    <span id="stepTwoText">
+        2. Rider Details
+    </span>
+
+    <span id="stepThreeText">
+        3. Documents
+    </span>
+
+</div>
+
+
+        <!-- ================= STEP 1 ================= -->
+        <div id="step1" class="space-y-6">
+
+            <div>
+                <label class="text-dark mb-2 block"> Full Name <span class="text-primary">*</span></label>
+                <input id="full_name" name="full_name" type="text" placeholder="Enter your full name"
+                class="w-full h-12 px-5 rounded-lg border border-dark-200 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none">
+                <p id="full_name_error" class="field-error hidden text-primary text-sm mt-2">Please enter your full name</p>
+            </div>
+
+            <div>
+                <label class="text-dark mb-2 block"> Mobile <span class="text-primary">*</span></label>
+                <input id="phone" name="phone" type="tel" placeholder="Enter your mobile number"
+                class="w-full h-12 px-5 rounded-lg border border-dark-200 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none">
+                <p id="phone_error" class="field-error hidden text-red-500 text-sm mt-2">Please enter phone number</p>
+            </div>
+
+            <label class="text-dark mb-2 block">  Password <span class="text-primary">*</span></label>
+            <div class="relative">
+                
+                <input id="password" name="password" type="password" placeholder="Enter password*"
+                class="w-full h-12 px-5 pr-12 rounded-lg border border-dark-200 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none">
+
+                <button type="button" onclick="togglePassword('password','passwordIcon')"
+                class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
+                    <i id="passwordIcon" class="fa-solid fa-eye"></i>
+                </button>
+
+                <p id="password_error" class="field-error hidden text-red-500 text-sm mt-2">Please enter password</p>
+            </div>
+
+            <label class="text-dark mb-2 block"> Confirm password <span class="text-primary">*</span></label>
+            <div class="relative">
+                
+                <input id="confirm_password" name="confirm_password" type="password" placeholder="Confirm Password*"
+                class="w-full h-12 px-5 pr-12 rounded-lg border border-dark-200 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none">
+
+                <button type="button" onclick="togglePassword('confirm_password','confirmPasswordIcon')"
+                class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
+                    <i id="confirmPasswordIcon" class="fa-solid fa-eye"></i>
+                </button>
+
+                <p id="confirm_password_error" class="field-error hidden text-red-500 text-sm mt-2">Password does not match</p>
+            </div>
+
+            <button type="button" onclick="nextStep(2)"
+            class="px-6 py-3 rounded-lg bg-primary text-white font-semibold">
+                Next Step →
+            </button>
+
+        </div>
+
+        <!-- ================= STEP 2 ================= -->
+        <div id="step2" class="space-y-6 hidden">
+
+            <div>
+                <label class="text-dark mb-2 block"> Nationality</label>
+                <input id="nationality" name="nationality" type="text" placeholder="Enter your nationality"
+                class="w-full h-12 px-5 rounded-lg border border-dark-200">
+            </div>
+
+            <div>
+                <label class="text-dark mb-2 block"> Date Of Birth</label>
+                <input id="date_of_birth" name="date_of_birth" type="date"
+                class="w-full h-12 px-5 rounded-lg border border-dark-200">
+            </div>
+
+            <div>
+                <label class="text-dark mb-2 block"> Select City <span class="text-primary">*</span></label>
+                <select id="city" name="city"
+                class="w-full h-12 px-5 rounded-lg border border-dark-200">
+                    <option value="">Select your city*</option>
+                    <option value="Riyadh">Riyadh</option>
+                    <option value="Jeddah">Jeddah</option>
+                    <option value="Makkah">Makkah</option>
+                </select>
+                <p id="city_error" class="field-error hidden text-red-500 text-sm mt-2">Select city</p>
+            </div>
+
+            <div>
+                <label class="text-dark mb-2 block">  Address </label>
+                <textarea id="address" name="address" placeholder="Enter your full address"
+                class="w-full px-5 py-3 rounded-lg border border-dark-200"></textarea>
+            </div>
+
+            <div>
+                <label class="text-dark mb-2 block"> Vehicle Type <span class="text-primary">*</span></label>
+                <select id="vehicle_type" name="vehicle_type"
+                class="w-full h-12 px-5 rounded-lg border border-dark-200">
+                    <option value="">Select Vehicle Type</option>
+                    <option value="with_car">With Car</option>
+                    <option value="without_car">Without Car</option>
+                </select>
+                <p id="vehicle_type_error" class="field-error hidden text-red-500 text-sm mt-2">Select vehicle type</p>
+            </div>
+
+            <div>
+                <label class="text-dark mb-2 block"> Vehicle Plate Number</label>
+                <input id="vehicle_plate_number" name="vehicle_plate_number" type="text"
+                placeholder="Vehicle Plate Number"
+                class="w-full h-12 px-5 rounded-lg border border-dark-200">
+            </div>
+
+            <div class="flex gap-4">
+                <button type="button" onclick="nextStep(1)" class="px-6 py-3 bg-gray-200 rounded-lg">
+                    Back
+                </button>
+
+                <button type="button" onclick="nextStep(3)" class="px-6 py-3 bg-primary text-white rounded-lg">
+                    Next Step →
+                </button>
+            </div>
+
+        </div>
+
+        <!-- ================= STEP 3 ================= -->
+        <div id="step3" class="space-y-6 hidden">
+
+            <div>
+                <label class="text-dark mb-2 block"> Iqama Number <span class="text-primary">*</span></label>
+                <input id="iqama_number" name="iqama_number" type="text" placeholder="Enter valid iqama number"
+                class="w-full h-12 px-5 rounded-lg border border-dark-200" required>
+                <p id="iqama_number_error" class="field-error hidden text-red-500 text-sm mt-2">Enter valid iqama number</p>
+            </div>
+
+            <div>
+                <label class="text-dark mb-2 block"> Iqama Expire Date <span class="text-primary">*</span></label>
+                <input id="iqama_expired_date" name="iqama_expired_date" type="date"
+                class="w-full h-12 px-5 rounded-lg border border-dark-200" required>
+            </div>
+
+            <div>
+                <label class="text-dark mb-2 block"> Driving License <span class="text-primary">*</span></label>
+                <input id="driving_license_number" name="driving_license_number" type="text"
+                placeholder="Driving license number*"
+                class="w-full h-12 px-5 rounded-lg border border-dark-200" required>
+                <p id="driving_license_number_error" class="field-error hidden text-red-500 text-sm mt-2">Enter license number</p>
+            </div>
+
+            <div>
+                <label class="text-dark mb-2 block"> Passport Size Photo</label>
+                <input name="profile_photo" type="file" class="w-full">
+            </div>
+
+            <div class="flex gap-4">
+                <button type="button" onclick="nextStep(2)" class="px-6 py-3 bg-gray-200 rounded-lg">
+                    Back
+                </button>
+
+                <button type="submit" class="px-6 py-3 bg-primary text-white rounded-lg">
+                    Register Now
+                </button>
+            </div>
+
+        </div>
+
+    </form>
+
 
                     </div>
 
@@ -155,4 +300,265 @@
 
     </section>
     
+
+
+ <script>
+
+
+function clearErrors(){
+
+    document.querySelectorAll(".field-error")
+    .forEach(el => {
+        el.classList.add("hidden");
+    });
+
+    document.querySelectorAll("input,select,textarea")
+    .forEach(el => {
+        el.classList.remove("border-red-500");
+    });
+
+}
+
+
+
+
+
+
+function showError(fieldId, errorId){
+
+    let field = document.getElementById(fieldId);
+    let error = document.getElementById(errorId);
+
+    if(error){
+        error.classList.remove("hidden");
+    }
+
+    if(field){
+        field.classList.add("border-red-500");
+        field.focus();
+    }
+
+    return false;
+}
+
+
+
+
+
+
+function validateStep1(){
+
+    clearErrors();
+
+    if(document.getElementById("full_name").value.trim() === "")
+        return showError("full_name","full_name_error");
+
+    if(document.getElementById("phone").value.trim() === "")
+        return showError("phone","phone_error");
+
+    if(document.getElementById("password").value.trim() === "")
+        return showError("password","password_error");
+
+    if(document.getElementById("confirm_password").value.trim() === "")
+        return showError("confirm_password","confirm_password_error");
+
+    if(document.getElementById("password").value !== document.getElementById("confirm_password").value){
+        document.getElementById("confirm_password_error").innerText = "Password does not match";
+        return showError("confirm_password","confirm_password_error");
+    }
+
+    return true;
+}
+
+
+
+
+
+
+function validateStep2(){
+
+    clearErrors();
+
+    if(document.getElementById("city").value === "")
+        return showError("city","city_error");
+
+    if(document.getElementById("vehicle_type").value === "")
+        return showError("vehicle_type","vehicle_type_error");
+
+    return true;
+}
+
+
+
+
+
+
+function validateStep3(){
+
+    clearErrors();
+
+    if(document.getElementById("iqama_number").value.trim() === "")
+        return showError("iqama_number","iqama_number_error");
+
+    if(document.getElementById("driving_license_number").value.trim() === "")
+        return showError("driving_license_number","driving_license_number_error");
+
+    return true;
+}
+
+
+
+
+
+
+
+function updateStepIndicator(step){
+
+    document.getElementById("stepOneText").classList.remove("text-primary");
+    document.getElementById("stepTwoText").classList.remove("text-primary");
+    document.getElementById("stepThreeText").classList.remove("text-primary");
+
+    if(step === 1){
+        document.getElementById("stepOneText").classList.add("text-primary");
+    }
+
+    if(step === 2){
+        document.getElementById("stepTwoText").classList.add("text-primary");
+    }
+
+    if(step === 3){
+        document.getElementById("stepThreeText").classList.add("text-primary");
+    }
+
+}
+
+
+
+
+
+
+
+function nextStep(step){
+
+    if(step === 2 && !validateStep1()) return;
+
+    if(step === 3 && !validateStep2()) return;
+
+    document.querySelectorAll("#step1,#step2,#step3")
+    .forEach(el => el.classList.add("hidden"));
+
+    document.getElementById("step"+step).classList.remove("hidden");
+
+    updateStepIndicator(step);
+
+}
+
+
+
+
+
+
+function togglePassword(inputId, iconId){
+
+    let input = document.getElementById(inputId);
+    let icon = document.getElementById(iconId);
+
+    if(input.type === "password"){
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    }else{
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+
+}
+
+
+</script>
+
+
+
+
+
+    <script>
+
+
+// rider register form steps js start 
+// function nextStep(step){
+
+
+//     document
+//     .querySelectorAll(
+//         "#step1,#step2,#step3"
+//     )
+//     .forEach(
+//         el=>el.classList.add("hidden")
+//     );
+
+
+//     document
+//     .getElementById(
+//         "step"+step
+//     )
+//     .classList.remove("hidden");
+
+
+
+// }
+
+
+
+// </script>
+
+<!-- <script>
+
+function nextStep(step){
+
+
+    document.querySelectorAll("#step1,#step2,#step3")
+    .forEach(item => item.classList.add("hidden"));
+
+
+    document.getElementById("step"+step)
+    .classList.remove("hidden");
+
+
+
+    document.getElementById("stepOneText")
+    .classList.remove("text-primary");
+
+
+    document.getElementById("stepTwoText")
+    .classList.remove("text-primary");
+
+
+    document.getElementById("stepThreeText")
+    .classList.remove("text-primary");
+
+
+
+    if(step === 1){
+        document.getElementById("stepOneText")
+        .classList.add("text-primary");
+    }
+
+
+    if(step === 2){
+        document.getElementById("stepTwoText")
+        .classList.add("text-primary");
+    }
+
+
+    if(step === 3){
+        document.getElementById("stepThreeText")
+        .classList.add("text-primary");
+    }
+
+
+}
+
+</script> -->
+
 {% endblock content %}

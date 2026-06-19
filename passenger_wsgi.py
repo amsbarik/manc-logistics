@@ -9,3 +9,4 @@
 # application = wsgi.application
 
 from config.wsgi import application
+
