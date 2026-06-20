@@ -200,10 +200,10 @@
                 <label class="text-dark mb-2 block"> Select City <span class="text-primary">*</span></label>
                 <select id="city" name="city"
                 class="w-full h-12 px-5 rounded-lg border border-dark-200">
-                    <option value="">Select your city*</option>
-                    <option value="Riyadh">Riyadh</option>
-                    <option value="Jeddah">Jeddah</option>
-                    <option value="Makkah">Makkah</option>
+                    <option value="">Select your city</option>
+                    {% for city in cities %}
+                    <option value="{{ city.id }}"> {{ city.name }} </option>
+                    {% endfor %}
                 </select>
                 <p id="city_error" class="field-error hidden text-red-500 text-sm mt-2">Select city</p>
             </div>

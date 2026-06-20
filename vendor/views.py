@@ -4,8 +4,8 @@ from django.contrib import messages
 
 from accounts.permissions import is_admin
 
-from .models import FoodCategory, Vendor, VendorBranch
-from .forms import FoodCategoryForm, VendorForm, VendorBranchForm
+from .models import FoodCategory, VendorBranch
+from .forms import FoodCategoryForm, VendorBranchForm
 
 
 
@@ -63,39 +63,41 @@ def food_category_create_or_update(request, pk=0):
 
 # ///////////////////////////////////////////////////////////////////////////////// 
 # Vendor view 
-@login_required
-@user_passes_test(is_admin)
-def vendor_list(request):
-    vendors = Vendor.objects.all()
+# @login_required
+# @user_passes_test(is_admin)
+# def vendor_list(request):
+#     vendors = Vendor.objects.all()
     
-    return render(request, 'vendor/admin/vendor_list.html', {'vendors': vendors})
+#     return render(request, 'vendor/admin/vendor_list.html', {'vendors': vendors})
 
 
-# vendor create & update form view 
-@login_required
-@user_passes_test(is_admin)
-def vendor_create_or_update(request, pk=0):
+# # vendor create & update form view 
+# @login_required
+# @user_passes_test(is_admin)
+# def vendor_create_or_update(request, pk=0):
     
-    if request.method == 'GET':
-        if pk == 0:
-            form = VendorForm()
-        else:
-            vendor = Vendor.objects.get(id=pk)
-            form = VendorForm(instance=vendor)
+#     if request.method == 'GET':
+#         if pk == 0:
+#             form = VendorForm()
+#         else:
+#             vendor = Vendor.objects.get(id=pk)
+#             form = VendorForm(instance=vendor)
             
-        return render(request, 'vendor/admin/vendor_form.html', {'form': form})
+#         return render(request, 'vendor/admin/vendor_form.html', {'form': form})
     
-    else:
-        if pk == 0:
-            form = VendorForm(request.POST, request.FILES)
-        else:
-            vendor = Vendor.objects.get(id=pk)
-            form = VendorForm(request.POST, request.FILES, instance=vendor)
+#     else:
+#         if pk == 0:
+#             form = VendorForm(request.POST, request.FILES)
+#         else:
+#             vendor = Vendor.objects.get(id=pk)
+#             form = VendorForm(request.POST, request.FILES, instance=vendor)
 
-        if form.is_valid():
-            form.save()
+#         if form.is_valid():
+#             form.save()
             
-        return redirect('vendor_list')
+#         return redirect('vendor_list')
+
+
 
 
 # ///////////////////////////////////////////////////////////////////////////////// 

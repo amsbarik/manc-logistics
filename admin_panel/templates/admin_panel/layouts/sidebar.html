@@ -159,7 +159,7 @@
                         <ul class="submenu-list list-unstyled">
                       
                             <li class="submenu-item "><a class="submenu-link {% if request.resolver_match.url_name == 'food_category_list' %}active{% endif %}" href="{% url 'food_category_list' %}">Food Categories</a></li>
-                            <li class="submenu-item "><a class="submenu-link {% if request.resolver_match.url_name == 'vendor_list' %}active{% endif %}" href="{% url 'vendor_list' %}">Vendors</a></li>
+                            <!-- <li class="submenu-item "><a class="submenu-link {% if request.resolver_match.url_name == '' %}active{% endif %}" href="#">Vendors</a></li> -->
                             <li class="submenu-item "><a class="submenu-link {% if request.resolver_match.url_name == 'vendor_branch_list' %}active{% endif %}" href="{% url 'vendor_branch_list' %}">Vendor Branches</a></li>
                           
                         </ul>
@@ -198,6 +198,7 @@
                             <li class="submenu-item "><a class="submenu-link {% if request.resolver_match.url_name == 'leadership_message' %}active{% endif %}" href="{% url 'leadership_message' %}">Leadership Message</a></li>
                             <li class="submenu-item "><a class="submenu-link {% if request.resolver_match.url_name == 'why_choose_us_list' %}active{% endif %}" href="{% url 'why_choose_us_list' %}">Why Choose Us </a></li>
                             <li class="submenu-item "><a class="submenu-link {% if request.resolver_match.url_name == 'faq_list' %}active{% endif %}" href="{% url 'faq_list' %}">FAQs List </a></li>
+                            <li class="submenu-item "><a class="submenu-link {% if request.resolver_match.url_name == 'city_list' %}active{% endif %}" href="{% url 'city_list' %}">City List </a></li>
                             <!-- <li class="submenu-item "><a class="submenu-link {% if request.resolver_match.url_name == 'about_create_or_update' %}active{% endif %}" href="{% url 'about_create_or_update' %}">About Us </a></li> -->
                            
                         </ul>

@@ -10,8 +10,8 @@ from accounts.permissions import is_admin
 from service.models import Service
 from about_us.models import WorkingProcess, ExpertTeam
 
-from .models import HeroSlider, Partner, LeadershipMessage, WhyChooseUs, FAQ, Newsletter, SiteSetting
-from .forms import HeroSliderForm, PartnerForm, LeadershipMessageForm, WhyChooseUsForm, FAQForm, NewsletterForm, SiteSettingForm
+from .models import HeroSlider, Partner, LeadershipMessage, WhyChooseUs, FAQ, Newsletter, SiteSetting, City
+from .forms import HeroSliderForm, PartnerForm, LeadershipMessageForm, WhyChooseUsForm, FAQForm, NewsletterForm, SiteSettingForm, CityForm
 
 
 
@@ -276,6 +276,42 @@ def newsletter_form(request, pk=0):
         return redirect('newsletter_list')
     
 
+# /////////////////////////////////////////////////////////////
+# City 
+@login_required
+@user_passes_test(is_admin)
+def city_list(request):
+    cities = City.objects.all()
+    
+    return render(request, 'core/admin/city_list.html', {'cities': cities})
+
+
+@login_required
+@user_passes_test(is_admin)
+def city_create_or_update(request, pk=0):
+    
+    if request.method == 'GET':
+        if pk == 0:
+            form = CityForm()
+        else:
+            city = City.objects.get(id=pk)
+            form = CityForm(instance=city)
+            
+        return render(request, 'core/admin/city_form.html', {'form': form})
+    
+    else:
+        if pk == 0:
+            form = CityForm(request.POST, request.FILES)
+        else:
+            city = City.objects.get(id=pk)
+            form = CityForm(request.POST, request.FILES, instance=city)
+
+        if form.is_valid():
+            form.save()
+            
+        return redirect('city_list')
+    
+
 
 
 @login_required
@@ -357,79 +393,6 @@ def site_setting_view(request):
 #         form = BannerForm(instance=banner_instance)
 
 #     return render(request, 'admin_panel/core/banner_form.html', {'form': form})
-
-
-
-
-
-
-
-
-# # contact views
-# def contact(request):
-#     # contact = Contact.objects.all()
-    
-#     if request.method == 'POST':
-#         form = ContactForm(request.POST)
-#         if form.is_valid():
-#             form.save()  # Save the data to the database
-#             messages.success(request, 'Your message has been sent successfully!')
-#             return redirect('contact')  # Redirect to avoid resubmission on refresh
-#     else:
-#         form = ContactForm()
-        
-#     # Pass form fields individually
-#     context = {
-#         'user_name': form['user_name'],
-#         'user_mobile': form['user_mobile'],
-#         'user_email': form['user_email'],
-#         'user_message': form['user_message']
-#     }
-    
-#     return render(request, 'core/contact.html', context)
-
-
-
-
-
-
-
-
-
-# # admin view start here 
-# # contact list view 
-# @login_required
-# @user_passes_test(is_superuser)
-# def contact_list(request):
-#     messages = Contact.objects.order_by('created_at').all()
-    
-#     return render(request, 'admin_panel/core/messages.html', {'messages': messages})
-
-
-
-# @login_required
-# @user_passes_test(is_superuser)
-# def message_status_update(request, contact_id):
-    
-#     messages = Contact.objects.all()
-#     message = get_object_or_404(Contact, id=contact_id)
-    
-#     if request.method == 'POST':
-#         form = ContactStatusForm(request.POST, instance=message)
-#         if form.is_valid():
-#             form.save()
-#             # messages.success(request, 'Message status updated successfully.')
-#             return redirect('messages')
-        
-#     else:
-#         form = ContactStatusForm(instance=message)
-    
-#     return render(request, 'admin_panel/core/messages.html', {'form': form, 'messages': messages})
-
-
-
-
-
 
 
 

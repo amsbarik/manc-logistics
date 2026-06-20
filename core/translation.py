@@ -1,6 +1,6 @@
 from modeltranslation.translator import register, TranslationOptions
 
-from .models import HeroSlider, LeadershipMessage, WhyChooseUs, FAQ, SiteSetting
+from .models import HeroSlider, LeadershipMessage, WhyChooseUs, FAQ, SiteSetting, City
 
 
 @register(HeroSlider)
@@ -21,6 +21,10 @@ class WhyChooseUsTranslationOptions(TranslationOptions):
 @register(FAQ)
 class FAQTranslationOptions(TranslationOptions):
     fields = ('question', 'answer')
+
+@register(City)
+class CityTranslationOptions(TranslationOptions):
+    fields = ('name',)
 
 @register(SiteSetting)
 class SiteSettingTranslationOptions(TranslationOptions):

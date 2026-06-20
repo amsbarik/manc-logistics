@@ -3,7 +3,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 # # import bleach
 
-from .models import HeroSlider, Partner, LeadershipMessage, WhyChooseUs, FAQ, Newsletter, SiteSetting
+from .models import HeroSlider, Partner, LeadershipMessage, WhyChooseUs, FAQ, Newsletter, SiteSetting, City
 # from .models import , Banner, 
 
 
@@ -132,6 +132,20 @@ class NewsletterForm(forms.ModelForm):
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Save'))
         # self.fields['category'].empty_label = 'Select Category'
+
+        
+# City
+class CityForm(forms.ModelForm):
+    class Meta:
+        model = City
+        fields = ['is_active', 'order', 'name_en', 'name_ar',]
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Save'))
+        # self.fields['category'].empty_label = 'Select Category'
         
 
 
@@ -212,32 +226,4 @@ class SiteSettingForm(forms.ModelForm):
 
 
 
-
-# # ///////////////////////
-
-# # ContactForm 
-# class ContactForm(forms.ModelForm):
-#     class Meta:
-#         model = Contact
-#         fields = ['user_name', 'user_mobile', 'user_email', 'user_message']
-        
-#         widgets = {
-#             'user_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name*'}),
-#             'user_mobile': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Mobile*'}),
-#             'user_email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email Address'}),
-#             'user_message': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Your Message*'}),
-#         }
-
-
-
-# class ContactStatusForm(forms.ModelForm):
-#     class Meta:
-#         model = Contact
-#         fields = ['remark', 'status']
-        
-#         widgets ={
-#             'remark' : forms.Textarea(attrs={'class': 'form-control'}),
-#             # 'status' : forms.ChoiceField(attrs={'class': 'form-control'}),
-#         }
-        
 

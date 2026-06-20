@@ -7,6 +7,7 @@ from django.db import transaction
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import user_passes_test, login_required
 
+from core.models import City
 
 from .permissions import is_admin
 from .forms import CustomAdminLoginForm, RiderStatusForm
@@ -43,6 +44,12 @@ def rider_register(request):
                 )
 
 
+                city_id = request.POST.get("city")
+                city_obj = None
+                if city_id:
+                    city_obj = City.objects.get(id=city_id)
+                
+
                 RiderProfile.objects.create(
 
                     user=user,
@@ -56,7 +63,7 @@ def rider_register(request):
                     profile_photo=request.FILES.get("profile_photo") or None,
 
 
-                    city=request.POST.get("city"),
+                    city=city_obj,
 
                     address=request.POST.get("address"),
 
@@ -89,10 +96,14 @@ def rider_register(request):
             messages.error(request, str(e))
 
 
-    return render(
-        request,
-        "accounts/rider_register.html"
-    )
+
+    cities = City.objects.filter(is_active=True).order_by("name")
+    
+    context = {
+        'cities': cities,
+    }
+
+    return render(request, "accounts/rider_register.html", context)
 
 
 

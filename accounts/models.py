@@ -4,7 +4,7 @@ from django.conf import settings
 
 
 
-from core.models import BaseModel
+from core.models import BaseModel, City
 
 
 # User 
@@ -28,8 +28,6 @@ class User(AbstractUser):
     created_at = models.DateTimeField(auto_now_add=True)
 
     updated_at = models.DateTimeField(auto_now=True)
-
-
 
 
 # RiderProfile
@@ -74,7 +72,7 @@ class RiderProfile(BaseModel):
     profile_photo = models.ImageField( upload_to="riders/profile/", blank=True,  null=True)
 
     # Location
-    city = models.CharField(max_length=100)
+    city = models.ForeignKey(City, on_delete=models.PROTECT, related_name='city_riders')
     address = models.TextField(blank=True)
 
     # Saudi Documents
@@ -99,38 +97,33 @@ class RiderProfile(BaseModel):
 
 
 
+# Vendor Profile
+class VendorProfile(BaseModel):
+
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="vendor_profile")
+
+    business_name = models.CharField(max_length=255)
+    logo = models.ImageField(upload_to='vendors/logos/', blank=True, null=True )
+    cover_photo = models.ImageField( upload_to='vendors/covers/',  blank=True, null=True )
+
+    trade_license = models.FileField(  upload_to='vendors/trade-licenses/', blank=True, null=True)
+    vat_number = models.CharField(max_length=100, blank=True)
+
+    city = models.ForeignKey('core.City', on_delete=models.PROTECT, related_name='city_vendors')
+    address = models.CharField( max_length=255, blank=True)
+    description = models.TextField(blank=True)
+
+    owner_name = models.CharField(max_length=255, blank=True)
+    owner_phone = models.CharField(max_length=20, blank=True)
+
+    is_open = models.BooleanField(default=False)
+
+    is_approved = models.BooleanField(default=False)
 
 
+    def __str__(self):
+        return self.business_name
 
 
-
-
-
-
-# class VendorProfile(models.Model):
-
-#     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="vendor_profile")
-
-#     restaurant_name = models.CharField(max_length=255)
-
-#     owner_name = models.CharField(max_length=255)
-
-#     phone = models.CharField(max_length=20)
-
-#     logo = models.ImageField(upload_to="vendors/logos/", blank=True, null=True)
-
-#     cover_image = models.ImageField(upload_to="vendors/covers/", blank=True, null=True)
-
-#     commercial_registration_number = models.CharField(max_length=100, blank=True)
-
-#     vat_number = models.CharField(max_length=100, blank=True)
-
-#     address = models.TextField()
-
-#     city = models.CharField(max_length=100)
-
-#     is_open = models.BooleanField(default=False)
-
-#     is_approved = models.BooleanField(default=False)
 
 
