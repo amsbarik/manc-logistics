@@ -3,7 +3,7 @@ from .import views
 
 urlpatterns = [
 
-    
+    path('riders/', views.riders, name='riders'),
 
     path("riders/pending/", views.pending_riders, name="pending_riders"),
     path("riders/under-review/", views.under_review_riders, name="under_review_riders"),
@@ -16,13 +16,7 @@ urlpatterns = [
     path("rider/create/", views.rider_create_or_update, name="rider_create"),
     path('rider/update/<int:pk>/', views.rider_create_or_update, name='rider_update'),
 
-
-    # path('riders/', views.rider_list, name='rider_list'),
     # path('rider/update/<int:pk>/', views.rider_list, name='rider_update'),
-
-
-
-
     # path("riders/<str:status>/", views.rider_manage, name="rider_manage_status"),
    
     

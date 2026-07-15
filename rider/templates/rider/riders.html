@@ -1,0 +1,74 @@
+{% extends 'layouts/master.html' %}
+{% load static %}
+
+{% block title %} Active Riders {% endblock title %}
+
+{% block content %}
+    <section class="mt-[80px]">
+        <div class="containr">
+            <div class="bg-[url({% static 'img/page-top1.jpg' %})] h-[260px] md:h-[320px] xl:h-[420px]">
+                <div class="container h-full flex items-center sm:pl-8 lg:pl-30 xl:pl-40">
+                    <div class="">
+                        <h2 class="font-semibold text-2xl lg:text-4xl xl:text-5xl text-dark">Have car or not?</h2>
+                        <p class="text-dark-800 text-base lg:text-lg mt-2 lg:mt-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque, atque!</p>
+
+                        <div class="mt-10 lg:mt-12"><a href="{% url 'rider_register' %}" class="bg-primary text-white px-4 lg:px-5 py-2 rounded-sm hover:bg-secondary text-sm lg:text-base">Register Now</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- rider list  -->
+    <section class="rider section-padding">
+        <div class="container">
+            <div class="grid gap-6 xl:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+
+                 = models.CharField(max_length=150)
+    nationality = models.CharField(max_length=100, blank=True)
+    date_of_birth = models.DateField(blank=True, null=True)
+    profile_photo = models.ImageField( upload_to="riders/profile/", blank=True,  null=True)
+
+    # Location
+    city = models.ForeignKey(City, on_delete=models.PROTECT, related_name='city_riders')
+    address = models.TextField(blank=True)
+
+
+                {% for rider in riders %}
+                <div class="rider-card overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-none group transition-all duration-300">
+                    <img src="{{ branch.thumbnail.url }}" alt="" class="w-full h-auto object-cover rounded-bl-xl rounded-br-xl">
+                    <div class="px-5 py-4 lg:px-6 lg:py-5">
+                        <h5 class="font-semibold text-dark text-base xl:text-lg group-hover:text-primary transition-all duration-300">{{ rider.full_name }}</h5>
+                        <p class="mt-1 text-gray-500 text-sm xl:text-base">
+                            {% for category in branch.categories.all %}
+                                {{ category.name }} {% if not forloop.last %} - {% endif %}
+                            {% endfor %}
+                        </p>
+                        <p class="text-dark-800 text-sm -ms-1 mt-1"><i class="fa-solid fa-location-dot text-primary"></i> {{ branch.address }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+
+              
+            
+                <div class="rider-card overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-none group transition-all duration-300">
+                    <img src="{% static 'img/defaults/rider-profile-cover-design.jpg' %}" alt="" class="w-full h-auto object-cover">
+                    <div class="px-5 pb-4 lg:px-6 lg:pb-5">
+                        <div class="mx-auto w-40 h-40 -mt-8 shrink-0 rounded-full overflow-hidden">
+                            <img src="{% static 'img/defaults/rider-male.jpg' %}" class="w-full h-full object-cover" alt="">
+                        </div>
+                        <h5 class="font-semibold text-dark text-center text-base xl:text-lg group-hover:text-primary transition-all duration-300">Saimon Rahman</h5>
+                        <p class="mt-1 text-gray-500  text-center text-sm xl:text-base">Bangladeshi</p>
+                        <div class="flex w-full justify-between px-[64px]">
+                            <p class="text-dark-800 text-sm -ms-1 mt-1"><i class="fa-solid fa-location-dot text-primary"></i> Riyad</p>
+                            <p class="text-dark-800 text-sm -ms-1 mt-1"><i class="fa-solid fa-circle-check text-primary"></i> A</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock content %}

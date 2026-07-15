@@ -13,11 +13,13 @@ from accounts.permissions import is_admin
 
 # Create your views here.
 
-
+def riders(request):
+    riders = RiderProfile.objects.filter(status='active')
+    return render(request, 'rider/riders.html', {'riders': riders})
 
 
 # /////////////////////////////////////////////////////////////////////////////////////////
-
+# admin panel 
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
