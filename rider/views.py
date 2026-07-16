@@ -18,6 +18,9 @@ def riders(request):
     return render(request, 'rider/riders.html', {'riders': riders})
 
 
+
+
+
 # /////////////////////////////////////////////////////////////////////////////////////////
 # admin panel 
 from django.contrib.auth import get_user_model
