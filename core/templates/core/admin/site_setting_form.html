@@ -45,6 +45,12 @@
         <hr>
         <div class="row">
             <div class="col-12 col-md-6">
+                {{ form.email_sale | as_crispy_field }}
+            </div>
+            <div class="col-12 col-md-6">
+                {{ form.email_support | as_crispy_field }}
+            </div>
+            <div class="col-12 col-md-6">
                 {{ form.favicon | as_crispy_field }}
             </div>
             <div class="col-12 col-md-6">
