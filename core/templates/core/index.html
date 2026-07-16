@@ -194,15 +194,15 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 ">
             <div class="order-2 lg:order-1">
                 <h2 class="section-heading">We have helped clients</h2>
-                <h2 class="section-title">We have helped clients optimize all logistics operations.</h2>
-                <p class="section-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sequi nobis perferendis.</p>
+                <h2 class="section-title">{{ join_us.heading }}</h2>
+                <p class="section-txt">{{ join_us.short_description }}</p>
 
                 <!-- join with car -->
                 <div class="group flex justify-between bg-primary-200 px-5 py-3 xl:px-8 xl:py-6 border-l-6 border-primary rounded-xl hover:bg-accent-300 transition-all duration-300 mt-6 lg:mt-10">
                     <div class="pe-6">
                         <a href="{% url 'rider_register' %}">
                             <h2 class="font-semibold text-xl xl:text-2xl capitalize text-dark">Join with car</h2>
-                            <p class="mt-1 lg:mt-3 text-sm/6 lg:text-lg/7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sequi nobis perferendis.</p>
+                            <p class="mt-1 lg:mt-3 text-sm/6 lg:text-lg/7">{{ join_us.with_car_txt }}</p>
                         </a>
                     </div>
                     <div class="flex items-center">
@@ -218,7 +218,7 @@
                     <div class="pe-6">
                         <a href="{% url 'rider_register' %}">
                             <h2 class="font-semibold text-xl xl:text-2xl capitalize text-dark">Join without car</h2>
-                            <p class="mt-1 lg:mt-3 text-sm/6 lg:text-lg/7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sequi nobis perferendis.</p>
+                            <p class="mt-1 lg:mt-3 text-sm/6 lg:text-lg/7">{{ join_us.without_car_txt }}</p>
                         </a>
                     </div>
                     <div class="flex items-center">
@@ -230,7 +230,9 @@
             </div>
 
             <div class="overflow-hidden order-1 lg:order-2">
-                <img src="{% static 'img/rider-banner.jpg' %}" class="w-full h-[260px] lg:h-full object-cover [clip-path:polygon(60px_0,100%_0,100%_100%,0_100%,0_80px)] lg:[clip-path:polygon(120px_0,100%_0,100%_100%,0_100%,0_120px)]" alt="">
+                {% if join_us.thumbnail %}
+                <img src="{{ join_us.thumbnail.url }}" class="w-full h-[260px] lg:h-full object-cover [clip-path:polygon(60px_0,100%_0,100%_100%,0_100%,0_80px)] lg:[clip-path:polygon(120px_0,100%_0,100%_100%,0_100%,0_120px)]" alt="">
+                {% endif %}
             </div>
         </div>
     </div>

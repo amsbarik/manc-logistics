@@ -8,6 +8,37 @@ from crispy_forms.layout import Submit
 
 from accounts.models import RiderProfile
 
+from .models import RiderRecruitment
+
+
+
+# RiderRecruitment Form
+class RiderRecruitmentForm(forms.ModelForm):
+
+    class Meta:
+        model = RiderRecruitment
+        fields = ['is_active', 'thumbnail', 
+
+            # english 
+            'heading_en',
+            'short_description_en',
+            'with_car_txt_en',
+            'without_car_txt_en',
+
+            # arabic 
+            'heading_ar',
+            'short_description_ar',
+            'with_car_txt_ar',
+            'without_car_txt_ar',
+        ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Save'))
+
 
 
 

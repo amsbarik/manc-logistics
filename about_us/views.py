@@ -8,6 +8,7 @@ from datetime import timedelta
 from accounts.permissions import is_admin
 
 from core.models import LeadershipMessage
+from rider.models import RiderRecruitment
 
 from .models import About, WorkingProcess, ExpertTeam
 from .forms import AboutForm, WorkingProcessForm, ExpertTeamForm
@@ -22,12 +23,14 @@ def about_us(request):
     leadership_message = LeadershipMessage.objects.first()
     working_process = WorkingProcess.objects.filter(is_active=True).order_by('id')[:3]
     expert_teams = ExpertTeam.objects.filter(is_active=True).order_by('order')[:5]
+    join_us = RiderRecruitment.objects.first()
 
     context = {
         'about_us': about_us,
         'leadership_message': leadership_message,
         'working_process': working_process,
         'expert_teams': expert_teams,
+        'join_us': join_us,
     }
     return render(request, 'about_us/about_us.html', context)
 

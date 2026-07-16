@@ -10,6 +10,9 @@ from .forms import RiderForm, RiderStatusForm
 from accounts.permissions import is_admin
 
 
+from .forms import RiderRecruitmentForm
+from .models import RiderRecruitment
+
 
 # Create your views here.
 
@@ -23,6 +26,49 @@ def riders(request):
 
 # /////////////////////////////////////////////////////////////////////////////////////////
 # admin panel 
+
+
+@login_required
+@user_passes_test(is_admin)
+def rider_recruitment_manage(request):
+
+    rider_recruitment = RiderRecruitment.objects.first()
+
+    if request.method == "POST":
+
+        form = RiderRecruitmentForm(
+            request.POST,
+            request.FILES,
+            instance=rider_recruitment
+        )
+
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, "Rider recruitment section saved successfully.")
+
+            return redirect("rider_recruitment_manage")
+
+    else:
+
+        form = RiderRecruitmentForm(instance=rider_recruitment)
+
+    context = {
+        "form": form,
+        "rider_recruitment": rider_recruitment,
+    }
+
+    return render(
+        request,
+        "rider/admin/rider_recruitment_form.html",
+        context
+    )
+
+
+
+
+
+
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -96,61 +142,6 @@ def rider_create_or_update(request, pk=0):
             "form": form,
         }
     )
-
-
-
-# @login_required
-# @user_passes_test(is_admin)
-# def rider_create_or_update(request, pk=0):
-
-#     if pk == 0:
-#         rider = None
-#     else:
-#         rider = get_object_or_404(RiderProfile, id=pk)
-
-#     if request.method == "POST":
-
-#         form = RiderForm(request.POST,  request.FILES, instance=rider)
-
-#         if form.is_valid():
-#             form.save()
-
-#             messages.success(request, "Rider created successfully.")
-
-#             return redirect(request.POST.get("next") )
-
-#     else:
-
-#         form = RiderForm(instance=rider)
-
-
-#     return render(request,"rider/admin/rider_form.html",{"form": form})
-
-
-# @login_required
-# @user_passes_test(is_admin)
-# def rider_create_or_update(request, pk=0):
-    
-#     if request.method == 'GET':
-#         if pk == 0:
-#             form = RiderForm()
-#         else:
-#             rider = RiderProfile.objects.get(id=pk)
-#             form = RiderForm(instance=rider)
-            
-#         return render(request, 'rider/admin/rider_form.html', {'form': form})
-    
-#     else:
-#         if pk == 0:
-#             form = RiderForm(request.POST, request.FILES)
-#         else:
-#             rider = RiderProfile.objects.get(id=pk)
-#             form = RiderForm(request.POST, request.FILES, instance=rider)
-
-#         if form.is_valid():
-#             form.save()
-            
-#         return redirect('hero_slider_list')
 
 
 
